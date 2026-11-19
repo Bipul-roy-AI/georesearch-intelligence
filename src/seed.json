@@ -1,0 +1,186 @@
+[
+  {
+    "title": "Geospatial analysis of urban heat Islands and heat vulnerability in Chattogram, Bangladesh: implications for public health risks",
+    "doi": "10.1007/s11869-026-01920-x",
+    "journal": "Air Quality, Atmosphere & Health",
+    "year": 2026,
+    "authors": "Mst Sanjida Alam",
+    "openUrl": "https://link.springer.com/article/10.1007/s11869-026-01920-x",
+    "evidence": "https://link.springer.com/article/10.1007/s11869-026-01920-x",
+    "topic": "Geospatial public health",
+    "accessSource": "Springer Nature · open access",
+    "source": "Curated references",
+    "issns": [
+      "1873-9326",
+      "1873-9318"
+    ]
+  },
+  {
+    "title": "Harnessing Geospatial Artificial Intelligence (GeoAI) for Environmental Epidemiology: A Narrative Review",
+    "doi": "10.1007/s40572-025-00497-4",
+    "journal": "Current Environmental Health Reports",
+    "year": 2025,
+    "authors": "Hari S. Iyer et al.",
+    "openUrl": "https://link.springer.com/article/10.1007/s40572-025-00497-4",
+    "evidence": "https://link.springer.com/article/10.1007/s40572-025-00497-4",
+    "topic": "GeoAI & public health",
+    "accessSource": "Springer Nature · open access",
+    "source": "Curated references",
+    "issns": [
+      "2196-5412"
+    ]
+  },
+  {
+    "title": "Remote sensing and GIS-driven landslide susceptibility mapping using machine learning for sustainable land management: a study from the Chittagong Hill Tracts of Bangladesh",
+    "doi": "10.1007/s43621-025-02084-x",
+    "journal": "Discover Sustainability",
+    "year": 2025,
+    "authors": "Mohammad Ismail Hossain et al.",
+    "openUrl": "https://link.springer.com/article/10.1007/s43621-025-02084-x",
+    "evidence": "https://link.springer.com/article/10.1007/s43621-025-02084-x",
+    "topic": "Machine learning & GIS",
+    "accessSource": "Springer Nature · open access",
+    "source": "Curated references",
+    "issns": [
+      "2662-9984"
+    ]
+  },
+  {
+    "title": "Global seasonal urban, industrial, and background NO₂ estimated from TROPOMI satellite observations",
+    "doi": "10.5194/acp-25-575-2025",
+    "journal": "Atmospheric Chemistry and Physics",
+    "year": 2025,
+    "authors": "Vitali Fioletov et al.",
+    "openUrl": "https://acp.copernicus.org/articles/25/575/2025/",
+    "evidence": "https://acp.copernicus.org/articles/25/575/2025/",
+    "topic": "Atmospheric remote sensing",
+    "accessSource": "Copernicus Publications · open access",
+    "source": "Curated references",
+    "issns": [
+      "1680-7324",
+      "1680-7316"
+    ]
+  },
+  {
+    "title": "Urban Monitoring from the Cloud: A Review of Google Earth Engine (GEE)-Based Approaches for Assessing Urban Environmental Indices",
+    "doi": "10.3390/geographies5040068",
+    "journal": "Geographies",
+    "year": 2025,
+    "authors": "Aikaterini Stamou and Efstratios Stylianidis",
+    "openUrl": "https://www.mdpi.com/2673-7086/5/4/68",
+    "evidence": "https://www.mdpi.com/2673-7086/5/4/68",
+    "topic": "Urban geography",
+    "accessSource": "MDPI · open access",
+    "source": "Curated references",
+    "issns": [
+      "2673-7086"
+    ]
+  },
+  {
+    "title": "A Review of Google Earth Engine for Land Use and Land Cover Change Analysis: Trends, Applications, and Challenges",
+    "doi": "10.3390/ijgi14110416",
+    "journal": "ISPRS International Journal of Geo-Information",
+    "year": 2025,
+    "authors": "Bader Alshehri, Zhenyu Zhang and Xiaoye Liu",
+    "openUrl": "https://www.mdpi.com/2220-9964/14/11/416",
+    "evidence": "https://www.mdpi.com/2220-9964/14/11/416",
+    "topic": "Geospatial analysis",
+    "accessSource": "MDPI · open access",
+    "source": "Curated references",
+    "issns": [
+      "2220-9964"
+    ]
+  },
+  {
+    "title": "Global Carbon Budget 2023",
+    "doi": "10.5194/essd-15-5301-2023",
+    "journal": "Earth System Science Data",
+    "year": 2023,
+    "authors": "Pierre Friedlingstein et al.",
+    "openUrl": "https://essd.copernicus.org/articles/15/5301/2023/index.html",
+    "evidence": "https://essd.copernicus.org/articles/15/5301/2023/index.html",
+    "topic": "Atmosphere & climate",
+    "accessSource": "Copernicus Publications · open access",
+    "source": "Curated references",
+    "issns": [
+      "1866-3516",
+      "1866-3508"
+    ]
+  },
+  {
+    "title": "Dynamic World, Near real-time global 10 m land use land cover mapping",
+    "doi": "10.1038/s41597-022-01307-4",
+    "journal": "Scientific Data",
+    "year": 2022,
+    "authors": "Christopher F. Brown et al.",
+    "openUrl": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9184477/",
+    "evidence": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9184477/",
+    "topic": "Remote sensing & machine learning",
+    "accessSource": "PubMed Central · free full text",
+    "source": "Curated references",
+    "issns": [
+      "2052-4463"
+    ]
+  },
+  {
+    "title": "Satellite imaging reveals increased proportion of population exposed to floods",
+    "doi": "10.1038/s41586-021-03695-w",
+    "journal": "Nature",
+    "year": 2021,
+    "authors": "B. Tellman et al.",
+    "openUrl": "",
+    "evidence": "https://pubmed.ncbi.nlm.nih.gov/34349288/",
+    "topic": "Flood exposure & remote sensing",
+    "accessSource": "Open copy unverified",
+    "source": "Curated references",
+    "issns": [
+      "0028-0836",
+      "1476-4687"
+    ]
+  },
+  {
+    "title": "Global land use changes are four times greater than previously estimated",
+    "doi": "10.1038/s41467-021-22702-2",
+    "journal": "Nature Communications",
+    "year": 2021,
+    "authors": "Karina Winkler, Richard Fuchs, Mark Rounsevell and Martin Herold",
+    "openUrl": "https://www.nature.com/articles/s41467-021-22702-2",
+    "evidence": "https://www.nature.com/articles/s41467-021-22702-2",
+    "topic": "Human–environment interaction",
+    "accessSource": "Springer Nature · open access",
+    "source": "Curated references",
+    "issns": [
+      "2041-1723"
+    ]
+  },
+  {
+    "title": "geemap: A Python package for interactive mapping with Google Earth Engine",
+    "doi": "10.21105/joss.02305",
+    "journal": "Journal of Open Source Software",
+    "year": 2020,
+    "authors": "Qiusheng Wu",
+    "openUrl": "https://joss.theoj.org/papers/10.21105/joss.02305",
+    "evidence": "https://joss.theoj.org/papers/10.21105/joss.02305",
+    "topic": "GIS & geospatial analysis",
+    "accessSource": "Open Journals · open access",
+    "source": "Curated references",
+    "issns": [
+      "2475-9066"
+    ]
+  },
+  {
+    "title": "Disaggregating Census Data for Population Mapping Using Random Forests with Remotely-Sensed and Ancillary Data",
+    "doi": "10.1371/journal.pone.0107042",
+    "journal": "PLOS ONE",
+    "year": 2015,
+    "authors": "Forrest R. Stevens, Andrea E. Gaughan, Catherine Linard and Andrew J. Tatem",
+    "openUrl": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0107042",
+    "evidence": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0107042",
+    "topic": "Population geography & machine learning",
+    "accessSource": "PLOS · open access",
+    "source": "Curated references",
+    "issns": [
+      "1932-6203"
+    ]
+  }
+]

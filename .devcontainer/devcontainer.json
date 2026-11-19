@@ -1,0 +1,12 @@
+{
+  "name": "Field Atlas",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22-bookworm",
+  "forwardPorts": [18776],
+  "portsAttributes": {
+    "18776": {
+      "label": "Field Atlas",
+      "protocol": "http",
+      "onAutoForward": "notify"
+    }
+  }
+}
