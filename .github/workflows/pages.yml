@@ -3,6 +3,9 @@ name: Publish Field Atlas
 on:
   push:
     paths:
+      - src/**
+      - scripts/build.cjs
+      - scripts/check.cjs
       - index.html
       - .github/workflows/pages.yml
   workflow_dispatch:
@@ -14,35 +17,34 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  prepare:
+  publish:
     if: github.ref_name == github.event.repository.default_branch
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      pages: read
+      contents: write
+      pages: write
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
         with:
-          persist-credentials: false
-      - uses: actions/configure-pages@v5
-      - name: Stage the standalone dashboard
+          node-version: 22
+      - name: Build and test the dashboard
         run: |
-          mkdir -p _site
-          cp index.html _site/index.html
-      - uses: actions/upload-pages-artifact@v4
-        with:
-          path: _site
-
-  deploy:
-    needs: prepare
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Publish
-        id: deployment
-        uses: actions/deploy-pages@v4
+          node scripts/build.cjs
+          node scripts/check.cjs
+      - name: Update the website branch
+        run: |
+          git fetch --no-tags origin refs/heads/gh-pages:refs/remotes/origin/gh-pages
+          site="$RUNNER_TEMP/field-atlas-public"
+          git worktree add --detach "$site" origin/gh-pages
+          cp index.html "$site/index.html"
+          touch "$site/.nojekyll"
+          git -C "$site" add -- index.html .nojekyll
+          if ! git -C "$site" diff --cached --quiet; then
+            git -C "$site" -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Publish Field Atlas dashboard'
+            git -C "$site" push origin HEAD:refs/heads/gh-pages
+          fi
+      - name: Request a Pages build
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --silent
