@@ -6,6 +6,8 @@ Search published journal literature on GIS, remote sensing, geospatial analysis,
 
 ## Start on Windows
 
+**Explore a subject** searches all enabled indexes for a selected group or topic. **Paper subjects** filters the current papers by any or all of your selected subjects. Six groups contain 42 distinct topics. Spatial epidemiology appears in both GIS and public health. Subject suggestions use titles and available keywords. Choose **Edit subjects** on a paper to save, add or remove labels. Manual choices survive a reload in the same browser and a Field Atlas RIS export and import. The journal ranking category filter is independent of the paper subjects.
+
 1. Right-click the ZIP and choose **Extract All**. Open the extracted folder.
 2. Double-click **Start_Field_Atlas.cmd**. With Node.js 22 or newer installed, it opens the dashboard at **http://127.0.0.1:18776/field-atlas**. Leave its terminal open during searches. Press **Ctrl+C** to stop.
 3. If Node.js is unavailable, the launcher opens **index.html** in your default browser. You can also open this file directly in Edge, Chrome or Firefox. The starter papers, filters, citation imports and saved list work offline. New searches and article links need the internet.

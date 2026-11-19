@@ -35,7 +35,7 @@ const baseAdapters = (() => {
     return {
       title: plain(fields.title), doi, journal: plain(fields.journal), year: /^\d{4}$/.test(String(fields.year)) ? Number(fields.year) : null,
       authors: plain(fields.authors) || authorList.join("; "), authorList, openUrl, accessSource: openUrl ? text(fields.accessSource) : "",
-      issns: [...new Set(asArray(fields.issns).map(issn).filter(Boolean))], source,
+      issns: [...new Set(asArray(fields.issns).map(issn).filter(Boolean))], keywords:asArray(fields.keywords).map(plain).filter(Boolean), source,
       publisherUrl: url(fields.publisherUrl) || doiUrl(doi), recordUrl: url(fields.recordUrl)
     };
   }
@@ -105,7 +105,7 @@ const baseAdapters = (() => {
       filter: "type:" + journalTypes.join("|") + ",primary_location.source.type:journal"
         + (serial ? ",primary_location.source.issn:" + serial : "") + (exact ? ",doi:" + (exact.includes(",") ? quoteTerm(exact) : exact) : ""),
       page, per_page: size,
-      select: "id,doi,title,type,publication_year,authorships,primary_location,best_oa_location,locations"
+      select: "id,doi,title,type,publication_year,authorships,primary_location,best_oa_location,locations,keywords"
     }, signal);
     const rows = result.results;
     const items = rows.filter(row => journalTypes.includes(row.type) && row.primary_location?.source?.type === "journal").map(row => {
@@ -117,7 +117,7 @@ const baseAdapters = (() => {
       const version = candidate?.loc.version;
       const evidence = version === "acceptedVersion" ? "accepted manuscript" : version === "publishedVersion" ? "published version" : "publisher copy";
       return record("OpenAlex", {title: row.title, doi: row.doi, journal: primary.source.display_name,
-        year: row.publication_year, authors: joinNames(asArray(row.authorships).map(a => a.author?.display_name)),
+        keywords:asArray(row.keywords).map(k=>k.display_name), year: row.publication_year, authors: joinNames(asArray(row.authorships).map(a => a.author?.display_name)),
         authorList: asArray(row.authorships).map(a => a.author?.display_name),
         issns: [primary.source.issn_l, ...asArray(primary.source.issn)], openUrl: candidate?.href,
         accessSource: "OpenAlex · " + evidence, publisherUrl: primary.landing_page_url, recordUrl: row.id});
@@ -149,7 +149,7 @@ const baseAdapters = (() => {
       const article = free.find(link => /^html$/i.test(link.documentStyle)) || free[0];
       const publisher = links.find(link => /^publisher$/i.test(text(link.site)) && /^html$/i.test(text(link.documentStyle)));
       return record("Europe PMC", {title: row.title, doi: row.doi, journal: journal.title || row.journalTitle, year: row.pubYear || text(row.firstPublicationDate).slice(0,4),
-        authors: row.authorString, issns: [journal.issn, journal.essn], openUrl: article?.url,
+        keywords:asArray(row.keywordList?.keyword),authors: row.authorString, issns: [journal.issn, journal.essn], openUrl: article?.url,
         authorList: asArray(row.authorList?.author).map(a => a.collectiveName || [a.lastName, a.firstName || a.initials].filter(Boolean).join(", ") || a.fullName),
         accessSource: article?.availabilityCode === "OA" ? "Europe PMC · open access" : "Europe PMC · free to read",
         publisherUrl: publisher?.url, recordUrl: row.id && row.source ? "https://europepmc.org/article/" + encodeURIComponent(row.source) + "/" + encodeURIComponent(row.id) : ""});
@@ -172,7 +172,7 @@ const baseAdapters = (() => {
       const full = links.find(link => /^html$/i.test(text(link.content_type))) || links[0];
       const doi = identifiers.find(entry => entry.type === "doi")?.id;
       return record("DOAJ", {title: data.title, doi, journal: data.journal.title, year: data.year,
-        authors: joinNames(asArray(data.author).map(a => a.name)),
+        keywords:asArray(data.keywords),authors: joinNames(asArray(data.author).map(a => a.name)),
         authorList: asArray(data.author).map(a => a.name),
         issns: [...asArray(data.journal.issns), ...identifiers.filter(entry => /^(?:e|p)?issn$/i.test(entry.type)).map(entry => entry.id)],
         openUrl: full?.url, accessSource: "DOAJ · article full text", publisherUrl: doiUrl(normalizeDoi(doi)),

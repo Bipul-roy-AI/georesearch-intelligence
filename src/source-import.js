@@ -41,6 +41,7 @@ const SourceImport = (() => {
     const names = uniq(list(raw.authorList).map(str)), label=str(source), id=doiValue(raw.doi);
     return {
       title:str(raw.title), journal:str(raw.journal), year:year(raw.year), doi:id, issns:Atlas.issns(raw.issns),
+      keywords:uniq(list(raw.keywords).map(str)),assignedSubjects:raw.assignedSubjects,
       authors:names.join('; '), authorList:names, sources:uniq([label,...list(raw.catalogues).map(str),'Imported '+format]),
       source:label || 'Imported '+format, publisherKnown:false, publisherUrl:'', openUrl:'', accessSource:'',
       recordUrl:safe(raw.recordUrl) || Atlas.doiLink(id)
@@ -61,12 +62,12 @@ const SourceImport = (() => {
       if(r?.type==='article-journal')return citation({
         title:first(r.title),journal:first(r['container-title']) || first(r['container-title-short']),
         year:r.issued?.['date-parts']?.[0]?.[0] || r.issued?.literal || r.issued?.raw,
-        authorList:list(r.author).map(namedPerson),doi:r.DOI,issns:r.ISSN,recordUrl:r.URL
+        keywords:list(r.keyword).flatMap(v=>str(v).split(/[;,]/)),authorList:list(r.author).map(namedPerson),doi:r.DOI,issns:r.ISSN,recordUrl:r.URL
       },'CSL JSON',source);
       if(r?.itemType==='journalArticle')return citation({
         title:r.title,journal:r.publicationTitle || r.journalAbbreviation,year:r.date,
         authorList:list(r.creators).filter(c=>c?.creatorType==='author').map(namedPerson),
-        doi:r.DOI,issns:r.ISSN,recordUrl:r.url,catalogues:r.libraryCatalog
+        keywords:list(r.tags).map(v=>typeof v==='string'?v:v?.tag),doi:r.DOI,issns:r.ISSN,recordUrl:r.url,catalogues:r.libraryCatalog
       },'Zotero JSON',source);
       return null;
     });
@@ -88,7 +89,7 @@ const SourceImport = (() => {
       const doi=ids.filter(v=>/\[doi\]$/i.test(v)).map(v=>doiValue(v.replace(/\s*\[doi\]$/i,''))).find(Boolean);
       const pmid=first(r.PMID);
       return citation({title:first(r.TI),journal,year:first(r.DP)||first(r.DEP),
-        authorList:[...(r.FAU||r.AU||[]),...(r.CN||[])],doi,issns:r.IS,
+        keywords:[...(r.OT||[]),...(r.MH||[])],authorList:[...(r.FAU||r.AU||[]),...(r.CN||[])],doi,issns:r.IS,
         recordUrl:/^\d+$/.test(pmid)?'https://pubmed.ncbi.nlm.nih.gov/'+pmid+'/':''
       },'PubMed NBIB',source);
     });
@@ -120,7 +121,7 @@ const SourceImport = (() => {
       if(!outlet||(!typed&&!(types.some(t=>/^article$/i.test(t))&&(issns.length||/\bvol(?:ume)?\.?\s*\d|\bissue\s*\d/i.test(outlet))))) return null;
       const doi=identifiers.map(doiValue).find(Boolean);
       return citation({title:word(dc,'title'),journal:outlet.split(/\s*;\s*|\s+\bvol(?:ume)?\.?\s+(?=\d)/i)[0],year:word(dc,'issued')||word(dc,'date'),
-        authorList:words(dc,'creator'),issns,doi,recordUrl:identifiers.map(safe).find(Boolean)},'OAI-PMH',source);
+        keywords:words(dc,'subject'),authorList:words(dc,'creator'),issns,doi,recordUrl:identifiers.map(safe).find(Boolean)},'OAI-PMH',source);
     });
     if(word(container,'resumptionToken'))result.hasMore=true;
     return result;
@@ -147,7 +148,7 @@ const SourceImport = (() => {
       // omit entry genre. An untyped DOI-less headline remains excluded.
       if(!journal||(!type&&!(doi&&(serial||issns.length||word(entry,'publicationName')))))return null;
       const authors=uniq([...words(entry,'creator'),...children(entry,'author').map(a=>word(a,'name')||str(a.textContent))]);
-      return citation({title:word(entry,'title'),journal,issns,doi,recordUrl:link,authorList:authors,
+      return citation({title:word(entry,'title'),journal,issns,doi,keywords:[...words(entry,'subject'),...types],recordUrl:link,authorList:authors,
         year:word(entry,'publicationDate')||word(entry,'pubDate')||word(entry,'published')||word(entry,'date')
       },'publisher feed',source);
     });

@@ -3,6 +3,8 @@
 @media(max-width:820px){.workspace{grid-template-columns:190px minmax(0,1fr);gap:14px}.workspace aside{padding:13px}.sourceGrid{grid-template-columns:1fr 1fr}.topicrow{gap:6px}.cardTop{gap:5px}.card h3{font-size:1.05rem}}
 @media(max-width:620px){.bar{min-height:57px;gap:4px}.brand{font-size:1.22rem;gap:6px}.mark{width:26px;height:26px}.mast nav{gap:0}.mast nav button{padding:6px 7px;font-size:.86rem}.banner{margin-top:16px;padding:20px 14px}.banner form{display:grid;grid-template-columns:16px minmax(0,1fr);gap:4px 9px;padding:7px 11px}.banner .primary{grid-column:1/-1}.banner input{font-size:16px}.workspace,.settingsGrid,.sourceGrid{grid-template-columns:1fr}.workspace aside{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:5px 10px}.workspace aside .between,.workspace aside .manage,.workspace aside .yeargrid{grid-column:1/-1}.workspace aside>label{align-self:center;margin:0}.workspace aside .manage{margin:4px 0 0;text-align:left}.paperhead h2{font-size:1.8rem}.directoryHeading{flex-wrap:wrap}.cardTop>div{flex:1}.heroText p{font-size:.95rem}.topicrow{padding-bottom:15px}.yeargrid label{margin-top:1px!important}.paperhead>.outline{white-space:nowrap}.sourceCard p{margin:5px 0}.sourceGrid{gap:6px}}
 .extraTools{margin-top:12px}.panel code{overflow-wrap:anywhere}
+.topicBrowse{align-items:center}.topicBrowse label{font-weight:650}.topicBrowse select{max-width:100%;padding:7px 9px;background:white;border:1px solid #bfcec7;border-radius:6px;font-size:.92rem}.topicBrowse .pill{padding:7px 14px}.pill:disabled{opacity:.55;cursor:default}.subjectFilter{min-width:0;grid-column:1/-1}#subjectChips{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}.subjectChip,.subjectTag{background:#e8f2ed;color:#265749}.subjectChip{border:1px solid #c7dad0;padding:3px 7px;border-radius:5px;text-align:left;font-size:.83rem}
+#subjectDialog{border:1px solid var(--line);border-radius:12px;width:min(720px,94vw);max-height:86vh;padding:clamp(15px,3vw,28px);color:var(--ink)}#subjectDialog::backdrop{background:#142f2f80}#subjectDialog h2{margin:0}#subjectDialog p{margin:7px 0 13px}#editTitle{font-weight:600}#editGroups{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}#editGroups fieldset{border:1px solid var(--line);border-radius:7px;min-width:0}#editGroups legend{font-weight:650}#editGroups label{display:flex;align-items:baseline;gap:7px;font-size:.89rem;margin:4px 0}#editGroups input{accent-color:var(--teal)}.editActions{position:sticky;bottom:0;background:white;display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:10px;padding:10px 0}.editActions .textBtn{margin-right:auto}@media(max-width:560px){#editGroups{grid-template-columns:1fr}.topicBrowse select{width:100%}.subjectFilter select{max-width:100%}}
 .controlSub{font-size:.93rem;margin:12px 0 4px}.sourceActions{display:flex;gap:5px 12px;align-items:baseline;flex-wrap:wrap}.sourceActions button{font-size:.87rem}.panel select,.wideQuery,.panel textarea{font:inherit;padding:8px;border:1px solid #bfcec7;border-radius:5px;width:100%;background:white}.wideQuery{max-width:720px;display:block;margin:5px 0 14px}.dirLabel{font-weight:600}.panel textarea{resize:vertical;display:block;margin-bottom:10px}#importStatus{overflow-wrap:anywhere}#extendSearch{margin:0 0 12px}#providerToggles label:has(input:disabled){color:#586760}.panel .filebtn{margin-top:8px}
 </style></head>
 <body>
@@ -11,10 +13,12 @@
 <section id="discovery" aria-labelledby="mainTitle">
 <div class="banner"><canvas id="terrain" aria-hidden="true"></canvas><div class="heroText"><div class="kicker"><span></span> RESEARCH EXPLORER</div><h1 id="mainTitle">Geospatial literature</h1><p>Search journal articles across Earth science, geography, public health and GeoAI.</p></div>
 <form id="searchForm" role="search"><span class="glass" aria-hidden="true"></span><input id="query" type="search" required maxlength="320" aria-label="Search papers by topic, journal ISSN or DOI" placeholder="Search a topic, journal ISSN or DOI" autocomplete="off"><button class="primary" type="submit">Search indexes</button></form></div>
-<div class="topicrow"><span class="smalllabel">Explore a topic</span><div id="topics"></div></div>
+<div class="topicrow topicBrowse"><label for="browseSubject">Explore a subject</label><select id="browseSubject"></select><button class="pill" id="findSubject" type="button">Search this subject</button></div>
 </section>
 <section id="resultView"><div class="workspace">
 <aside aria-label="Search filters"><div class="between"><h2>Filters</h2><button class="textBtn" id="reset">Reset</button></div>
+<div class="subjectFilter"><label for="subjectFilter">Paper subjects</label><select id="subjectFilter"></select><div id="subjectChips" aria-label="Selected subject filters"></div>
+<div id="subjectModeBox" hidden><label for="subjectMode">Match selected subjects</label><select id="subjectMode"><option value="any">Any selected subject</option><option value="all">All selected subjects</option></select></div></div>
 <label for="access">Paper access</label><select id="access"><option value="">Any access</option><option value="open">Free full text located</option><option value="unknown">No free link located</option></select>
 <label for="quartile">Journal quartile</label><select id="quartile"><option value="">All quartiles</option><option>Q1</option><option>Q2</option><option>Q3</option><option>Q4</option><option value="unknown">Unknown</option></select>
 <label for="rankYear">Ranking year</label><select id="rankYear"></select>
@@ -38,6 +42,8 @@
 <div class="directoryHeading" id="directoryHead"><div><div class="kicker dark">DISCOVERY ROUTES</div><h2>Search other sources</h2></div><label>Show <select id="dirFilter"><option value="">All groups</option></select></label></div><label class="dirLabel" for="sourceQuery">Query for source portals and research apps</label><input id="sourceQuery" class="wideQuery" type="search" maxlength="320" placeholder="e.g. urban heat and public health in Bangladesh"><p id="sourceInfo" role="status"></p><div id="directory"></div>
 </section>
 </main>
+<dialog id="subjectDialog" aria-labelledby="editHeading"><form method="dialog"><h2 id="editHeading">Edit paper subjects</h2><p id="editTitle"></p><p>Choose every subject that applies. Saving adds this paper to your reading list in this browser.</p>
+<div id="editGroups"></div><div class="editActions"><button type="button" class="textBtn" id="autoSubjects">Use automatic labels</button><button value="cancel" class="outline">Cancel</button><button type="button" class="primary" id="applySubjects">Save subjects</button></div></form></dialog>
 <footer><div class="frame"><b>Field Atlas</b><span>Geospatial literature explorer</span></div></footer>
 <script id="atlas-runtime" type="application/json">{}</script><script>const starterPapers = [{"title":"Geospatial analysis of urban heat Islands and heat vulnerability in Chattogram, Bangladesh: implications for public health risks","doi":"10.1007/s11869-026-01920-x","journal":"Air Quality, Atmosphere & Health","year":2026,"authors":"Mst Sanjida Alam","openUrl":"https://link.springer.com/article/10.1007/s11869-026-01920-x","evidence":"https://link.springer.com/article/10.1007/s11869-026-01920-x","topic":"Geospatial public health","accessSource":"Springer Nature · open access","source":"Curated references","issns":["1873-9326","1873-9318"]},{"title":"Harnessing Geospatial Artificial Intelligence (GeoAI) for Environmental Epidemiology: A Narrative Review","doi":"10.1007/s40572-025-00497-4","journal":"Current Environmental Health Reports","year":2025,"authors":"Hari S. Iyer et al.","openUrl":"https://link.springer.com/article/10.1007/s40572-025-00497-4","evidence":"https://link.springer.com/article/10.1007/s40572-025-00497-4","topic":"GeoAI & public health","accessSource":"Springer Nature · open access","source":"Curated references","issns":["2196-5412"]},{"title":"Remote sensing and GIS-driven landslide susceptibility mapping using machine learning for sustainable land management: a study from the Chittagong Hill Tracts of Bangladesh","doi":"10.1007/s43621-025-02084-x","journal":"Discover Sustainability","year":2025,"authors":"Mohammad Ismail Hossain et al.","openUrl":"https://link.springer.com/article/10.1007/s43621-025-02084-x","evidence":"https://link.springer.com/article/10.1007/s43621-025-02084-x","topic":"Machine learning & GIS","accessSource":"Springer Nature · open access","source":"Curated references","issns":["2662-9984"]},{"title":"Global seasonal urban, industrial, and background NO₂ estimated from TROPOMI satellite observations","doi":"10.5194/acp-25-575-2025","journal":"Atmospheric Chemistry and Physics","year":2025,"authors":"Vitali Fioletov et al.","openUrl":"https://acp.copernicus.org/articles/25/575/2025/","evidence":"https://acp.copernicus.org/articles/25/575/2025/","topic":"Atmospheric remote sensing","accessSource":"Copernicus Publications · open access","source":"Curated references","issns":["1680-7324","1680-7316"]},{"title":"Urban Monitoring from the Cloud: A Review of Google Earth Engine (GEE)-Based Approaches for Assessing Urban Environmental Indices","doi":"10.3390/geographies5040068","journal":"Geographies","year":2025,"authors":"Aikaterini Stamou and Efstratios Stylianidis","openUrl":"https://www.mdpi.com/2673-7086/5/4/68","evidence":"https://www.mdpi.com/2673-7086/5/4/68","topic":"Urban geography","accessSource":"MDPI · open access","source":"Curated references","issns":["2673-7086"]},{"title":"A Review of Google Earth Engine for Land Use and Land Cover Change Analysis: Trends, Applications, and Challenges","doi":"10.3390/ijgi14110416","journal":"ISPRS International Journal of Geo-Information","year":2025,"authors":"Bader Alshehri, Zhenyu Zhang and Xiaoye Liu","openUrl":"https://www.mdpi.com/2220-9964/14/11/416","evidence":"https://www.mdpi.com/2220-9964/14/11/416","topic":"Geospatial analysis","accessSource":"MDPI · open access","source":"Curated references","issns":["2220-9964"]},{"title":"Global Carbon Budget 2023","doi":"10.5194/essd-15-5301-2023","journal":"Earth System Science Data","year":2023,"authors":"Pierre Friedlingstein et al.","openUrl":"https://essd.copernicus.org/articles/15/5301/2023/index.html","evidence":"https://essd.copernicus.org/articles/15/5301/2023/index.html","topic":"Atmosphere & climate","accessSource":"Copernicus Publications · open access","source":"Curated references","issns":["1866-3516","1866-3508"]},{"title":"Dynamic World, Near real-time global 10 m land use land cover mapping","doi":"10.1038/s41597-022-01307-4","journal":"Scientific Data","year":2022,"authors":"Christopher F. Brown et al.","openUrl":"https://pmc.ncbi.nlm.nih.gov/articles/PMC9184477/","evidence":"https://pmc.ncbi.nlm.nih.gov/articles/PMC9184477/","topic":"Remote sensing & machine learning","accessSource":"PubMed Central · free full text","source":"Curated references","issns":["2052-4463"]},{"title":"Satellite imaging reveals increased proportion of population exposed to floods","doi":"10.1038/s41586-021-03695-w","journal":"Nature","year":2021,"authors":"B. Tellman et al.","openUrl":"","evidence":"https://pubmed.ncbi.nlm.nih.gov/34349288/","topic":"Flood exposure & remote sensing","accessSource":"Open copy unverified","source":"Curated references","issns":["0028-0836","1476-4687"]},{"title":"Global land use changes are four times greater than previously estimated","doi":"10.1038/s41467-021-22702-2","journal":"Nature Communications","year":2021,"authors":"Karina Winkler, Richard Fuchs, Mark Rounsevell and Martin Herold","openUrl":"https://www.nature.com/articles/s41467-021-22702-2","evidence":"https://www.nature.com/articles/s41467-021-22702-2","topic":"Human–environment interaction","accessSource":"Springer Nature · open access","source":"Curated references","issns":["2041-1723"]},{"title":"geemap: A Python package for interactive mapping with Google Earth Engine","doi":"10.21105/joss.02305","journal":"Journal of Open Source Software","year":2020,"authors":"Qiusheng Wu","openUrl":"https://joss.theoj.org/papers/10.21105/joss.02305","evidence":"https://joss.theoj.org/papers/10.21105/joss.02305","topic":"GIS & geospatial analysis","accessSource":"Open Journals · open access","source":"Curated references","issns":["2475-9066"]},{"title":"Disaggregating Census Data for Population Mapping Using Random Forests with Remotely-Sensed and Ancillary Data","doi":"10.1371/journal.pone.0107042","journal":"PLOS ONE","year":2015,"authors":"Forrest R. Stevens, Andrea E. Gaughan, Catherine Linard and Andrew J. Tatem","openUrl":"https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0107042","evidence":"https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0107042","topic":"Population geography & machine learning","accessSource":"PLOS · open access","source":"Curated references","issns":["1932-6203"]}];
 const builtinRanks = (() => {
@@ -65,7 +71,112 @@ const builtinRanks = (() => {
   add('2366-3286,2366-3294','21101022415','Computers in Earth Sciences',{2024:'Q2',2025:'Q2'});
   return ranks;
 })();
-</script><script>const Atlas = (() => {
+</script><script>// Reuse one identifier when a topic belongs to more than one subject group.
+const PaperSubjects = (() => {
+  const topics = new Map();
+  const groups = [];
+  function entry(id, label, pattern, query = label) {
+    const match = new RegExp('\\b(?:' + pattern + ')\\b', 'i');
+    const item = {id, label, query, match};
+    topics.set(id, item);
+    return item;
+  }
+  function group(id, label, pattern, query, rows) {
+    const parent = entry(id, label, pattern, query);
+    parent.children = rows.map(row => typeof row === 'string' ? topics.get(row) : entry(...row));
+    groups.push(parent);
+  }
+  group('gis','GIS and Spatial Analysis','geospatial|gis|geographic(?:al)? information systems?|spatial science','geospatial analysis',[
+    ['gis-systems','Geographic Information Systems (GIS)','gis|webgis|geographic(?:al)? information systems?|qgis|arcgis','geographic information systems'],
+    ['spatial-analysis','Spatial analysis','(?:geo)?spatial analys(?:is|es|tics)|spatial autocorrelation|hot ?spot analysis|spatial clustering'],
+    ['geostatistics','Geostatistics','geostatistic(?:s|al)?|(?:co)?kriging|(?:semi)?variograms?'],
+    ['spatial-modelling','Spatial modelling','(?:geo)?spatial model(?:s|l?ing|l?ed)?|spatial regression|geographically weighted regression'],
+    ['spatial-epi','Spatial epidemiology','(?:geo)?spatial epidemiolog(?:y|ic|ical)|geographical epidemiology|(?:geo)?spatial distribution of disease'],
+    ['geo-data','Geospatial data science','(?:geo)?spatial data science|geographic data science|geospatial data analytics']
+  ]);
+  group('sensing','Remote Sensing','remote(?:ly)? sens(?:ing|ed)|earth observations?','remote sensing',[
+    ['satellite','Satellite remote sensing','satellite (?:remote sensing|imag(?:e|es|ery|ing)|observations?|data)|satellite based|landsat|sentinel [12356]|modis|tropomi|viirs'],
+    ['spectral','Hyperspectral and multispectral imagery','hyperspectral|multispectral','hyperspectral multispectral imagery'],
+    ['sar','SAR and InSAR','synthetic aperture radar|interferometric sar|insar|dinsar|polsar|sar (?:imagery|data|images?|interferometry)|(?:polarimetric|spaceborne) sar','synthetic aperture radar'],
+    ['lidar','LiDAR','lidar|light detection and ranging|laser scanning','LiDAR'],
+    ['uav','UAV and drone remote sensing','uavs?|drones?|un(?:crewed|manned) aerial (?:systems?|vehicles?)','UAV remote sensing'],
+    ['land-cover','Land-use/land-cover change','(?:land use|land cover)(?: land cover)? (?:changes?|dynamics|transitions?|change detection)|lulcc|lulc change','land cover change'],
+    ['vegetation','Vegetation and forest monitoring','vegetation (?:indices|index|monitoring|dynamics)|forest (?:cover|monitoring|loss|disturbance)|deforestation|ndvi','vegetation monitoring']
+  ]);
+  group('ai','GeoAI and Machine Learning','artificial intelligence|machine learning|geoai','geospatial machine learning',[
+    ['ml','Machine learning','machine learning|random forests?|gradient boost(?:ing|ed)|support vector machines?|deep learning|xgboost'],
+    ['dl','Deep learning','deep learning|deep neural networks?|convolutional neural networks?|vision transformers?|u net'],
+    ['vision','Computer vision','computer vision|image segmentation|object detection|semantic segmentation'],
+    ['xai','Explainable AI','explainable (?:artificial intelligence|ai|machine learning)|interpretable machine learning|xai|shapley additive explanations','explainable artificial intelligence'],
+    ['foundations','Geospatial foundation models','(?:earth observation|(?:geo)?spatial|remote sensing) foundation models?|foundation models? for (?:earth observation|remote sensing|geospatial)','geospatial foundation models'],
+    ['geoai','GeoAI','geo ?ai|geospatial (?:artificial intelligence|machine learning)','geospatial artificial intelligence'],
+    ['spatiotemporal','Spatiotemporal prediction','spatio ?temporal (?:predict(?:ion|ions|ing|ive)|forecast(?:ing|s)?)|(?:predicting|forecasting) spatio ?temporal']
+  ]);
+  group('health','Public Health and Geospatial Analysis','public health|population health|geohealth|geospatial health|environmental epidemiology','geospatial public health',[
+    'spatial-epi',
+    ['disease-mapping','Disease mapping','disease (?:risk )?(?:mapping|maps?)|mapping (?:of )?(?:disease|malaria|dengue|cholera|cancer)|disease risk maps?'],
+    ['health-access','Health accessibility','(?:spatial )?access(?:ibility)? to (?:health ?care|health services|hospitals|clinics)|(?:health ?care|hospital|health service|health) access(?:ibility)?','spatial accessibility to healthcare'],
+    ['environmental-health','Environmental health','environmental health|environmental epidemiology|environmental exposure(?:s)? and health'],
+    ['climate-disease','Climate-sensitive diseases','climate sensitive (?:infectious )?diseases?|climate sensitive infections?','climate sensitive disease'],
+    ['pollution-health','Air pollution and human health','air pollution and (?:human |public )?health|health (?:effects?|impacts?|risks?) of air pollution','air pollution health effects'],
+    ['vector','Vector-borne diseases','vector borne (?:diseases?|infections?)|mosquito borne|malaria|dengue|chikungunya|lyme disease|west nile virus','vector borne disease'],
+    ['inequality','Health inequality and spatial vulnerability','health (?:inequalit(?:y|ies)|inequit(?:y|ies)|disparit(?:y|ies))|spatial vulnerability|spatial health disparities','health inequalities spatial vulnerability']
+  ]);
+  group('geography','Geography and Human–Environment Interaction','geograph(?:y|ies)|human environment interactions?','geography human environment',[
+    ['human-geog','Human geography','human geograph(?:y|ies)|cultural geography|social geography'],
+    ['physical-geog','Physical geography','physical geography|geomorpholog(?:y|ical)|biogeograph(?:y|ical)'],
+    ['urban-geog','Urban geography','urban geograph(?:y|ies)|urban morphology|urban spatial structure'],
+    ['population','Population geography','population geograph(?:y|ies)|population (?:distribution|mapping)|mapping population|gridded population'],
+    ['human-environment','Human–environment interaction','human (?:environment|environmental|nature) interactions?|human environment relations?|coupled human (?:and )?natural systems','human environment interaction'],
+    ['climate-society','Climate change and society','climate change and society|social (?:dimensions?|impacts?) of climate change|societal impacts? of climate change','climate change and society'],
+    ['env-vulnerability','Environmental vulnerability','environmental vulnerability|ecological vulnerability'],
+    ['disaster','Disaster risk and resilience','disaster (?:risk|resilience)|(?:flood|wildfire|landslide|seismic) (?:risk|exposure|susceptibility|resilience)|expos(?:ed|ure) to floods','disaster risk resilience']
+  ]);
+  group('climate','Atmosphere and Climate Science','atmospher(?:e|ic science)|climatology|climate change|climate science','atmospheric climate science',[
+    ['atmos-model','Atmospheric modelling','atmospher(?:ic|e) model(?:s|l?ing)?|weather research and forecasting|numerical weather prediction'],
+    ['air','Air quality','air quality|air pollution|atmospheric pollution|ambient particulate matter|pm2 5|pm 2 5'],
+    ['climate-model','Climate modelling','climate model(?:s|l?ing)?|climate projections?|general circulation models?|cmip[356]'],
+    ['aerosol','Aerosol studies','aerosols?|aerosol optical depth','atmospheric aerosols'],
+    ['heat','Urban heat islands','urban heat islands?|surface urban heat islands?|urban heat island effect','urban heat island'],
+    ['precip','Precipitation and drought','precipitation|droughts?|rainfall','precipitation drought'],
+    ['climate-impact','Climate change impacts','climate change impacts?|(?:impacts?|effects?|consequences?) of (?:future )?climate change','climate change impacts']
+  ]);
+
+  function valid(values) {
+    return [...new Set((Array.isArray(values) ? values : []).filter(id => topics.has(id)))];
+  }
+  function expanded(ids) {
+    const set = new Set(ids);
+    for (const group of groups) if (group.children.some(t => set.has(t.id))) set.add(group.id);
+    return set;
+  }
+  function infer(record) {
+    const text = [record.title, record.topic, ...(record.keywords || [])].filter(Boolean).join(' | ');
+    const normalized = Atlas.norm(text);
+    const found = [...topics.values()].filter(t => t.match.test(normalized)).map(t => t.id);
+    const words = new Set(found);
+    if ((words.has('air') || /\bairborne particulate matter\b/.test(normalized)) &&
+        /\b(?:mortality|morbidity|asthma|cardiovascular|respiratory|human health|public health|health effects|health outcomes)\b/.test(normalized)) found.push('pollution-health');
+    if (/\bSAR\b/.test(text) && /\b(?:radar|satellite|sentinel 1|remote sensing|backscatter)\b/.test(normalized)) found.push('sar');
+    if (words.has('ml') && /\b(?:geospatial|geographic artificial intelligence)\b/.test(normalized)) found.push('geoai');
+    return valid(found);
+  }
+  // A child implies all its parents. Display a broad label when no child supplies it.
+  function compact(ids) {
+    const set = new Set(ids);
+    return valid(ids).filter(id => !topics.get(id).children?.some(t => set.has(t.id)));
+  }
+  function effective(record) { return record.assignedSubjects ?? record.inferredSubjects ?? []; }
+  function matches(ids, selected, mode) {
+    const subjects = expanded(ids);
+    if (!selected.length) return true;
+    const hit = id => id === 'unclassified' ? subjects.size === 0 : subjects.has(id);
+    return mode === 'all' ? selected.every(hit) : selected.some(hit);
+  }
+  return {topics, groups, valid, expanded, compact, infer, effective, matches};
+})();
+
+const Atlas = (() => {
   function url(value) {
     try { const u=new URL(value); return /^https?:$/.test(u.protocol) && !u.username && !u.password ? u.href : ''; } catch { return ''; }
   }
@@ -79,7 +190,10 @@ const builtinRanks = (() => {
   function norm(value){return txt(value).normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();}
   function clean(r) {
     const id=doi(r.doi), ids=issns(r.issns), authors=txt(r.authors);
+    const keywords=[...new Set((Array.isArray(r.keywords)?r.keywords:[r.keywords]).filter(v=>typeof v==='string'&&v.trim()).map(v=>v.trim()))];
+    const inferredSubjects=PaperSubjects.valid([...(Array.isArray(r.inferredSubjects)?r.inferredSubjects:[]),...PaperSubjects.infer({...r,keywords})]);
     return {...r,title:txt(r.title), doi:id, year:Number(r.year)||0, journal:txt(r.journal), authors, issns:ids,
+      keywords,inferredSubjects,assignedSubjects:Array.isArray(r.assignedSubjects)?PaperSubjects.valid(r.assignedSubjects):null,
       openUrl:url(r.openUrl), publisherUrl:url(r.publisherUrl)||(r.publisherKnown===false?'':doiLink(id)), recordUrl:url(r.recordUrl)||url(r.evidence),
       sources:[...new Set(r.sources||[r.source||'Imported RIS'])], accessSource:txt(r.accessSource)};
   }
@@ -94,6 +208,9 @@ const builtinRanks = (() => {
       if(!hit && r.journal && r.year && group.length===1 && (!r.doi || !group[0].doi)) hit=group[0];
       if(!hit){merged.push(r);group.push(r);byMeta.set(fp,group);if(r.doi)byDoi.set(r.doi,r);continue;}
       hit.sources=[...new Set([...hit.sources,...r.sources])];hit.issns=[...new Set([...hit.issns,...r.issns])];
+      hit.keywords=[...new Set([...hit.keywords,...r.keywords])];
+      hit.inferredSubjects=PaperSubjects.valid([...hit.inferredSubjects,...r.inferredSubjects]);
+      if(hit.assignedSubjects===null&&r.assignedSubjects!==null)hit.assignedSubjects=r.assignedSubjects;
       if(!hit.openUrl && r.openUrl){hit.openUrl=r.openUrl;hit.accessSource=r.accessSource;}
       for(const field of ['doi','journal','year','authors','publisherUrl','recordUrl','topic','evidence']) if(!hit[field])hit[field]=r[field];
       if(!hit.authorList?.length&&r.authorList?.length)hit.authorList=r.authorList;
@@ -154,7 +271,10 @@ const builtinRanks = (() => {
       const pick=(...ks)=>ks.map(k=>fields[k]?.[0]).find(Boolean)||'';
       const type=pick('TY'),title=pick('TI','T1'),id=doi(pick('DO'))||doi(pick('UR'));
       if(['JOUR','EJOUR'].includes(type)&&title){
-        records.push(clean({title,doi:id,authors:(fields.AU||fields.A1||[]).join('; '),authorList:fields.AU||fields.A1||[],journal:pick('JO','JF','T2','JA'),year:parseInt(pick('PY','Y1','DA'),10),issns:fields.SN||[],source:'Imported RIS',recordUrl:pick('UR')}));
+        const savedNote=(fields.N1||[]).find(s=>s.startsWith('Field Atlas manual subjects: '));
+        let assignedSubjects=null;
+        if(savedNote){try{const value=JSON.parse(savedNote.slice('Field Atlas manual subjects: '.length));if(Array.isArray(value))assignedSubjects=PaperSubjects.valid(value);}catch{/* Ignore an invalid optional note. */}}
+        records.push(clean({title,doi:id,keywords:fields.KW||[],assignedSubjects,authors:(fields.AU||fields.A1||[]).join('; '),authorList:fields.AU||fields.A1||[],journal:pick('JO','JF','T2','JA'),year:parseInt(pick('PY','Y1','DA'),10),issns:fields.SN||[],source:'Imported RIS',recordUrl:pick('UR')}));
       }else skipped++;
       fields={};last='';
     }
@@ -168,6 +288,9 @@ const builtinRanks = (() => {
     return records.map(r=>{
       const fields=[['TY','JOUR'],['TI',r.title],['JO',r.journal],['PY',r.year],['DO',r.doi],['UR',r.publisherUrl||r.recordUrl]];
       for(const id of r.issns) fields.push(['SN',id]);
+      const subjects=PaperSubjects.effective(r);
+      for(const word of new Set([...(r.keywords||[]),...PaperSubjects.compact(subjects).map(id=>PaperSubjects.topics.get(id).label)]))fields.push(['KW',word]);
+      if(Array.isArray(r.assignedSubjects))fields.push(['N1','Field Atlas manual subjects: '+JSON.stringify(r.assignedSubjects)]);
       if(r.authorList?.length)for(const person of r.authorList)fields.push(['AU',person]);
       else if(r.authors)fields.push(['N1','Authors as displayed: '+r.authors]);
       if(r.openUrl)fields.push(['L2',r.openUrl]);
@@ -221,6 +344,7 @@ const SourceImport = (() => {
     const names = uniq(list(raw.authorList).map(str)), label=str(source), id=doiValue(raw.doi);
     return {
       title:str(raw.title), journal:str(raw.journal), year:year(raw.year), doi:id, issns:Atlas.issns(raw.issns),
+      keywords:uniq(list(raw.keywords).map(str)),assignedSubjects:raw.assignedSubjects,
       authors:names.join('; '), authorList:names, sources:uniq([label,...list(raw.catalogues).map(str),'Imported '+format]),
       source:label || 'Imported '+format, publisherKnown:false, publisherUrl:'', openUrl:'', accessSource:'',
       recordUrl:safe(raw.recordUrl) || Atlas.doiLink(id)
@@ -241,12 +365,12 @@ const SourceImport = (() => {
       if(r?.type==='article-journal')return citation({
         title:first(r.title),journal:first(r['container-title']) || first(r['container-title-short']),
         year:r.issued?.['date-parts']?.[0]?.[0] || r.issued?.literal || r.issued?.raw,
-        authorList:list(r.author).map(namedPerson),doi:r.DOI,issns:r.ISSN,recordUrl:r.URL
+        keywords:list(r.keyword).flatMap(v=>str(v).split(/[;,]/)),authorList:list(r.author).map(namedPerson),doi:r.DOI,issns:r.ISSN,recordUrl:r.URL
       },'CSL JSON',source);
       if(r?.itemType==='journalArticle')return citation({
         title:r.title,journal:r.publicationTitle || r.journalAbbreviation,year:r.date,
         authorList:list(r.creators).filter(c=>c?.creatorType==='author').map(namedPerson),
-        doi:r.DOI,issns:r.ISSN,recordUrl:r.url,catalogues:r.libraryCatalog
+        keywords:list(r.tags).map(v=>typeof v==='string'?v:v?.tag),doi:r.DOI,issns:r.ISSN,recordUrl:r.url,catalogues:r.libraryCatalog
       },'Zotero JSON',source);
       return null;
     });
@@ -268,7 +392,7 @@ const SourceImport = (() => {
       const doi=ids.filter(v=>/\[doi\]$/i.test(v)).map(v=>doiValue(v.replace(/\s*\[doi\]$/i,''))).find(Boolean);
       const pmid=first(r.PMID);
       return citation({title:first(r.TI),journal,year:first(r.DP)||first(r.DEP),
-        authorList:[...(r.FAU||r.AU||[]),...(r.CN||[])],doi,issns:r.IS,
+        keywords:[...(r.OT||[]),...(r.MH||[])],authorList:[...(r.FAU||r.AU||[]),...(r.CN||[])],doi,issns:r.IS,
         recordUrl:/^\d+$/.test(pmid)?'https://pubmed.ncbi.nlm.nih.gov/'+pmid+'/':''
       },'PubMed NBIB',source);
     });
@@ -300,7 +424,7 @@ const SourceImport = (() => {
       if(!outlet||(!typed&&!(types.some(t=>/^article$/i.test(t))&&(issns.length||/\bvol(?:ume)?\.?\s*\d|\bissue\s*\d/i.test(outlet))))) return null;
       const doi=identifiers.map(doiValue).find(Boolean);
       return citation({title:word(dc,'title'),journal:outlet.split(/\s*;\s*|\s+\bvol(?:ume)?\.?\s+(?=\d)/i)[0],year:word(dc,'issued')||word(dc,'date'),
-        authorList:words(dc,'creator'),issns,doi,recordUrl:identifiers.map(safe).find(Boolean)},'OAI-PMH',source);
+        keywords:words(dc,'subject'),authorList:words(dc,'creator'),issns,doi,recordUrl:identifiers.map(safe).find(Boolean)},'OAI-PMH',source);
     });
     if(word(container,'resumptionToken'))result.hasMore=true;
     return result;
@@ -327,7 +451,7 @@ const SourceImport = (() => {
       // omit entry genre. An untyped DOI-less headline remains excluded.
       if(!journal||(!type&&!(doi&&(serial||issns.length||word(entry,'publicationName')))))return null;
       const authors=uniq([...words(entry,'creator'),...children(entry,'author').map(a=>word(a,'name')||str(a.textContent))]);
-      return citation({title:word(entry,'title'),journal,issns,doi,recordUrl:link,authorList:authors,
+      return citation({title:word(entry,'title'),journal,issns,doi,keywords:[...words(entry,'subject'),...types],recordUrl:link,authorList:authors,
         year:word(entry,'publicationDate')||word(entry,'pubDate')||word(entry,'published')||word(entry,'date')
       },'publisher feed',source);
     });
@@ -409,7 +533,7 @@ const baseAdapters = (() => {
     return {
       title: plain(fields.title), doi, journal: plain(fields.journal), year: /^\d{4}$/.test(String(fields.year)) ? Number(fields.year) : null,
       authors: plain(fields.authors) || authorList.join("; "), authorList, openUrl, accessSource: openUrl ? text(fields.accessSource) : "",
-      issns: [...new Set(asArray(fields.issns).map(issn).filter(Boolean))], source,
+      issns: [...new Set(asArray(fields.issns).map(issn).filter(Boolean))], keywords:asArray(fields.keywords).map(plain).filter(Boolean), source,
       publisherUrl: url(fields.publisherUrl) || doiUrl(doi), recordUrl: url(fields.recordUrl)
     };
   }
@@ -479,7 +603,7 @@ const baseAdapters = (() => {
       filter: "type:" + journalTypes.join("|") + ",primary_location.source.type:journal"
         + (serial ? ",primary_location.source.issn:" + serial : "") + (exact ? ",doi:" + (exact.includes(",") ? quoteTerm(exact) : exact) : ""),
       page, per_page: size,
-      select: "id,doi,title,type,publication_year,authorships,primary_location,best_oa_location,locations"
+      select: "id,doi,title,type,publication_year,authorships,primary_location,best_oa_location,locations,keywords"
     }, signal);
     const rows = result.results;
     const items = rows.filter(row => journalTypes.includes(row.type) && row.primary_location?.source?.type === "journal").map(row => {
@@ -491,7 +615,7 @@ const baseAdapters = (() => {
       const version = candidate?.loc.version;
       const evidence = version === "acceptedVersion" ? "accepted manuscript" : version === "publishedVersion" ? "published version" : "publisher copy";
       return record("OpenAlex", {title: row.title, doi: row.doi, journal: primary.source.display_name,
-        year: row.publication_year, authors: joinNames(asArray(row.authorships).map(a => a.author?.display_name)),
+        keywords:asArray(row.keywords).map(k=>k.display_name), year: row.publication_year, authors: joinNames(asArray(row.authorships).map(a => a.author?.display_name)),
         authorList: asArray(row.authorships).map(a => a.author?.display_name),
         issns: [primary.source.issn_l, ...asArray(primary.source.issn)], openUrl: candidate?.href,
         accessSource: "OpenAlex · " + evidence, publisherUrl: primary.landing_page_url, recordUrl: row.id});
@@ -523,7 +647,7 @@ const baseAdapters = (() => {
       const article = free.find(link => /^html$/i.test(link.documentStyle)) || free[0];
       const publisher = links.find(link => /^publisher$/i.test(text(link.site)) && /^html$/i.test(text(link.documentStyle)));
       return record("Europe PMC", {title: row.title, doi: row.doi, journal: journal.title || row.journalTitle, year: row.pubYear || text(row.firstPublicationDate).slice(0,4),
-        authors: row.authorString, issns: [journal.issn, journal.essn], openUrl: article?.url,
+        keywords:asArray(row.keywordList?.keyword),authors: row.authorString, issns: [journal.issn, journal.essn], openUrl: article?.url,
         authorList: asArray(row.authorList?.author).map(a => a.collectiveName || [a.lastName, a.firstName || a.initials].filter(Boolean).join(", ") || a.fullName),
         accessSource: article?.availabilityCode === "OA" ? "Europe PMC · open access" : "Europe PMC · free to read",
         publisherUrl: publisher?.url, recordUrl: row.id && row.source ? "https://europepmc.org/article/" + encodeURIComponent(row.source) + "/" + encodeURIComponent(row.id) : ""});
@@ -546,7 +670,7 @@ const baseAdapters = (() => {
       const full = links.find(link => /^html$/i.test(text(link.content_type))) || links[0];
       const doi = identifiers.find(entry => entry.type === "doi")?.id;
       return record("DOAJ", {title: data.title, doi, journal: data.journal.title, year: data.year,
-        authors: joinNames(asArray(data.author).map(a => a.name)),
+        keywords:asArray(data.keywords),authors: joinNames(asArray(data.author).map(a => a.name)),
         authorList: asArray(data.author).map(a => a.name),
         issns: [...asArray(data.journal.issns), ...identifiers.filter(entry => /^(?:e|p)?issn$/i.test(entry.type)).map(entry => entry.id)],
         openUrl: full?.url, accessSource: "DOAJ · article full text", publisherUrl: doiUrl(normalizeDoi(doi)),
@@ -1573,7 +1697,7 @@ function citationPrompt(name,q){
   let importedRanks=load('ranks',[]),ranks=[...builtinRanks,...importedRanks],index=Atlas.rankIndex(ranks);
   let view='explore',query='',run=0,controller=null,batchBusy=false,results=seed,states={},statusNote='',visible=[],shown=25;
   let displayedQuery='',sourceRuns=[],knownCopies=new Map(),retryAfter=new Map();
-  const options={ 'GIS':'geographic information systems','Remote sensing':'remote sensing','Geospatial analysis':'geospatial analysis','Public health':'public health','Geography':'geography','Atmosphere':'atmospheric science','Human–environment':'human environment interaction','Geohealth':'spatial epidemiology','GeoAI & ML':'geospatial machine learning' };
+  let filterSubjects=[], editingPaper=null, editedSubjects=null;
   const selections={access:'',quartile:'',journal:'',fromYear:'',toYear:'',sort:'relevance'};
   function note(text){$('settingsMessage').textContent=text;$('settingsMessage').hidden=!text;}
   function dl(name,text,type){const u=URL.createObjectURL(new Blob([text],{type}));const a=node('a');a.href=u;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),3000);}
@@ -1592,7 +1716,8 @@ function citationPrompt(name,q){
   function matchLocal(record,q){
     const id=Atlas.doi(q);if(id)return record.doi===id;
     const serial=Atlas.issns(q);if(serial.length===1&&record.issns.includes(serial[0]))return true;
-    const terms=Atlas.norm(q).split(' ').filter(Boolean),text=Atlas.norm([record.title,record.journal,record.topic,record.authors].join(' '));
+    const labels=[...PaperSubjects.expanded(PaperSubjects.effective(record))].map(id=>PaperSubjects.topics.get(id).label);
+    const terms=Atlas.norm(q).split(' ').filter(Boolean),text=Atlas.norm([record.title,record.journal,record.topic,record.authors,...labels,...record.keywords].join(' '));
     return terms.length>0&&terms.every(t=>text.includes(t));
   }
   function recalc(){
@@ -1603,6 +1728,49 @@ function citationPrompt(name,q){
     for(const r of results){const copy=knownCopies.get(r.doi);if(copy&&!r.openUrl)Object.assign(r,copy);}
   }
   function activeRecords(){return view==='saved'?saved:results;}
+  function subjectMenu(id, hint, includeUnknown) {
+    const select=$(id);
+    select.add(new Option(hint,''));
+    for(const group of PaperSubjects.groups){
+      const list=node('optgroup');list.label=group.label;
+      list.append(new Option('All '+group.label,group.id));
+      for(const topic of group.children)list.append(new Option(topic.label,topic.id));
+      select.append(list);
+    }
+    if(includeUnknown)select.add(new Option('Unclassified papers','unclassified'));
+  }
+  function drawSubjectFilters(){
+    const box=$('subjectChips');box.replaceChildren();
+    for(const id of filterSubjects){
+      const label=PaperSubjects.topics.get(id)?.label||'Unclassified papers';
+      const remove=button(label+' ×',()=>{filterSubjects=filterSubjects.filter(x=>x!==id);drawSubjectFilters();shown=25;render();},'subjectChip');
+      remove.setAttribute('aria-label','Remove '+label+' filter');box.append(remove);
+    }
+    $('subjectModeBox').hidden=filterSubjects.length<2;
+  }
+  function drawEditor(){
+    const box=$('editGroups');box.replaceChildren();
+    const chosen=new Set(editedSubjects??PaperSubjects.compact(editingPaper.inferredSubjects));
+    const checks=[];
+    for(const group of PaperSubjects.groups){
+      const field=node('fieldset');field.append(node('legend',group.label));
+      for(const topic of [group,...group.children]){
+        const label=node('label'),check=node('input');check.type='checkbox';check.checked=chosen.has(topic.id);
+        checks.push({id:topic.id,check});
+        check.onchange=()=>{
+          if(check.checked)chosen.add(topic.id);else chosen.delete(topic.id);
+          editedSubjects=[...chosen];
+          for(const other of checks)if(other.id===topic.id)other.check.checked=check.checked;
+        };
+        label.append(check,document.createTextNode(topic===group?'General '+group.label:topic.label));field.append(label);
+      }
+      box.append(field);
+    }
+  }
+  function editSubjects(record){
+    editingPaper=record;editedSubjects=record.assignedSubjects===null?null:[...record.assignedSubjects];
+    $('editTitle').textContent=record.title;drawEditor();$('subjectDialog').showModal();
+  }
   function summary(){const total=activeRecords().length;return visible.length===total?total+' unique '+(total===1?'paper':'papers'):visible.length+' of '+total+' unique papers';}
   function searchState(){
     const e=$('runstate');e.replaceChildren();
@@ -1632,13 +1800,17 @@ function citationPrompt(name,q){
     const star=button(isSaved?'✓ Saved':'+ Save',()=>{
       saved=isSaved?saved.filter(v=>Atlas.key(v)!==Atlas.key(r)):Atlas.mergeList([...saved,r]);
       if(!store('saved',saved))statusNote='Saved for this tab. Browser storage is unavailable.';
+      if(isSaved)recalc();
       render();
     },'save');star.setAttribute('aria-pressed',String(isSaved));star.setAttribute('aria-label',(isSaved?'Remove from saved: ':'Save paper: ')+r.title);
     top.append(header,star);area.append(top,node('h3',r.title));
     if(r.authors)area.append(node('p',r.authors.length>240?r.authors.slice(0,237)+'…':r.authors,'authors'));
     const tags=node('div',undefined,'tags'),matched=ranksFor(r);
     tags.append(node('span',r.openUrl?'Free full text':'No free link located','tag'+(r.openUrl?' open':'')),node('span',textRank(r,matched),'tag'+(matched.length?' rank':'')));
-    if(r.topic)tags.append(node('span',r.topic,'tag'));area.append(tags);
+    const subjectIds=PaperSubjects.compact(PaperSubjects.effective(r));
+    for(const id of subjectIds)tags.append(node('span',PaperSubjects.topics.get(id).label,'tag subjectTag'));
+    if(!subjectIds.length)tags.append(node('span','Unclassified','tag'));
+    area.append(tags);
     const bottom=node('div',undefined,'cardBottom'),links=node('div',undefined,'cardLinks');
     if(r.openUrl)links.append(link('Read free full text',r.openUrl));
     if(r.publisherUrl)links.append(link('Publisher page',r.publisherUrl));else if(r.recordUrl)links.append(link('Index record',r.recordUrl));
@@ -1661,6 +1833,8 @@ function citationPrompt(name,q){
     if(r.recordUrl){const p=node('p',undefined,'provenance');p.append(link('Source record',r.recordUrl));d.append(p);}
     for(const m of matched){const p=node('p',m.system+' '+m.year+' · '+m.category+' · '+m.quartile+'  ','provenance');if(Atlas.url(m.url))p.append(link('Ranking source',m.url));d.append(p);}
     if(!matched.length)d.append(node('p','No matching ranking in the selected edition, system and category.','provenance'));
+    links.append(button('Edit subjects',()=>editSubjects(r),'textBtn'));
+    d.append(node('p',r.assignedSubjects===null?'Subject labels are suggested from the title and available topic metadata.':'Subject labels were selected manually.','provenance'));
     bottom.append(links,d);area.append(bottom);return area;
   }
   function render(){
@@ -1671,7 +1845,12 @@ function citationPrompt(name,q){
     $('resultKicker').textContent=view==='saved'?'YOUR READING LIST':displayedQuery?'INDEX SEARCH':'CURATED REFERENCES';
     $('resultsTitle').textContent=view==='saved'?'Saved papers':displayedQuery?'Results for “'+displayedQuery+'”':'Starter collection';
     const low=Number($('fromYear').value)||0,high=Number($('toYear').value)||Infinity,access=$('access').value,q=$('quartile').value,j=Atlas.norm($('journal').value);
-    visible=activeRecords().filter(r=>{
+    const savedByKey=new Map(saved.map(r=>[Atlas.key(r),r]));
+    visible=activeRecords().map(r=>{
+      const same=savedByKey.get(Atlas.key(r));
+      return same&&same!==r?{...r,inferredSubjects:PaperSubjects.valid([...r.inferredSubjects,...same.inferredSubjects]),assignedSubjects:same.assignedSubjects}:r;
+    }).filter(r=>{
+      if(!PaperSubjects.matches(PaperSubjects.effective(r),filterSubjects,$('subjectMode').value))return false;
       if((low||Number.isFinite(high))&&(!r.year||r.year<low||r.year>high))return false;
       if(!Atlas.norm(r.journal).includes(j)||(access==='open'&&!r.openUrl)||(access==='unknown'&&r.openUrl))return false;
       const needsRank=q||$('category').value||$('rankSystem').value;
@@ -1765,12 +1944,35 @@ function citationPrompt(name,q){
       g.closePath();g.strokeStyle=i%5===0?'rgba(173,208,165,.40)':'rgba(169,212,169,.23)';g.lineWidth=i%5===0?1.1:.7;g.stroke();
     }g.restore();const shade=g.createLinearGradient(0,0,w,0);shade.addColorStop(0,'rgba(16,59,58,.98)');shade.addColorStop(.45,'rgba(16,59,58,.77)');shade.addColorStop(.74,'rgba(16,59,58,.05)');shade.addColorStop(1,'rgba(16,59,58,0)');g.fillStyle=shade;g.fillRect(0,0,w,h);
   }
-  for(const [label,term] of Object.entries(options))$('topics').append(button(label,()=>{$('query').value=term;getBatch(true);},'pill'));
+  subjectMenu('browseSubject','Choose a group or topic',false);
+  subjectMenu('subjectFilter','Add a group or topic…',true);
+  $('findSubject').disabled=true;
+  $('browseSubject').onchange=()=>{$('findSubject').disabled=!$('browseSubject').value;};
+  $('findSubject').onclick=()=>{
+    const subject=PaperSubjects.topics.get($('browseSubject').value);
+    if(subject){$('query').value=subject.query;filterSubjects=[];drawSubjectFilters();getBatch(true);}
+  };
+  $('subjectFilter').onchange=()=>{
+    const id=$('subjectFilter').value;
+    if(id&&!filterSubjects.includes(id))filterSubjects.push(id);
+    $('subjectFilter').value='';drawSubjectFilters();shown=25;render();
+  };
+  $('subjectMode').onchange=()=>{shown=25;render();};
+  $('autoSubjects').onclick=()=>{editedSubjects=null;drawEditor();};
+  $('applySubjects').onclick=()=>{
+    if(!editingPaper)return;
+    const record={...editingPaper,assignedSubjects:editedSubjects};
+    const existing=saved.find(r=>Atlas.key(r)===Atlas.key(record));
+    if(existing)existing.assignedSubjects=editedSubjects;
+    saved=Atlas.mergeList([...saved,record]);
+    statusNote=store('saved',saved)?'Paper subjects saved.':'Saved for this tab. Browser storage is unavailable.';
+    $('subjectDialog').close();editingPaper=null;recalc();render();
+  };
   for(const el of document.querySelectorAll('[data-tab]'))el.addEventListener('click',()=>switchTab(el.dataset.tab));
   document.querySelector('.brand').addEventListener('click',e=>{e.preventDefault();switchTab('explore');});
   $('searchForm').addEventListener('submit',e=>{e.preventDefault();getBatch(true);});$('starter').onclick=clearSearch;$('more').onclick=()=>getBatch(false);
   for(const id of [...Object.keys(selections),'category','rankYear','rankSystem'])$(id).addEventListener(['journal','fromYear','toYear'].includes(id)?'input':'change',()=>{if(['rankYear','rankSystem'].includes(id))rankMenus();shown=25;render();});
-  $('reset').onclick=()=>{for(const [k,v] of Object.entries(selections))$(k).value=v;$('category').value='';$('rankSystem').value='';rankMenus(ranks.reduce((highest,r)=>Math.max(highest,r.year),0));shown=25;render();};
+  $('reset').onclick=()=>{for(const [k,v] of Object.entries(selections))$(k).value=v;filterSubjects=[];$('subjectMode').value='any';drawSubjectFilters();$('category').value='';$('rankSystem').value='';rankMenus(ranks.reduce((highest,r)=>Math.max(highest,r.year),0));shown=25;render();};
   $('export').onclick=()=>dl('Field_Atlas_journal_articles.ris',Atlas.ris(visible),'application/x-research-info-systems');
   $('csvTemplate').onclick=()=>dl('Field_Atlas_ranking_template.csv','issn,year,system,category,quartile,url\r\n2052-4463,2025,SJR,Information Systems,Q1,https://www.scimagojr.com/journalsearch.php?q=21100451321&tip=sid\r\n','text/csv');
   function saveImport(records){const before=saved.length;saved=Atlas.mergeList([...saved,...records]);const ok=store('saved',saved);recalc();render();return (saved.length-before)+' new journal records saved.'+(ok?'':' Browser storage is unavailable; this import lasts for the tab.');}

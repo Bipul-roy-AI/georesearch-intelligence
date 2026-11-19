@@ -12,7 +12,7 @@
   let importedRanks=load('ranks',[]),ranks=[...builtinRanks,...importedRanks],index=Atlas.rankIndex(ranks);
   let view='explore',query='',run=0,controller=null,batchBusy=false,results=seed,states={},statusNote='',visible=[],shown=25;
   let displayedQuery='',sourceRuns=[],knownCopies=new Map(),retryAfter=new Map();
-  const options={ 'GIS':'geographic information systems','Remote sensing':'remote sensing','Geospatial analysis':'geospatial analysis','Public health':'public health','Geography':'geography','Atmosphere':'atmospheric science','Human–environment':'human environment interaction','Geohealth':'spatial epidemiology','GeoAI & ML':'geospatial machine learning' };
+  let filterSubjects=[], editingPaper=null, editedSubjects=null;
   const selections={access:'',quartile:'',journal:'',fromYear:'',toYear:'',sort:'relevance'};
   function note(text){$('settingsMessage').textContent=text;$('settingsMessage').hidden=!text;}
   function dl(name,text,type){const u=URL.createObjectURL(new Blob([text],{type}));const a=node('a');a.href=u;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),3000);}
@@ -31,7 +31,8 @@
   function matchLocal(record,q){
     const id=Atlas.doi(q);if(id)return record.doi===id;
     const serial=Atlas.issns(q);if(serial.length===1&&record.issns.includes(serial[0]))return true;
-    const terms=Atlas.norm(q).split(' ').filter(Boolean),text=Atlas.norm([record.title,record.journal,record.topic,record.authors].join(' '));
+    const labels=[...PaperSubjects.expanded(PaperSubjects.effective(record))].map(id=>PaperSubjects.topics.get(id).label);
+    const terms=Atlas.norm(q).split(' ').filter(Boolean),text=Atlas.norm([record.title,record.journal,record.topic,record.authors,...labels,...record.keywords].join(' '));
     return terms.length>0&&terms.every(t=>text.includes(t));
   }
   function recalc(){
@@ -42,6 +43,49 @@
     for(const r of results){const copy=knownCopies.get(r.doi);if(copy&&!r.openUrl)Object.assign(r,copy);}
   }
   function activeRecords(){return view==='saved'?saved:results;}
+  function subjectMenu(id, hint, includeUnknown) {
+    const select=$(id);
+    select.add(new Option(hint,''));
+    for(const group of PaperSubjects.groups){
+      const list=node('optgroup');list.label=group.label;
+      list.append(new Option('All '+group.label,group.id));
+      for(const topic of group.children)list.append(new Option(topic.label,topic.id));
+      select.append(list);
+    }
+    if(includeUnknown)select.add(new Option('Unclassified papers','unclassified'));
+  }
+  function drawSubjectFilters(){
+    const box=$('subjectChips');box.replaceChildren();
+    for(const id of filterSubjects){
+      const label=PaperSubjects.topics.get(id)?.label||'Unclassified papers';
+      const remove=button(label+' ×',()=>{filterSubjects=filterSubjects.filter(x=>x!==id);drawSubjectFilters();shown=25;render();},'subjectChip');
+      remove.setAttribute('aria-label','Remove '+label+' filter');box.append(remove);
+    }
+    $('subjectModeBox').hidden=filterSubjects.length<2;
+  }
+  function drawEditor(){
+    const box=$('editGroups');box.replaceChildren();
+    const chosen=new Set(editedSubjects??PaperSubjects.compact(editingPaper.inferredSubjects));
+    const checks=[];
+    for(const group of PaperSubjects.groups){
+      const field=node('fieldset');field.append(node('legend',group.label));
+      for(const topic of [group,...group.children]){
+        const label=node('label'),check=node('input');check.type='checkbox';check.checked=chosen.has(topic.id);
+        checks.push({id:topic.id,check});
+        check.onchange=()=>{
+          if(check.checked)chosen.add(topic.id);else chosen.delete(topic.id);
+          editedSubjects=[...chosen];
+          for(const other of checks)if(other.id===topic.id)other.check.checked=check.checked;
+        };
+        label.append(check,document.createTextNode(topic===group?'General '+group.label:topic.label));field.append(label);
+      }
+      box.append(field);
+    }
+  }
+  function editSubjects(record){
+    editingPaper=record;editedSubjects=record.assignedSubjects===null?null:[...record.assignedSubjects];
+    $('editTitle').textContent=record.title;drawEditor();$('subjectDialog').showModal();
+  }
   function summary(){const total=activeRecords().length;return visible.length===total?total+' unique '+(total===1?'paper':'papers'):visible.length+' of '+total+' unique papers';}
   function searchState(){
     const e=$('runstate');e.replaceChildren();
@@ -71,13 +115,17 @@
     const star=button(isSaved?'✓ Saved':'+ Save',()=>{
       saved=isSaved?saved.filter(v=>Atlas.key(v)!==Atlas.key(r)):Atlas.mergeList([...saved,r]);
       if(!store('saved',saved))statusNote='Saved for this tab. Browser storage is unavailable.';
+      if(isSaved)recalc();
       render();
     },'save');star.setAttribute('aria-pressed',String(isSaved));star.setAttribute('aria-label',(isSaved?'Remove from saved: ':'Save paper: ')+r.title);
     top.append(header,star);area.append(top,node('h3',r.title));
     if(r.authors)area.append(node('p',r.authors.length>240?r.authors.slice(0,237)+'…':r.authors,'authors'));
     const tags=node('div',undefined,'tags'),matched=ranksFor(r);
     tags.append(node('span',r.openUrl?'Free full text':'No free link located','tag'+(r.openUrl?' open':'')),node('span',textRank(r,matched),'tag'+(matched.length?' rank':'')));
-    if(r.topic)tags.append(node('span',r.topic,'tag'));area.append(tags);
+    const subjectIds=PaperSubjects.compact(PaperSubjects.effective(r));
+    for(const id of subjectIds)tags.append(node('span',PaperSubjects.topics.get(id).label,'tag subjectTag'));
+    if(!subjectIds.length)tags.append(node('span','Unclassified','tag'));
+    area.append(tags);
     const bottom=node('div',undefined,'cardBottom'),links=node('div',undefined,'cardLinks');
     if(r.openUrl)links.append(link('Read free full text',r.openUrl));
     if(r.publisherUrl)links.append(link('Publisher page',r.publisherUrl));else if(r.recordUrl)links.append(link('Index record',r.recordUrl));
@@ -100,6 +148,8 @@
     if(r.recordUrl){const p=node('p',undefined,'provenance');p.append(link('Source record',r.recordUrl));d.append(p);}
     for(const m of matched){const p=node('p',m.system+' '+m.year+' · '+m.category+' · '+m.quartile+'  ','provenance');if(Atlas.url(m.url))p.append(link('Ranking source',m.url));d.append(p);}
     if(!matched.length)d.append(node('p','No matching ranking in the selected edition, system and category.','provenance'));
+    links.append(button('Edit subjects',()=>editSubjects(r),'textBtn'));
+    d.append(node('p',r.assignedSubjects===null?'Subject labels are suggested from the title and available topic metadata.':'Subject labels were selected manually.','provenance'));
     bottom.append(links,d);area.append(bottom);return area;
   }
   function render(){
@@ -110,7 +160,12 @@
     $('resultKicker').textContent=view==='saved'?'YOUR READING LIST':displayedQuery?'INDEX SEARCH':'CURATED REFERENCES';
     $('resultsTitle').textContent=view==='saved'?'Saved papers':displayedQuery?'Results for “'+displayedQuery+'”':'Starter collection';
     const low=Number($('fromYear').value)||0,high=Number($('toYear').value)||Infinity,access=$('access').value,q=$('quartile').value,j=Atlas.norm($('journal').value);
-    visible=activeRecords().filter(r=>{
+    const savedByKey=new Map(saved.map(r=>[Atlas.key(r),r]));
+    visible=activeRecords().map(r=>{
+      const same=savedByKey.get(Atlas.key(r));
+      return same&&same!==r?{...r,inferredSubjects:PaperSubjects.valid([...r.inferredSubjects,...same.inferredSubjects]),assignedSubjects:same.assignedSubjects}:r;
+    }).filter(r=>{
+      if(!PaperSubjects.matches(PaperSubjects.effective(r),filterSubjects,$('subjectMode').value))return false;
       if((low||Number.isFinite(high))&&(!r.year||r.year<low||r.year>high))return false;
       if(!Atlas.norm(r.journal).includes(j)||(access==='open'&&!r.openUrl)||(access==='unknown'&&r.openUrl))return false;
       const needsRank=q||$('category').value||$('rankSystem').value;
@@ -204,12 +259,35 @@
       g.closePath();g.strokeStyle=i%5===0?'rgba(173,208,165,.40)':'rgba(169,212,169,.23)';g.lineWidth=i%5===0?1.1:.7;g.stroke();
     }g.restore();const shade=g.createLinearGradient(0,0,w,0);shade.addColorStop(0,'rgba(16,59,58,.98)');shade.addColorStop(.45,'rgba(16,59,58,.77)');shade.addColorStop(.74,'rgba(16,59,58,.05)');shade.addColorStop(1,'rgba(16,59,58,0)');g.fillStyle=shade;g.fillRect(0,0,w,h);
   }
-  for(const [label,term] of Object.entries(options))$('topics').append(button(label,()=>{$('query').value=term;getBatch(true);},'pill'));
+  subjectMenu('browseSubject','Choose a group or topic',false);
+  subjectMenu('subjectFilter','Add a group or topic…',true);
+  $('findSubject').disabled=true;
+  $('browseSubject').onchange=()=>{$('findSubject').disabled=!$('browseSubject').value;};
+  $('findSubject').onclick=()=>{
+    const subject=PaperSubjects.topics.get($('browseSubject').value);
+    if(subject){$('query').value=subject.query;filterSubjects=[];drawSubjectFilters();getBatch(true);}
+  };
+  $('subjectFilter').onchange=()=>{
+    const id=$('subjectFilter').value;
+    if(id&&!filterSubjects.includes(id))filterSubjects.push(id);
+    $('subjectFilter').value='';drawSubjectFilters();shown=25;render();
+  };
+  $('subjectMode').onchange=()=>{shown=25;render();};
+  $('autoSubjects').onclick=()=>{editedSubjects=null;drawEditor();};
+  $('applySubjects').onclick=()=>{
+    if(!editingPaper)return;
+    const record={...editingPaper,assignedSubjects:editedSubjects};
+    const existing=saved.find(r=>Atlas.key(r)===Atlas.key(record));
+    if(existing)existing.assignedSubjects=editedSubjects;
+    saved=Atlas.mergeList([...saved,record]);
+    statusNote=store('saved',saved)?'Paper subjects saved.':'Saved for this tab. Browser storage is unavailable.';
+    $('subjectDialog').close();editingPaper=null;recalc();render();
+  };
   for(const el of document.querySelectorAll('[data-tab]'))el.addEventListener('click',()=>switchTab(el.dataset.tab));
   document.querySelector('.brand').addEventListener('click',e=>{e.preventDefault();switchTab('explore');});
   $('searchForm').addEventListener('submit',e=>{e.preventDefault();getBatch(true);});$('starter').onclick=clearSearch;$('more').onclick=()=>getBatch(false);
   for(const id of [...Object.keys(selections),'category','rankYear','rankSystem'])$(id).addEventListener(['journal','fromYear','toYear'].includes(id)?'input':'change',()=>{if(['rankYear','rankSystem'].includes(id))rankMenus();shown=25;render();});
-  $('reset').onclick=()=>{for(const [k,v] of Object.entries(selections))$(k).value=v;$('category').value='';$('rankSystem').value='';rankMenus(ranks.reduce((highest,r)=>Math.max(highest,r.year),0));shown=25;render();};
+  $('reset').onclick=()=>{for(const [k,v] of Object.entries(selections))$(k).value=v;filterSubjects=[];$('subjectMode').value='any';drawSubjectFilters();$('category').value='';$('rankSystem').value='';rankMenus(ranks.reduce((highest,r)=>Math.max(highest,r.year),0));shown=25;render();};
   $('export').onclick=()=>dl('Field_Atlas_journal_articles.ris',Atlas.ris(visible),'application/x-research-info-systems');
   $('csvTemplate').onclick=()=>dl('Field_Atlas_ranking_template.csv','issn,year,system,category,quartile,url\r\n2052-4463,2025,SJR,Information Systems,Q1,https://www.scimagojr.com/journalsearch.php?q=21100451321&tip=sid\r\n','text/csv');
   function saveImport(records){const before=saved.length;saved=Atlas.mergeList([...saved,...records]);const ok=store('saved',saved);recalc();render();return (saved.length-before)+' new journal records saved.'+(ok?'':' Browser storage is unavailable; this import lasts for the tab.');}

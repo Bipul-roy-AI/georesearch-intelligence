@@ -12,7 +12,10 @@ const Atlas = (() => {
   function norm(value){return txt(value).normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();}
   function clean(r) {
     const id=doi(r.doi), ids=issns(r.issns), authors=txt(r.authors);
+    const keywords=[...new Set((Array.isArray(r.keywords)?r.keywords:[r.keywords]).filter(v=>typeof v==='string'&&v.trim()).map(v=>v.trim()))];
+    const inferredSubjects=PaperSubjects.valid([...(Array.isArray(r.inferredSubjects)?r.inferredSubjects:[]),...PaperSubjects.infer({...r,keywords})]);
     return {...r,title:txt(r.title), doi:id, year:Number(r.year)||0, journal:txt(r.journal), authors, issns:ids,
+      keywords,inferredSubjects,assignedSubjects:Array.isArray(r.assignedSubjects)?PaperSubjects.valid(r.assignedSubjects):null,
       openUrl:url(r.openUrl), publisherUrl:url(r.publisherUrl)||(r.publisherKnown===false?'':doiLink(id)), recordUrl:url(r.recordUrl)||url(r.evidence),
       sources:[...new Set(r.sources||[r.source||'Imported RIS'])], accessSource:txt(r.accessSource)};
   }
@@ -27,6 +30,9 @@ const Atlas = (() => {
       if(!hit && r.journal && r.year && group.length===1 && (!r.doi || !group[0].doi)) hit=group[0];
       if(!hit){merged.push(r);group.push(r);byMeta.set(fp,group);if(r.doi)byDoi.set(r.doi,r);continue;}
       hit.sources=[...new Set([...hit.sources,...r.sources])];hit.issns=[...new Set([...hit.issns,...r.issns])];
+      hit.keywords=[...new Set([...hit.keywords,...r.keywords])];
+      hit.inferredSubjects=PaperSubjects.valid([...hit.inferredSubjects,...r.inferredSubjects]);
+      if(hit.assignedSubjects===null&&r.assignedSubjects!==null)hit.assignedSubjects=r.assignedSubjects;
       if(!hit.openUrl && r.openUrl){hit.openUrl=r.openUrl;hit.accessSource=r.accessSource;}
       for(const field of ['doi','journal','year','authors','publisherUrl','recordUrl','topic','evidence']) if(!hit[field])hit[field]=r[field];
       if(!hit.authorList?.length&&r.authorList?.length)hit.authorList=r.authorList;
@@ -87,7 +93,10 @@ const Atlas = (() => {
       const pick=(...ks)=>ks.map(k=>fields[k]?.[0]).find(Boolean)||'';
       const type=pick('TY'),title=pick('TI','T1'),id=doi(pick('DO'))||doi(pick('UR'));
       if(['JOUR','EJOUR'].includes(type)&&title){
-        records.push(clean({title,doi:id,authors:(fields.AU||fields.A1||[]).join('; '),authorList:fields.AU||fields.A1||[],journal:pick('JO','JF','T2','JA'),year:parseInt(pick('PY','Y1','DA'),10),issns:fields.SN||[],source:'Imported RIS',recordUrl:pick('UR')}));
+        const savedNote=(fields.N1||[]).find(s=>s.startsWith('Field Atlas manual subjects: '));
+        let assignedSubjects=null;
+        if(savedNote){try{const value=JSON.parse(savedNote.slice('Field Atlas manual subjects: '.length));if(Array.isArray(value))assignedSubjects=PaperSubjects.valid(value);}catch{/* Ignore an invalid optional note. */}}
+        records.push(clean({title,doi:id,keywords:fields.KW||[],assignedSubjects,authors:(fields.AU||fields.A1||[]).join('; '),authorList:fields.AU||fields.A1||[],journal:pick('JO','JF','T2','JA'),year:parseInt(pick('PY','Y1','DA'),10),issns:fields.SN||[],source:'Imported RIS',recordUrl:pick('UR')}));
       }else skipped++;
       fields={};last='';
     }
@@ -101,6 +110,9 @@ const Atlas = (() => {
     return records.map(r=>{
       const fields=[['TY','JOUR'],['TI',r.title],['JO',r.journal],['PY',r.year],['DO',r.doi],['UR',r.publisherUrl||r.recordUrl]];
       for(const id of r.issns) fields.push(['SN',id]);
+      const subjects=PaperSubjects.effective(r);
+      for(const word of new Set([...(r.keywords||[]),...PaperSubjects.compact(subjects).map(id=>PaperSubjects.topics.get(id).label)]))fields.push(['KW',word]);
+      if(Array.isArray(r.assignedSubjects))fields.push(['N1','Field Atlas manual subjects: '+JSON.stringify(r.assignedSubjects)]);
       if(r.authorList?.length)for(const person of r.authorList)fields.push(['AU',person]);
       else if(r.authors)fields.push(['N1','Authors as displayed: '+r.authors]);
       if(r.openUrl)fields.push(['L2',r.openUrl]);

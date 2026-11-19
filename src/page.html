@@ -6,10 +6,12 @@
 <section id="discovery" aria-labelledby="mainTitle">
 <div class="banner"><canvas id="terrain" aria-hidden="true"></canvas><div class="heroText"><div class="kicker"><span></span> RESEARCH EXPLORER</div><h1 id="mainTitle">Geospatial literature</h1><p>Search journal articles across Earth science, geography, public health and GeoAI.</p></div>
 <form id="searchForm" role="search"><span class="glass" aria-hidden="true"></span><input id="query" type="search" required maxlength="320" aria-label="Search papers by topic, journal ISSN or DOI" placeholder="Search a topic, journal ISSN or DOI" autocomplete="off"><button class="primary" type="submit">Search indexes</button></form></div>
-<div class="topicrow"><span class="smalllabel">Explore a topic</span><div id="topics"></div></div>
+<div class="topicrow topicBrowse"><label for="browseSubject">Explore a subject</label><select id="browseSubject"></select><button class="pill" id="findSubject" type="button">Search this subject</button></div>
 </section>
 <section id="resultView"><div class="workspace">
 <aside aria-label="Search filters"><div class="between"><h2>Filters</h2><button class="textBtn" id="reset">Reset</button></div>
+<div class="subjectFilter"><label for="subjectFilter">Paper subjects</label><select id="subjectFilter"></select><div id="subjectChips" aria-label="Selected subject filters"></div>
+<div id="subjectModeBox" hidden><label for="subjectMode">Match selected subjects</label><select id="subjectMode"><option value="any">Any selected subject</option><option value="all">All selected subjects</option></select></div></div>
 <label for="access">Paper access</label><select id="access"><option value="">Any access</option><option value="open">Free full text located</option><option value="unknown">No free link located</option></select>
 <label for="quartile">Journal quartile</label><select id="quartile"><option value="">All quartiles</option><option>Q1</option><option>Q2</option><option>Q3</option><option>Q4</option><option value="unknown">Unknown</option></select>
 <label for="rankYear">Ranking year</label><select id="rankYear"></select>
@@ -33,6 +35,8 @@
 <div class="directoryHeading" id="directoryHead"><div><div class="kicker dark">DISCOVERY ROUTES</div><h2>Search other sources</h2></div><label>Show <select id="dirFilter"><option value="">All groups</option></select></label></div><label class="dirLabel" for="sourceQuery">Query for source portals and research apps</label><input id="sourceQuery" class="wideQuery" type="search" maxlength="320" placeholder="e.g. urban heat and public health in Bangladesh"><p id="sourceInfo" role="status"></p><div id="directory"></div>
 </section>
 </main>
+<dialog id="subjectDialog" aria-labelledby="editHeading"><form method="dialog"><h2 id="editHeading">Edit paper subjects</h2><p id="editTitle"></p><p>Choose every subject that applies. Saving adds this paper to your reading list in this browser.</p>
+<div id="editGroups"></div><div class="editActions"><button type="button" class="textBtn" id="autoSubjects">Use automatic labels</button><button value="cancel" class="outline">Cancel</button><button type="button" class="primary" id="applySubjects">Save subjects</button></div></form></dialog>
 <footer><div class="frame"><b>Field Atlas</b><span>Geospatial literature explorer</span></div></footer>
 <script id="atlas-runtime" type="application/json">{}</script><script>/*ATLAS_DATA*/</script><script>/*ATLAS_CORE*/</script><script>/*ATLAS_APIS*/</script><script>/*ATLAS_DIRECTORY*/</script><script>/*ATLAS_EXTRAS*/</script><script>/*ATLAS_UI*/</script>
 </body></html>
