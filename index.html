@@ -1,0 +1,1813 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>Field Atlas · Geospatial literature</title><style>:root{--ink:#172c2c;--teal:#155f55;--muted:#526968;--line:#d4dfdc;--mist:#eaf3ef;--paper:#fff;--font:"Inter","Segoe UI",Arial,sans-serif;--serif:"Instrument Serif",Georgia,"Times New Roman",serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f6f8f6;color:var(--ink);font:16px/1.48 var(--font)}button,input,select{font:inherit;color:inherit}button,a,label.filebtn,select{cursor:pointer}button{background:none;border:none}a{color:var(--teal);text-underline-offset:3px}button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #db8e2b;outline-offset:3px}[hidden]{display:none!important}.frame{max-width:1380px;margin:auto;padding:0 clamp(16px,4vw,64px)}.mast{border-bottom:1px solid var(--line);background:var(--paper)}.bar,.mast nav,.brand,.topicrow,.between,.paperhead,.resultsmeta,.directoryHeading,.actions,footer .frame{display:flex;align-items:center}.bar{justify-content:space-between;min-height:72px;gap:1rem}.brand{gap:.6rem;color:var(--ink);text-decoration:none;font:600 1.5rem var(--serif);letter-spacing:-.05em}.mark{border:1px solid #377b69;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:repeating-radial-gradient(ellipse at 35% 58%,#daeae0 0 2px,#759e87 3px,#daeae0 4px);color:#1a544d;font:23px Georgia}.mast nav{gap:6px}.mast nav button{padding:8px 14px;border-radius:6px;color:var(--muted);font-size:.94rem;font-weight:600}.mast nav button[aria-current=page]{color:var(--teal);background:var(--mist)}#savedCount{font-size:.8rem;margin-left:3px}.banner{position:relative;isolation:isolate;background:#103e3d;border-radius:16px;padding:clamp(24px,3.1vw,46px);overflow:hidden;margin-top:28px;color:white}.banner canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}.heroText{max-width:640px}.kicker,.smalllabel{text-transform:uppercase;letter-spacing:.13em;font-size:.78rem;font-weight:700}.kicker{display:flex;align-items:center;gap:10px;color:#a5d8c2}.kicker span{width:22px;height:2px;background:#b6d992}.kicker.dark{color:#4d7167}.banner h1,.pageHeading h1{font:normal clamp(2.45rem,5.2vw,4.7rem)/1.06 var(--serif);letter-spacing:-.055em;margin:.3rem 0 .65rem}.banner p,.pageHeading p{margin:0;max-width:610px;color:#e0eeea}.banner form{display:flex;align-items:center;gap:12px;padding:6px 6px 6px 16px;border-radius:9px;background:white;max-width:805px;margin-top:22px;color:var(--ink)}.glass{width:16px;height:16px;position:relative;border:2px solid #55716b;border-radius:50%;flex-shrink:0}.glass:after{content:"";width:7px;height:2px;position:absolute;background:#55716b;transform:rotate(45deg);bottom:-3px;right:-5px}.banner input{border:0;background:none;flex:1;min-width:0;padding:.65rem .3rem}.primary,.filebtn,.outline,.pill{font-weight:600;border-radius:6px;font-size:.9rem}.primary{background:#bce798;color:#143d2c;padding:.78rem 1.05rem}.primary:hover{background:#d1f5b1}.outline,.filebtn{padding:.5rem .8rem;border:1px solid #aabdb5;background:white;display:inline-flex;align-items:center}.outline:hover,.filebtn:hover,.pill:hover{background:#ecf5f0}.topicrow{align-items:baseline;gap:14px;flex-wrap:wrap;padding:18px 0 23px}.smalllabel{font-size:.73rem;color:var(--muted)}#topics{display:flex;gap:6px;flex-wrap:wrap}.pill{font-size:.86rem;padding:4px 10px;border:1px solid var(--line);background:white;border-radius:99px}.workspace{display:grid;grid-template-columns:232px minmax(0,1fr);gap:clamp(18px,3vw,44px);margin:0 0 50px}.workspace aside,.panel{background:white;padding:20px;border:1px solid var(--line);border-radius:10px}.workspace aside{align-self:start}.between,.paperhead,.resultsmeta,.directoryHeading{justify-content:space-between;gap:12px}.between h2,.panel h2{font-size:1.1rem;margin:0}.textBtn{color:var(--teal);font-weight:600;font-size:.88rem;padding:.3rem 0;text-decoration:underline;text-underline-offset:3px}.workspace aside label,.panel>label:not(.filebtn),details label{display:block;font-weight:600;font-size:.89rem;margin-top:14px;margin-bottom:5px}.workspace aside input,.workspace aside select,.panel input:not([type=file]),.sortlabel select,.directoryHeading select{width:100%;border:1px solid #bfcec7;border-radius:5px;padding:8px;background:white;font-size:.91rem}.yeargrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.manage{margin-top:16px}.papers{min-width:0}.paperhead{align-items:end}.paperhead h2,.directoryHeading h2{font:normal clamp(1.8rem,2.8vw,2.65rem)/1.12 var(--serif);letter-spacing:-.045em;margin:4px 0}.resultsmeta{font-size:.91rem;color:var(--muted);margin:10px 0 12px}.sortlabel{display:flex;align-items:center;gap:8px}.sortlabel select{padding:4px 6px;width:auto}.card{background:#fff;border:1px solid var(--line);border-radius:9px;padding:clamp(15px,2vw,23px);margin-bottom:9px}.cardTop,.cardBottom,.tags,.cardLinks{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.cardTop{justify-content:space-between;align-items:start}.cardTop .journal{font-size:.91rem;font-weight:650;letter-spacing:.005em;color:var(--teal)}.year{color:var(--muted);font-size:.87rem}.save{border:1px solid #c1ccc6;border-radius:5px;text-align:center;padding:3px 8px;color:var(--muted);font-size:.85rem;display:flex;gap:5px;align-items:center}.save[aria-pressed=true]{background:#dcefe5;color:#184e3c}.card h3{margin:8px 0 4px;font-size:clamp(1.07rem,1.7vw,1.33rem);line-height:1.32;letter-spacing:-.026em;max-width:950px}.authors{color:var(--muted);font-size:.91rem;margin:0 0 11px}.tag{font-size:.78rem;background:#f0f3f1;padding:3px 7px;border-radius:4px;color:#455b55}.tag.open{background:#e6f3df;color:#28592b}.tag.rank{background:#e8f1f2;color:#295663}.cardBottom{justify-content:space-between;align-items:end;margin-top:12px}.cardLinks{gap:14px}.cardLinks a,.cardLinks button,.cardBottom summary{font-size:.9rem;color:var(--teal);font-weight:600}.cardLinks button{text-decoration:underline;text-underline-offset:3px;padding:0}.cardBottom details{font-size:.86rem;color:var(--muted);width:100%}.cardBottom summary{cursor:pointer;color:var(--muted);font-weight:400}.provenance{margin:.45rem 0 0;overflow-wrap:anywhere}.actions{gap:18px;flex-wrap:wrap;margin-top:1rem}.notice,.statusBox,.empty{border:1px solid #ccdcd0;border-radius:6px;background:#edf5ed;padding:12px 14px;font-size:.91rem;margin:9px 0}.statusBox{background:#eff4f2}.empty{background:white;padding:24px}.empty h3{margin:0 0 6px}.empty p{margin:0}.statusBox summary,details summary{cursor:pointer}.statusBox ul{padding-left:20px;margin:8px 0 2px}.pageHeading{margin:34px 0 23px}.pageHeading h1{font-size:3.5rem}.pageHeading p,.panel p,.directoryText{color:var(--muted)}.settingsGrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.panel p,.panel details{font-size:.93rem}.panel .filebtn input{position:absolute;opacity:0;width:1px;height:1px}.filebtn:focus-within{outline:2px solid var(--teal)}.panel details{margin-top:10px}.panel input[type=checkbox]{accent-color:var(--teal);width:16px;height:16px}.toggle{display:inline-flex;align-items:center;gap:5px;margin:3px 12px 3px 0;font-size:.91rem}.directoryHeading{margin:30px 0 14px}.directoryHeading select{width:auto}.groupTitle{font-size:1.2rem;font-weight:650;margin:16px 0 8px}.sourceGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.sourceCard{background:white;border:1px solid var(--line);padding:16px;border-radius:7px}.sourceCard h3{font-size:1.05rem;margin:0 0 4px}.sourceCard p{font-size:.9rem;margin:8px 0}.sourceCard a{font-size:.88rem}.directoryHeading label{font-size:.88rem}.notice:empty{display:none}footer{border-top:1px solid var(--line);color:var(--muted);margin-top:50px}footer .frame{justify-content:space-between;min-height:66px;font-size:.84rem}footer b{font:600 1.15rem var(--serif)}.savedHead{margin-top:32px}
+@media(max-width:820px){.workspace{grid-template-columns:190px minmax(0,1fr);gap:14px}.workspace aside{padding:13px}.sourceGrid{grid-template-columns:1fr 1fr}.topicrow{gap:6px}.cardTop{gap:5px}.card h3{font-size:1.05rem}}
+@media(max-width:620px){.bar{min-height:57px;gap:4px}.brand{font-size:1.22rem;gap:6px}.mark{width:26px;height:26px}.mast nav{gap:0}.mast nav button{padding:6px 7px;font-size:.86rem}.banner{margin-top:16px;padding:20px 14px}.banner form{display:grid;grid-template-columns:16px minmax(0,1fr);gap:4px 9px;padding:7px 11px}.banner .primary{grid-column:1/-1}.banner input{font-size:16px}.workspace,.settingsGrid,.sourceGrid{grid-template-columns:1fr}.workspace aside{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:5px 10px}.workspace aside .between,.workspace aside .manage,.workspace aside .yeargrid{grid-column:1/-1}.workspace aside>label{align-self:center;margin:0}.workspace aside .manage{margin:4px 0 0;text-align:left}.paperhead h2{font-size:1.8rem}.directoryHeading{flex-wrap:wrap}.cardTop>div{flex:1}.heroText p{font-size:.95rem}.topicrow{padding-bottom:15px}.yeargrid label{margin-top:1px!important}.paperhead>.outline{white-space:nowrap}.sourceCard p{margin:5px 0}.sourceGrid{gap:6px}}
+.extraTools{margin-top:12px}.panel code{overflow-wrap:anywhere}
+.controlSub{font-size:.93rem;margin:12px 0 4px}.sourceActions{display:flex;gap:5px 12px;align-items:baseline;flex-wrap:wrap}.sourceActions button{font-size:.87rem}.panel select,.wideQuery,.panel textarea{font:inherit;padding:8px;border:1px solid #bfcec7;border-radius:5px;width:100%;background:white}.wideQuery{max-width:720px;display:block;margin:5px 0 14px}.dirLabel{font-weight:600}.panel textarea{resize:vertical;display:block;margin-bottom:10px}#importStatus{overflow-wrap:anywhere}#extendSearch{margin:0 0 12px}#providerToggles label:has(input:disabled){color:#586760}.panel .filebtn{margin-top:8px}
+</style></head>
+<body>
+<header class="mast"><div class="frame bar"><a class="brand" href="#explore" aria-label="Field Atlas home"><span class="mark" aria-hidden="true">◉</span> Field Atlas</a><nav aria-label="Main navigation"><button data-tab="explore" aria-current="page">Explore</button><button data-tab="sources">Sources</button><button data-tab="saved">Saved <span id="savedCount">0</span></button></nav></div></header>
+<main class="frame">
+<section id="discovery" aria-labelledby="mainTitle">
+<div class="banner"><canvas id="terrain" aria-hidden="true"></canvas><div class="heroText"><div class="kicker"><span></span> RESEARCH EXPLORER</div><h1 id="mainTitle">Geospatial literature</h1><p>Search journal articles across Earth science, geography, public health and GeoAI.</p></div>
+<form id="searchForm" role="search"><span class="glass" aria-hidden="true"></span><input id="query" type="search" required maxlength="320" aria-label="Search papers by topic, journal ISSN or DOI" placeholder="Search a topic, journal ISSN or DOI" autocomplete="off"><button class="primary" type="submit">Search indexes</button></form></div>
+<div class="topicrow"><span class="smalllabel">Explore a topic</span><div id="topics"></div></div>
+</section>
+<section id="resultView"><div class="workspace">
+<aside aria-label="Search filters"><div class="between"><h2>Filters</h2><button class="textBtn" id="reset">Reset</button></div>
+<label for="access">Paper access</label><select id="access"><option value="">Any access</option><option value="open">Free full text located</option><option value="unknown">No free link located</option></select>
+<label for="quartile">Journal quartile</label><select id="quartile"><option value="">All quartiles</option><option>Q1</option><option>Q2</option><option>Q3</option><option>Q4</option><option value="unknown">Unknown</option></select>
+<label for="rankYear">Ranking year</label><select id="rankYear"></select>
+<label for="rankSystem">Ranking system</label><select id="rankSystem"></select>
+<label for="category">Ranking category</label><select id="category"></select>
+<label for="journal">Journal</label><input id="journal" placeholder="Filter journal titles" type="search">
+<div class="yeargrid"><div><label for="fromYear">From year</label><input type="number" min="1000" max="2999" id="fromYear" placeholder="Any"></div><div><label for="toYear">To year</label><input type="number" min="1000" max="2999" id="toYear" placeholder="Any"></div></div>
+<button class="textBtn manage" data-tab="sources">Manage sources and rankings</button>
+</aside>
+<div class="papers"><div class="paperhead"><div><div class="kicker dark" id="resultKicker">EDITOR’S SELECTION</div><h2 id="resultsTitle">Starter collection</h2></div><button id="export" class="outline">Export RIS</button></div>
+<div class="resultsmeta"><span id="summary" role="status"></span><label class="sortlabel">Sort <select id="sort"><option value="relevance">Relevance</option><option value="new">Newest</option><option value="old">Oldest</option></select></label></div>
+<div id="runstate" aria-live="polite"></div><button id="extendSearch" class="textBtn" hidden>Continue this query in other sources</button><div id="papers"></div><div class="actions"><button id="more" class="outline" hidden>Load more from indexes</button><button id="starter" class="textBtn" hidden>Back to starter collection</button></div></div>
+</div></section>
+<section id="sourceView" hidden><div class="pageHeading"><div class="kicker dark">COVERAGE &amp; CONNECTIONS</div><h1>Sources</h1><p>Choose the indexes for live searches and bring in records from specialist databases.</p></div>
+<div class="settingsGrid"><section class="panel"><h2>Federated search</h2><p id="runtimeNote"></p><div id="providerToggles"></div><p>J-STAGE is opt-in. Its API has additional terms for commercial use. <a href="https://www.jstage.jst.go.jp/static/pages/JstageServices/TAB3/-char/en" target="_blank" rel="noopener">J-STAGE terms</a> · <a href="https://www.jstage.jst.go.jp/browse/-char/en" target="_blank" rel="noopener">Provided by JST · J-STAGE</a></p></section>
+<section class="panel"><h2>Journal rankings</h2><p id="rankDetail"></p><label class="filebtn">Import ranking CSV<input id="rankfile" type="file" accept=".csv,.txt"></label> <button id="csvTemplate" class="textBtn">CSV template</button><details><summary>Supported ranking formats</summary><p>Use columns <code>issn,year,system,category,quartile</code>. An optional <code>url</code> column links to the source. For a SCImago CSV, enter its edition year below. Category quartiles and best quartiles have separate labels. The selected edition applies to all papers.</p><label for="edition">SCImago export year</label><input id="edition" type="number" min="1900" max="2200" placeholder="e.g. 2025"></details></section>
+<section class="panel" id="importPanel"><h2>Import journal articles</h2><p>Import RIS, PubMed NBIB, CSL or Zotero JSON, publisher RSS/Atom, or OAI-PMH Dublin Core XML. Saved journal records also appear in matching searches.</p><label for="importSource">Citation source</label><select id="importSource"></select><label class="filebtn">Import citation file<input id="risfile" type="file" accept=".ris,.json,.nbib,.txt,.xml,.rss,.atom"></label><details><summary>Paste citations or a DOI list</summary><label for="citationPaste">Citation text or DOIs</label><textarea rows="4" id="citationPaste" placeholder="Paste the source export or one DOI per line"></textarea><button id="pasteImport" class="outline">Import citations</button> <button id="doiImport" class="outline">Look up DOIs</button></details><p id="importStatus" role="status"></p></section>
+<section class="panel"><h2>Find a free copy by DOI</h2><p>Add your email to enable an Unpaywall check on individual results. A check sends the DOI and email to Unpaywall. Your email stays in this tab until it closes.</p><label for="contact">Contact email for Unpaywall</label><input id="contact" type="email" placeholder="you@institution.org"></section></div>
+<div id="settingsMessage" role="status" class="notice" hidden></div>
+<div class="settingsGrid extraTools"><section class="panel"><h2>Run the full dashboard</h2><p>In the extracted ZIP, open <b>Start_Field_Atlas.cmd</b> on Windows or run <code>npm start</code> with Node.js 22 or newer. For GitHub Codespaces and Pages, follow <b>GITHUB.md</b> in the ZIP. API credentials belong in the local <code>.env</code> file or Codespaces secrets.</p></section><section class="panel"><h2>Search through n8n</h2><p>Download a manual workflow for the current topic. It requests up to 100 journal articles from Crossref and produces a RIS file you can import here.</p><button type="button" class="outline" id="flowDownload">Download n8n workflow</button></section></div>
+<div class="directoryHeading" id="directoryHead"><div><div class="kicker dark">DISCOVERY ROUTES</div><h2>Search other sources</h2></div><label>Show <select id="dirFilter"><option value="">All groups</option></select></label></div><label class="dirLabel" for="sourceQuery">Query for source portals and research apps</label><input id="sourceQuery" class="wideQuery" type="search" maxlength="320" placeholder="e.g. urban heat and public health in Bangladesh"><p id="sourceInfo" role="status"></p><div id="directory"></div>
+</section>
+</main>
+<footer><div class="frame"><b>Field Atlas</b><span>Geospatial literature explorer</span></div></footer>
+<script id="atlas-runtime" type="application/json">{}</script><script>const starterPapers = [{"title":"Geospatial analysis of urban heat Islands and heat vulnerability in Chattogram, Bangladesh: implications for public health risks","doi":"10.1007/s11869-026-01920-x","journal":"Air Quality, Atmosphere & Health","year":2026,"authors":"Mst Sanjida Alam","openUrl":"https://link.springer.com/article/10.1007/s11869-026-01920-x","evidence":"https://link.springer.com/article/10.1007/s11869-026-01920-x","topic":"Geospatial public health","accessSource":"Springer Nature · open access","source":"Curated references","issns":["1873-9326","1873-9318"]},{"title":"Harnessing Geospatial Artificial Intelligence (GeoAI) for Environmental Epidemiology: A Narrative Review","doi":"10.1007/s40572-025-00497-4","journal":"Current Environmental Health Reports","year":2025,"authors":"Hari S. Iyer et al.","openUrl":"https://link.springer.com/article/10.1007/s40572-025-00497-4","evidence":"https://link.springer.com/article/10.1007/s40572-025-00497-4","topic":"GeoAI & public health","accessSource":"Springer Nature · open access","source":"Curated references","issns":["2196-5412"]},{"title":"Remote sensing and GIS-driven landslide susceptibility mapping using machine learning for sustainable land management: a study from the Chittagong Hill Tracts of Bangladesh","doi":"10.1007/s43621-025-02084-x","journal":"Discover Sustainability","year":2025,"authors":"Mohammad Ismail Hossain et al.","openUrl":"https://link.springer.com/article/10.1007/s43621-025-02084-x","evidence":"https://link.springer.com/article/10.1007/s43621-025-02084-x","topic":"Machine learning & GIS","accessSource":"Springer Nature · open access","source":"Curated references","issns":["2662-9984"]},{"title":"Global seasonal urban, industrial, and background NO₂ estimated from TROPOMI satellite observations","doi":"10.5194/acp-25-575-2025","journal":"Atmospheric Chemistry and Physics","year":2025,"authors":"Vitali Fioletov et al.","openUrl":"https://acp.copernicus.org/articles/25/575/2025/","evidence":"https://acp.copernicus.org/articles/25/575/2025/","topic":"Atmospheric remote sensing","accessSource":"Copernicus Publications · open access","source":"Curated references","issns":["1680-7324","1680-7316"]},{"title":"Urban Monitoring from the Cloud: A Review of Google Earth Engine (GEE)-Based Approaches for Assessing Urban Environmental Indices","doi":"10.3390/geographies5040068","journal":"Geographies","year":2025,"authors":"Aikaterini Stamou and Efstratios Stylianidis","openUrl":"https://www.mdpi.com/2673-7086/5/4/68","evidence":"https://www.mdpi.com/2673-7086/5/4/68","topic":"Urban geography","accessSource":"MDPI · open access","source":"Curated references","issns":["2673-7086"]},{"title":"A Review of Google Earth Engine for Land Use and Land Cover Change Analysis: Trends, Applications, and Challenges","doi":"10.3390/ijgi14110416","journal":"ISPRS International Journal of Geo-Information","year":2025,"authors":"Bader Alshehri, Zhenyu Zhang and Xiaoye Liu","openUrl":"https://www.mdpi.com/2220-9964/14/11/416","evidence":"https://www.mdpi.com/2220-9964/14/11/416","topic":"Geospatial analysis","accessSource":"MDPI · open access","source":"Curated references","issns":["2220-9964"]},{"title":"Global Carbon Budget 2023","doi":"10.5194/essd-15-5301-2023","journal":"Earth System Science Data","year":2023,"authors":"Pierre Friedlingstein et al.","openUrl":"https://essd.copernicus.org/articles/15/5301/2023/index.html","evidence":"https://essd.copernicus.org/articles/15/5301/2023/index.html","topic":"Atmosphere & climate","accessSource":"Copernicus Publications · open access","source":"Curated references","issns":["1866-3516","1866-3508"]},{"title":"Dynamic World, Near real-time global 10 m land use land cover mapping","doi":"10.1038/s41597-022-01307-4","journal":"Scientific Data","year":2022,"authors":"Christopher F. Brown et al.","openUrl":"https://pmc.ncbi.nlm.nih.gov/articles/PMC9184477/","evidence":"https://pmc.ncbi.nlm.nih.gov/articles/PMC9184477/","topic":"Remote sensing & machine learning","accessSource":"PubMed Central · free full text","source":"Curated references","issns":["2052-4463"]},{"title":"Satellite imaging reveals increased proportion of population exposed to floods","doi":"10.1038/s41586-021-03695-w","journal":"Nature","year":2021,"authors":"B. Tellman et al.","openUrl":"","evidence":"https://pubmed.ncbi.nlm.nih.gov/34349288/","topic":"Flood exposure & remote sensing","accessSource":"Open copy unverified","source":"Curated references","issns":["0028-0836","1476-4687"]},{"title":"Global land use changes are four times greater than previously estimated","doi":"10.1038/s41467-021-22702-2","journal":"Nature Communications","year":2021,"authors":"Karina Winkler, Richard Fuchs, Mark Rounsevell and Martin Herold","openUrl":"https://www.nature.com/articles/s41467-021-22702-2","evidence":"https://www.nature.com/articles/s41467-021-22702-2","topic":"Human–environment interaction","accessSource":"Springer Nature · open access","source":"Curated references","issns":["2041-1723"]},{"title":"geemap: A Python package for interactive mapping with Google Earth Engine","doi":"10.21105/joss.02305","journal":"Journal of Open Source Software","year":2020,"authors":"Qiusheng Wu","openUrl":"https://joss.theoj.org/papers/10.21105/joss.02305","evidence":"https://joss.theoj.org/papers/10.21105/joss.02305","topic":"GIS & geospatial analysis","accessSource":"Open Journals · open access","source":"Curated references","issns":["2475-9066"]},{"title":"Disaggregating Census Data for Population Mapping Using Random Forests with Remotely-Sensed and Ancillary Data","doi":"10.1371/journal.pone.0107042","journal":"PLOS ONE","year":2015,"authors":"Forrest R. Stevens, Andrea E. Gaughan, Catherine Linard and Andrew J. Tatem","openUrl":"https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0107042","evidence":"https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0107042","topic":"Population geography & machine learning","accessSource":"PLOS · open access","source":"Curated references","issns":["1932-6203"]}];
+const builtinRanks = (() => {
+  const ranks = [];
+  function add(issns, id, category, values) {
+    for (const [year, quartile] of Object.entries(values)) {
+      ranks.push({issns:issns.split(','), system:'SJR', category, year:Number(year), quartile,
+        url:'https://www.scimagojr.com/journalsearch.php?q='+id+'&tip=sid'});
+    }
+  }
+  add('1680-7316,1680-7324','12091','Atmospheric Science',{2024:'Q1',2025:'Q1'});
+  add('2052-4463','21100451321','Information Systems',{2024:'Q1',2025:'Q1'});
+  add('0028-0836,1476-4687','21206','Multidisciplinary',{2025:'Q1'});
+  add('2471-1403','21100924773','Epidemiology',{2024:'Q1',2025:'Q1'});
+  add('2471-1403','21100924773','Global and Planetary Change',{2024:'Q2',2025:'Q1'});
+  add('2471-1403','21100924773','Public Health, Environmental and Occupational Health',{2024:'Q1',2025:'Q1'});
+  add('1361-1682,1467-9671','13178','Earth and Planetary Sciences (miscellaneous)',{2024:'Q2',2025:'Q2'});
+  add('1948-660X','21100332424','Computers in Earth Sciences',{2024:'Q3',2025:'Q3'});
+  add('1948-660X','21100332424','Information Systems',{2024:'Q3',2025:'Q3'});
+  add('1948-660X','21100332424','Geography, Planning and Development',{2024:'Q3',2025:'Q2'});
+  add('0102-7786,1982-4351','21100242263','Atmospheric Science',{2024:'Q4',2025:'Q4'});
+  add('1827-1987,1970-7096','12400154713','Geography, Planning and Development',{2024:'Q2',2025:'Q2'});
+  add('1827-1987,1970-7096','12400154713','Health Policy',{2024:'Q3',2025:'Q3'});
+  add('2366-3286,2366-3294','21101022415','Artificial Intelligence',{2024:'Q3',2025:'Q2'});
+  add('2366-3286,2366-3294','21101022415','Computers in Earth Sciences',{2024:'Q2',2025:'Q2'});
+  return ranks;
+})();
+</script><script>const Atlas = (() => {
+  function url(value) {
+    try { const u=new URL(value); return /^https?:$/.test(u.protocol) && !u.username && !u.password ? u.href : ''; } catch { return ''; }
+  }
+  function doi(value) {
+    const id=String(value||'').trim().replace(/^(?:https?:\/\/(?:dx\.)?doi\.org\/|doi:\s*)/i,'').toLowerCase();
+    return /^10\.\d{4,9}\/\S+$/.test(id) ? id : '';
+  }
+  function doiLink(id) { return doi(id) ? 'https://doi.org/'+doi(id).split('/').map(encodeURIComponent).join('/') : ''; }
+  function issns(values) {return [...new Set((Array.isArray(values)?values.join(' '):String(values||'')).toUpperCase().match(/\b\d{4}-?\d{3}[\dX]\b/g)||[])].map(v=>v.replace('-','')).map(v=>v.slice(0,4)+'-'+v.slice(4));}
+  function txt(value){return String(value||'').trim();}
+  function norm(value){return txt(value).normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu,' ').trim();}
+  function clean(r) {
+    const id=doi(r.doi), ids=issns(r.issns), authors=txt(r.authors);
+    return {...r,title:txt(r.title), doi:id, year:Number(r.year)||0, journal:txt(r.journal), authors, issns:ids,
+      openUrl:url(r.openUrl), publisherUrl:url(r.publisherUrl)||(r.publisherKnown===false?'':doiLink(id)), recordUrl:url(r.recordUrl)||url(r.evidence),
+      sources:[...new Set(r.sources||[r.source||'Imported RIS'])], accessSource:txt(r.accessSource)};
+  }
+  function fingerprint(r){return [norm(r.title),r.year,norm(r.journal)].join('|');}
+  function key(r){return r.doi ? 'doi:'+r.doi : 'meta:'+fingerprint(r);}
+  function mergeList(records) {
+    const byDoi=new Map(),byMeta=new Map(),merged=[];
+    for(const raw of records){
+      const r=clean(raw); if(!r.title) continue;
+      const fp=fingerprint(r), group=byMeta.get(fp)||[];
+      let hit=r.doi?byDoi.get(r.doi):null;
+      if(!hit && r.journal && r.year && group.length===1 && (!r.doi || !group[0].doi)) hit=group[0];
+      if(!hit){merged.push(r);group.push(r);byMeta.set(fp,group);if(r.doi)byDoi.set(r.doi,r);continue;}
+      hit.sources=[...new Set([...hit.sources,...r.sources])];hit.issns=[...new Set([...hit.issns,...r.issns])];
+      if(!hit.openUrl && r.openUrl){hit.openUrl=r.openUrl;hit.accessSource=r.accessSource;}
+      for(const field of ['doi','journal','year','authors','publisherUrl','recordUrl','topic','evidence']) if(!hit[field])hit[field]=r[field];
+      if(!hit.authorList?.length&&r.authorList?.length)hit.authorList=r.authorList;
+      if(hit.publisherUrl)hit.publisherKnown=true;
+      if(hit.doi)byDoi.set(hit.doi,hit);
+    }
+    return merged;
+  }
+  function csvRows(text) {
+    const data=text.replace(/^\uFEFF/,'');const head=data.split(/\r?\n/,1)[0], delimiter=head.includes(';')?';':',';
+    let row=[],val='',quote=false; const rows=[];
+    for(let i=0;i<data.length;i++){const c=data[i];
+      if(c==='"'){ if(quote && data[i+1]==='"'){val+='"';i++;}else quote=!quote; }
+      else if(c===delimiter&&!quote){row.push(val.trim());val='';}
+      else if((c==='\n'||c==='\r')&&!quote){if(c==='\r'&&data[i+1]==='\n')i++;row.push(val.trim());if(row.some(Boolean))rows.push(row);row=[];val='';}
+      else val+=c;
+    }
+    if(quote) throw Error('The CSV has an unclosed quoted field.');
+    row.push(val.trim());if(row.some(Boolean))rows.push(row);
+    return rows;
+  }
+  function readRankCsv(text,edition) {
+    const [headers,...rows]=csvRows(text); if(!headers)throw Error('The ranking file is empty.');
+    const names=headers.map(h=>h.toLowerCase());const scimago=names.includes('sjr best quartile');
+    const required=scimago?['issn','sjr best quartile']:['issn','year','system','category','quartile'];
+    if(required.some(h=>!names.includes(h)))throw Error('Missing ranking columns. Use the CSV template or an original SCImago export.');
+    if(scimago && !/^(19|20|21)\d{2}$/.test(edition))throw Error('Enter the year of the SCImago edition below the import button, then select the file again.');
+    const ranks=[];let skipped=0;
+    for(const row of rows){
+      const get=k=>row[names.indexOf(k)]||'';const ids=issns(get('issn')), year=Number(scimago?edition:get('year'));
+      if(!ids.length||year<1900||year>2199||!Number.isInteger(year)){skipped++;continue;}
+      const add=(system,category,q,link)=>{const quartile=q.toUpperCase();if(system&&category&&/^Q[1-4]$/.test(quartile)){ranks.push({issns:ids,year,system,category,quartile,url:url(link)});return true;}return false;};
+      const before=ranks.length;
+      if(scimago){
+        add('SJR','Best quartile (all categories)',get('sjr best quartile'),'');
+        for(const cat of get('categories').split(';')){const parts=cat.trim().match(/^(.+)\s+\((Q[1-4])\)$/i);if(parts)add('SJR',parts[1],parts[2],'');}
+      }else add(get('system'),get('category'),get('quartile'),get('url'));
+      if(ranks.length===before)skipped++;
+    }
+    if(!ranks.length)throw Error('No usable ISSN, year and quartile combinations were found.');
+    return {ranks,skipped};
+  }
+  function rankIndex(data){
+    const idx=new Map();for(const entry of data)for(const id of issns(entry.issns)){
+      if(!idx.has(id))idx.set(id,new Map());
+      idx.get(id).set([entry.year,entry.system,entry.category].join('|'),entry);
+    }
+    return idx;
+  }
+  function rankMatches(r,idx,year,system,category){
+    const entries=new Map();for(const id of r.issns)for(const [k,v] of (idx.get(id)||[]))if((!year||v.year===Number(year))&&(!system||v.system===system)&&(!category||v.category===category))entries.set(k,v);
+    return [...entries.values()];
+  }
+  function readRIS(text){
+    const records=[];let skipped=0,fields={},last='';
+    function flush(){
+      if(!fields.TY)return;
+      const pick=(...ks)=>ks.map(k=>fields[k]?.[0]).find(Boolean)||'';
+      const type=pick('TY'),title=pick('TI','T1'),id=doi(pick('DO'))||doi(pick('UR'));
+      if(['JOUR','EJOUR'].includes(type)&&title){
+        records.push(clean({title,doi:id,authors:(fields.AU||fields.A1||[]).join('; '),authorList:fields.AU||fields.A1||[],journal:pick('JO','JF','T2','JA'),year:parseInt(pick('PY','Y1','DA'),10),issns:fields.SN||[],source:'Imported RIS',recordUrl:pick('UR')}));
+      }else skipped++;
+      fields={};last='';
+    }
+    for(const line of text.replace(/^\uFEFF/,'').split(/\r?\n/)){
+      const m=line.match(/^([A-Z0-9]{2})\s{1,3}-\s?(.*)$/);
+      if(m){if(m[1]==='ER'){flush();continue;} if(m[1]==='TY'&&fields.TY)flush();last=m[1];(fields[last]??=[]).push(m[2].trim());}
+      else if(last&&line.trim())fields[last][fields[last].length-1]+=' '+line.trim();
+    }flush();return {records,skipped};
+  }
+  function ris(records) {
+    return records.map(r=>{
+      const fields=[['TY','JOUR'],['TI',r.title],['JO',r.journal],['PY',r.year],['DO',r.doi],['UR',r.publisherUrl||r.recordUrl]];
+      for(const id of r.issns) fields.push(['SN',id]);
+      if(r.authorList?.length)for(const person of r.authorList)fields.push(['AU',person]);
+      else if(r.authors)fields.push(['N1','Authors as displayed: '+r.authors]);
+      if(r.openUrl)fields.push(['L2',r.openUrl]);
+      fields.push(['N1','Sources: '+r.sources.join(', ')]);
+      return fields.filter(f=>f[1]).map(([k,v])=>k+'  - '+String(v).replace(/[\r\n]+/g,' ')).join('\r\n')+'\r\nER  - \r\n';
+    }).join('\r\n');
+  }
+  return {url,doi,doiLink,issns,norm,clean,key,mergeList,rankIndex,rankMatches,readRankCsv,readRIS,ris};
+})();
+
+// Citation files contain descriptive metadata. An imported URL can identify a
+// record without proving that it is the publisher's page or a free full text.
+const SourceImport = (() => {
+  'use strict';
+  const str = value => typeof value === 'string' ? value.trim() : '';
+  const list = v => Array.isArray(v) ? v : v == null ? [] : [v];
+  const first = v => list(v).map(str).find(Boolean) || '';
+  const year = v => Number(String(v ?? '').match(/(?:^|\D)((?:1[0-9]|20|21)\d{2})(?:\D|$)/)?.[1]) || 0;
+  const uniq = values => [...new Set(values.filter(Boolean))];
+  const safe = value => Atlas.url(str(value));
+
+  function doiValue(value) {
+    let v = str(value).replace(/^urn:doi:/i, '').replace(/^info:doi\//i, '');
+    if (/^https?:\/\/(?:dx\.)?doi\.org\//i.test(v)) {
+      try { v = decodeURIComponent(new URL(v).pathname.slice(1)); } catch { return ''; }
+    }
+    return Atlas.doi(v);
+  }
+  function extractDois(input) {
+    // Lists may use whitespace or commas between identifiers. Preserve commas,
+    // semicolons and balanced parentheses within DOI suffixes.
+    const text = String(input || '')
+      .replace(/(https?:\/\/(?:dx\.)?doi\.org\/10\.\d{4,9})%2f/gi,'$1/')
+      .replace(/[,;](?=(?:\s*)(?:https?:\/\/(?:dx\.)?doi\.org\/|doi:\s*|10\.\d{4,9}\/))/gi,' ');
+    const matches = text.match(/(?:https?:\/\/(?:dx\.)?doi\.org\/|doi:\s*)?10\.\d{4,9}\/[^\s<>"\u201c\u201d]+/gi) || [];
+    return uniq(matches.map(match => {
+      let s = match.replace(/[.,;:\u2019]+$/g, '');
+      for (const [open, close] of [['(',')'],['[',']'],['{','}']]) {
+        let balance = [...s].reduce((v,c)=>v+(c===open?1:c===close?-1:0),0);
+        while(balance<0 && s.endsWith(close)){s=s.slice(0,-1);balance++;}
+      }
+      return doiValue(s);
+    }));
+  }
+  function namedPerson(person) {
+    if (!person || typeof person !== 'object') return '';
+    return str(person.literal) || str(person.name) ||
+      [str(person.family || person.lastName),str(person.given || person.firstName)].filter(Boolean).join(', ');
+  }
+  function citation(raw, format, source) {
+    const names = uniq(list(raw.authorList).map(str)), label=str(source), id=doiValue(raw.doi);
+    return {
+      title:str(raw.title), journal:str(raw.journal), year:year(raw.year), doi:id, issns:Atlas.issns(raw.issns),
+      authors:names.join('; '), authorList:names, sources:uniq([label,...list(raw.catalogues).map(str),'Imported '+format]),
+      source:label || 'Imported '+format, publisherKnown:false, publisherUrl:'', openUrl:'', accessSource:'',
+      recordUrl:safe(raw.recordUrl) || Atlas.doiLink(id)
+    };
+  }
+  function collect(items, mapper) {
+    const records=[]; let skipped=0;
+    for(const item of items){const r=mapper(item); if(r?.title)records.push(r);else skipped++;}
+    return {records,skipped};
+  }
+  function jsonRecords(text, source) {
+    let root;
+    try {root=JSON.parse(text);}catch{throw Error('Invalid citation JSON. Export journal articles as CSL JSON or Zotero JSON.');}
+    const items=Array.isArray(root)?root:Array.isArray(root?.items)?root.items:root && (root.type||root.itemType||root.data?.itemType)?[root]:null;
+    if(!items)throw Error('This JSON does not contain a CSL or Zotero citation list.');
+    return collect(items, item=>{
+      const r=item?.data?.itemType?item.data:item;
+      if(r?.type==='article-journal')return citation({
+        title:first(r.title),journal:first(r['container-title']) || first(r['container-title-short']),
+        year:r.issued?.['date-parts']?.[0]?.[0] || r.issued?.literal || r.issued?.raw,
+        authorList:list(r.author).map(namedPerson),doi:r.DOI,issns:r.ISSN,recordUrl:r.URL
+      },'CSL JSON',source);
+      if(r?.itemType==='journalArticle')return citation({
+        title:r.title,journal:r.publicationTitle || r.journalAbbreviation,year:r.date,
+        authorList:list(r.creators).filter(c=>c?.creatorType==='author').map(namedPerson),
+        doi:r.DOI,issns:r.ISSN,recordUrl:r.url,catalogues:r.libraryCatalog
+      },'Zotero JSON',source);
+      return null;
+    });
+  }
+  function nbibRecords(text,source) {
+    const blocks=[];let fields={},key='';
+    function flush(){if(Object.keys(fields).length)blocks.push(fields);fields={};key='';}
+    for(const line of text.split(/\r?\n/)){
+      const m=line.match(/^([A-Z0-9]{2,4})\s*-\s?(.*)$/);
+      if(m){if(m[1]==='PMID'&&fields.PMID)flush();key=m[1];(fields[key]??=[]).push(m[2].trim());}
+      else if(/^\s{2,}\S/.test(line)&&key)fields[key][fields[key].length-1]+=' '+line.trim();
+    }
+    flush();
+    return collect(blocks,r=>{
+      const types=r.PT||[], journal=first(r.JT)||first(r.TA);
+      if(!journal||types.some(t=>/preprint|book chapter|conference abstract/i.test(t))||
+          !types.some(t=>/^(?:journal article|review|systematic review|meta-analysis|clinical trial(?:,.*)?|randomized controlled trial|case reports|comparative study|observational study|multicenter study|evaluation study)$/i.test(t)))return null;
+      const ids=[...(r.AID||[]),...(r.LID||[])];
+      const doi=ids.filter(v=>/\[doi\]$/i.test(v)).map(v=>doiValue(v.replace(/\s*\[doi\]$/i,''))).find(Boolean);
+      const pmid=first(r.PMID);
+      return citation({title:first(r.TI),journal,year:first(r.DP)||first(r.DEP),
+        authorList:[...(r.FAU||r.AU||[]),...(r.CN||[])],doi,issns:r.IS,
+        recordUrl:/^\d+$/.test(pmid)?'https://pubmed.ncbi.nlm.nih.gov/'+pmid+'/':''
+      },'PubMed NBIB',source);
+    });
+  }
+  const children=(el,tag)=>Array.from(el?.children||[]).filter(child=>child.localName.toLowerCase()===tag.toLowerCase());
+  const words=(el,tag)=>children(el,tag).map(n=>str(n.textContent)).filter(Boolean);
+  const word=(el,tag)=>first(words(el,tag));
+  function journalArticleType(t) {
+    return /^(?:journal[- ]article|article[- ]journal|scholarly[- ]article|zeitschriftenaufsatz|info:eu-repo\/semantics\/article|https?:\/\/purl\.org\/coar\/resource_type\/c_6501\/?|https?:\/\/(?:www\.)?schema\.org\/scholarlyarticle\/?)$/i.test(t);
+  }
+  function excludedType(t) {return /preprint|working paper|conference|dataset|book chapter|dissertation|posted[- ]content|news[- ]item|^news$|^blog post$/i.test(t);}
+  function oaiRecords(root,source) {
+    const xmlError=children(root,'error')[0];
+    if(xmlError)throw Error('OAI-PMH response: '+str(xmlError.textContent).slice(0,180));
+    const container=children(root,'ListRecords')[0]||children(root,'GetRecord')[0];
+    if(!container)throw Error('Use an OAI-PMH ListRecords or GetRecord XML response with oai_dc metadata.');
+    const result=collect(children(container,'record'), record=>{
+      const header=children(record,'header')[0];
+      const metadata=children(record,'metadata')[0],dc=children(metadata,'dc')[0];
+      if(header?.getAttribute('status')==='deleted'||!dc)return null;
+      const types=words(dc,'type'),src=[...words(dc,'source'),...words(dc,'isPartOf')];
+      if(types.some(excludedType))return null;
+      const identifiers=words(dc,'identifier');
+      const isoRelations=words(dc,'relation').filter(s=>/reference\/issn\/|^issn\s*:/i.test(s));
+      const issns=Atlas.issns([...src,...isoRelations]);
+      const outlet=src.find(s=>!safe(s)&&!/^urn:|^info:|^issn\b|\brepository\b|\barchive\b|^\d{4}-?\d{3}[\dX]\b/i.test(s));
+      const typed=types.some(journalArticleType);
+      // Generic "article" without a serial citation may be a deposited web item.
+      if(!outlet||(!typed&&!(types.some(t=>/^article$/i.test(t))&&(issns.length||/\bvol(?:ume)?\.?\s*\d|\bissue\s*\d/i.test(outlet))))) return null;
+      const doi=identifiers.map(doiValue).find(Boolean);
+      return citation({title:word(dc,'title'),journal:outlet.split(/\s*;\s*|\s+\bvol(?:ume)?\.?\s+(?=\d)/i)[0],year:word(dc,'issued')||word(dc,'date'),
+        authorList:words(dc,'creator'),issns,doi,recordUrl:identifiers.map(safe).find(Boolean)},'OAI-PMH',source);
+    });
+    if(word(container,'resumptionToken'))result.hasMore=true;
+    return result;
+  }
+  function feedRecords(root,source) {
+    const channel=children(root,'channel')[0]||root;
+    const records=[...children(channel,'item'),...children(root,'entry'),...(root.localName.toLowerCase()==='rdf'?children(root,'item'):[])];
+    return collect(records,entry=>{
+      const atomLink=children(entry,'link').find(l=>!l.getAttribute('rel')||l.getAttribute('rel')==='alternate');
+      const link=safe(atomLink?.getAttribute('href'))||safe(word(entry,'link'))||safe(word(entry,'url'));
+      const types=[...words(entry,'type'),...words(entry,'genre'),...words(entry,'category'),
+        ...children(entry,'category').map(e=>str(e.getAttribute('term')))];
+      if(types.some(excludedType))return null;
+      const doi=[...words(entry,'doi'),...words(entry,'identifier'),...words(entry,'guid'),...words(entry,'id'),link].map(doiValue).find(Boolean);
+      const issns=Atlas.issns([...words(entry,'issn'),...words(entry,'eIssn'),...words(channel,'issn'),...words(channel,'eIssn')]);
+      const serial=[...words(entry,'aggregationType'),...words(channel,'aggregationType')].some(s=>/^journal$/i.test(s));
+      const type=types.some(journalArticleType)||(serial&&types.some(t=>/^(?:article|research(?: article)?|review(?: article)?)$/i.test(t)));
+      const basedOn=children(entry,'source')[0];
+      const sourceTitle=word(basedOn,'title') || (basedOn && !basedOn.children.length ? str(basedOn.textContent) : '');
+      const journal=word(entry,'publicationName')||word(channel,'publicationName')||word(entry,'journalTitle')||
+        (type && sourceTitle && !safe(sourceTitle) ? sourceTitle : '')||
+        (type && (serial||issns.length) ? word(channel,'title') : '');
+      // DOI + journal container provides a second path for PRISM feeds that
+      // omit entry genre. An untyped DOI-less headline remains excluded.
+      if(!journal||(!type&&!(doi&&(serial||issns.length||word(entry,'publicationName')))))return null;
+      const authors=uniq([...words(entry,'creator'),...children(entry,'author').map(a=>word(a,'name')||str(a.textContent))]);
+      return citation({title:word(entry,'title'),journal,issns,doi,recordUrl:link,authorList:authors,
+        year:word(entry,'publicationDate')||word(entry,'pubDate')||word(entry,'published')||word(entry,'date')
+      },'publisher feed',source);
+    });
+  }
+  function xmlRecords(text,source){
+    if(/<!DOCTYPE\b|<!ENTITY\b/i.test(text))throw Error('Use an XML export without a document type or entity declaration.');
+    const doc=new DOMParser().parseFromString(text,'application/xml');
+    if(doc.getElementsByTagName('parsererror').length)throw Error('Invalid XML. Save the original feed or OAI-PMH XML response.');
+    const root=doc.documentElement,tag=root.localName.toLowerCase();
+    if(tag==='oai-pmh')return oaiRecords(root,source);
+    if(['rss','rdf','feed'].includes(tag))return feedRecords(root,source);
+    throw Error('Expected a publisher RSS/Atom feed or a Dublin Core OAI-PMH response.');
+  }
+  function parse(input,filename='',sourceLabel=''){
+    const text=String(input||'').replace(/^\uFEFF/,'').trim(), name=String(filename||'').toLowerCase();
+    if(!text)throw Error('The selected file is empty.');
+    if(name.endsWith('.json')||/^[\[{]/.test(text))return jsonRecords(text,sourceLabel);
+    if(text.startsWith('<')||/\.(xml|rss|atom)$/.test(name))return xmlRecords(text,sourceLabel);
+    if(name.endsWith('.nbib')||/^PMID\s*-/m.test(text))return nbibRecords(text,sourceLabel);
+    if(name.endsWith('.ris')||/^TY\s*-\s*\S/m.test(text)){
+      const parsed=Atlas.readRIS(text);
+      return {records:parsed.records.map(r=>citation(r,'RIS',sourceLabel)),skipped:parsed.skipped};
+    }
+    throw Error('Use RIS, CSL/Zotero JSON, PubMed NBIB, RSS/Atom XML, or OAI-PMH Dublin Core XML.');
+  }
+  return {parse,extractDois};
+})();
+</script><script>'use strict';
+const atlasRuntime=JSON.parse(document.getElementById('atlas-runtime')?.textContent||'{}');
+const atlasNextRequest=new Map();
+async function atlasFetch(input,signal){
+  const url=new URL(input);
+  const spacing={'api.crossref.org':500,'eutils.ncbi.nlm.nih.gov':375,'api.base-search.net':1050,'api.semanticscholar.org':1050};
+  const delay=spacing[url.hostname]||0;
+  if(delay){
+    const now=Date.now(),start=Math.max(now,atlasNextRequest.get(url.hostname)||0);
+    atlasNextRequest.set(url.hostname,start+delay);
+    if(start>now)await new Promise(resolve=>setTimeout(resolve,start-now));
+  }
+  if(signal?.aborted)throw signal.reason||new Error('Search cancelled.');
+  if(atlasRuntime.server)return fetch('/public-api?url='+encodeURIComponent(url.href),{signal,headers:{'X-Field-Atlas':'1'}});
+  return fetch(url,{signal});
+}
+
+// Keyless, read-only journal search. Each open link is tied to an article-level source.
+const baseAdapters = (() => {
+  "use strict";
+  const size = 20;
+  const epmcCursors = new Map();
+  const journalTypes = ["article", "review", "data-paper", "software-paper"];
+  const asArray = value => Array.isArray(value) ? value : [];
+  const text = value => typeof value === "string" ? value.trim() : "";
+  const plain = value => text(value).replace(/<\/?[\w:-]+(?:\s[^<>]*)?>/g, "").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/\s+/g, " ").trim();
+  function url(value) {
+    try {
+      const parsed = new URL(value);
+      return /^(http|https):$/.test(parsed.protocol) && !parsed.username && !parsed.password ? parsed.href : "";
+    } catch { return ""; }
+  }
+  function normalizeDoi(value) {
+    let identifier = text(value).replace(/^doi:\s*/i, "");
+    if (/^https?:\/\/(?:dx\.)?doi\.org\//i.test(identifier)) {
+      try { identifier = decodeURIComponent(new URL(identifier).pathname.slice(1)); }
+      catch { return ""; }
+    }
+    return /^10\.\d{4,9}\/\S+$/i.test(identifier) ? identifier.toLowerCase() : "";
+  }
+  function doiUrl(doi) {
+    return doi ? "https://doi.org/" + doi.split("/").map(encodeURIComponent).join("/") : "";
+  }
+  function issn(value) {
+    const found = text(value).match(/^(?:issn\s*:?\s*)?(\d{4})-?(\d{3}[\dX])$/i);
+    return found ? (found[1] + "-" + found[2]).toUpperCase() : "";
+  }
+  function record(source, fields) {
+    const doi = normalizeDoi(fields.doi);
+    const openUrl = url(fields.openUrl);
+    const authorList = asArray(fields.authorList).map(plain).filter(Boolean);
+    return {
+      title: plain(fields.title), doi, journal: plain(fields.journal), year: /^\d{4}$/.test(String(fields.year)) ? Number(fields.year) : null,
+      authors: plain(fields.authors) || authorList.join("; "), authorList, openUrl, accessSource: openUrl ? text(fields.accessSource) : "",
+      issns: [...new Set(asArray(fields.issns).map(issn).filter(Boolean))], source,
+      publisherUrl: url(fields.publisherUrl) || doiUrl(doi), recordUrl: url(fields.recordUrl)
+    };
+  }
+  async function get(base, params, signal) {
+    const target = new URL(base);
+    for (const [key, value] of Object.entries(params)) {
+      if (value !== undefined && value !== null && value !== "") target.searchParams.set(key, String(value));
+    }
+    const response = await atlasFetch(target,signal);
+    if (!response.ok) {
+      throw new Error(response.status === 429 ? "Rate limit reached. Try again later." : "Provider returned HTTP " + response.status + ".");
+    }
+    return response.json();
+  }
+  function pageResults(items, rawCount, page, total, cap = 10000) {
+    const seen = page * size;
+    return {items: items.filter(item => item.title), more: rawCount >= size && seen < total && seen + size <= cap};
+  }
+  function joinNames(names) { return names.map(text).filter(Boolean).join(", "); }
+  function quoteTerm(value) { return '"' + value.replace(/["\\]/g, char => "\\" + char) + '"'; }
+  function publishedLocation(location) {
+    if (!location || location.is_oa !== true || location.version === "submittedVersion") return false;
+    return location.source?.type === "journal" || location.version === "publishedVersion" || location.version === "acceptedVersion";
+  }
+  function preprintUrl(value) {
+    const href = url(value);
+    if (!href) return true;
+    const host = new URL(href).hostname;
+    return /(?:^|\.)(?:arxiv\.org|biorxiv\.org|medrxiv\.org|researchsquare\.com|ssrn\.com|preprints\.org|eartharxiv\.org|egusphere\.net)$/.test(host);
+  }
+  function currentOpenPublisherLicence(licence) {
+    if (licence["content-version"] !== "vor" || !url(licence.URL)) return false;
+    const granted = new URL(licence.URL);
+    const effective = Date.parse(licence.start?.["date-time"] || "");
+    return granted.hostname === "creativecommons.org"
+      && /^\/(?:licenses\/by(?:-(?:nc|nd|sa))*\/\d\.\d|publicdomain\/(?:zero|mark)\/1\.0)\/?$/i.test(granted.pathname)
+      && Number.isFinite(effective) && effective <= Date.now();
+  }
+  async function crossref(query, page, signal) {
+    const serial = issn(query);
+    const exact = normalizeDoi(query);
+    const data = await get("https://api.crossref.org/works", {
+      "query.bibliographic": serial || exact ? undefined : query,
+      filter: "type:journal-article" + (serial ? ",issn:" + serial : "") + (exact ? ",doi:" + exact : ""),
+      rows: size, offset: (page - 1) * size,
+      select: "DOI,title,author,container-title,published,issued,ISSN,URL,license,type"
+    }, signal);
+    const rows = data.message.items;
+    const items = rows.filter(row => row.type === "journal-article").map(row => record("Crossref", {
+      title: row.title?.[0], doi: row.DOI, journal: row["container-title"]?.[0],
+      year: (row.published || row.issued)?.["date-parts"]?.[0]?.[0], issns: row.ISSN,
+      authors: joinNames(asArray(row.author).map(a => a.name || [a.given, a.family].filter(Boolean).join(" "))),
+      authorList: asArray(row.author).map(a => a.name || [a.family, a.given].filter(Boolean).join(", ")),
+      publisherUrl: row.URL,
+      openUrl: asArray(row.license).some(currentOpenPublisherLicence) ? doiUrl(normalizeDoi(row.DOI)) : "",
+      accessSource: "Crossref · publisher-deposited open licence for the published version",
+      recordUrl: row.DOI ? "https://api.crossref.org/works/" + encodeURIComponent(row.DOI) : ""
+      // Crossref full-text URL and licence fields may refer to machine mining or future rights.
+    }));
+    return pageResults(items, rows.length, page, data.message["total-results"]);
+  }
+  async function openalex(query, page, signal) {
+    const serial = issn(query);
+    const exact = normalizeDoi(query);
+    const result = await get("https://api.openalex.org/works", {
+      search: serial || exact ? undefined : query,
+      filter: "type:" + journalTypes.join("|") + ",primary_location.source.type:journal"
+        + (serial ? ",primary_location.source.issn:" + serial : "") + (exact ? ",doi:" + (exact.includes(",") ? quoteTerm(exact) : exact) : ""),
+      page, per_page: size,
+      select: "id,doi,title,type,publication_year,authorships,primary_location,best_oa_location,locations"
+    }, signal);
+    const rows = result.results;
+    const items = rows.filter(row => journalTypes.includes(row.type) && row.primary_location?.source?.type === "journal").map(row => {
+      const primary = row.primary_location;
+      const candidate = [row.best_oa_location, primary, ...asArray(row.locations)].filter(publishedLocation).map(loc => {
+        const href = [loc.landing_page_url, loc.pdf_url].find(link => !preprintUrl(link));
+        return href ? {href, loc} : null;
+      }).find(Boolean);
+      const version = candidate?.loc.version;
+      const evidence = version === "acceptedVersion" ? "accepted manuscript" : version === "publishedVersion" ? "published version" : "publisher copy";
+      return record("OpenAlex", {title: row.title, doi: row.doi, journal: primary.source.display_name,
+        year: row.publication_year, authors: joinNames(asArray(row.authorships).map(a => a.author?.display_name)),
+        authorList: asArray(row.authorships).map(a => a.author?.display_name),
+        issns: [primary.source.issn_l, ...asArray(primary.source.issn)], openUrl: candidate?.href,
+        accessSource: "OpenAlex · " + evidence, publisherUrl: primary.landing_page_url, recordUrl: row.id});
+    });
+    return pageResults(items, rows.length, page, result.meta.count);
+  }
+  async function europePmc(query, page, signal) {
+    const serial = issn(query);
+    const exact = normalizeDoi(query);
+    const terms = serial ? "ISSN:" + serial : exact ? "DOI:" + quoteTerm(exact) : "(" + query + ")";
+    const search = terms + ' AND (PUB_TYPE:"Journal Article" OR PUB_TYPE:"Review") NOT SRC:PPR';
+    let cursors = epmcCursors.get(search);
+    if (page === 1 || !cursors) {
+      if (epmcCursors.size >= 50) epmcCursors.delete(epmcCursors.keys().next().value);
+      cursors = new Map([[1, "*"]]);
+      epmcCursors.set(search, cursors);
+    }
+    const cursor = cursors.get(page);
+    if (!cursor) throw new Error("Repeat the search to resume Europe PMC paging.");
+    const result = await get("https://www.ebi.ac.uk/europepmc/webservices/rest/search", {
+      query: search, format: "json", resultType: "core", pageSize: size, cursorMark: cursor
+    }, signal);
+    const rows = result.resultList.result || [];
+    const items = rows.filter(row => row.source !== "PPR" && (row.journalInfo?.journal?.title || row.journalTitle)
+        && !(asArray(row.pubTypeList?.pubType).some(t => /^preprint$/i.test(t)))).map(row => {
+      const journal = row.journalInfo?.journal || {};
+      const links = asArray(row.fullTextUrlList?.fullTextUrl);
+      const free = links.filter(link => ["OA", "F", "U"].includes(link.availabilityCode) && !preprintUrl(link.url));
+      const article = free.find(link => /^html$/i.test(link.documentStyle)) || free[0];
+      const publisher = links.find(link => /^publisher$/i.test(text(link.site)) && /^html$/i.test(text(link.documentStyle)));
+      return record("Europe PMC", {title: row.title, doi: row.doi, journal: journal.title || row.journalTitle, year: row.pubYear || text(row.firstPublicationDate).slice(0,4),
+        authors: row.authorString, issns: [journal.issn, journal.essn], openUrl: article?.url,
+        authorList: asArray(row.authorList?.author).map(a => a.collectiveName || [a.lastName, a.firstName || a.initials].filter(Boolean).join(", ") || a.fullName),
+        accessSource: article?.availabilityCode === "OA" ? "Europe PMC · open access" : "Europe PMC · free to read",
+        publisherUrl: publisher?.url, recordUrl: row.id && row.source ? "https://europepmc.org/article/" + encodeURIComponent(row.source) + "/" + encodeURIComponent(row.id) : ""});
+    });
+    const more = Boolean(rows.length && result.nextCursorMark && result.nextCursorMark !== cursor && page * size < Number(result.hitCount));
+    if (more) cursors.set(page + 1, result.nextCursorMark);
+    return {items: items.filter(item => item.title), more};
+  }
+  async function doaj(query, page, signal) {
+    const serial = issn(query);
+    const exact = normalizeDoi(query);
+    // DOAJ documents article searches against its canonical index.issn.exact and index.doi.exact fields.
+    const term = serial ? "index.issn.exact:" + quoteTerm(serial) : exact ? "index.doi.exact:" + quoteTerm(exact) : query;
+    const result = await get("https://doaj.org/api/search/articles/" + encodeURIComponent(term), {page, pageSize: size}, signal);
+    const rows = result.results;
+    const items = rows.filter(row => row.bibjson?.journal?.title).map(row => {
+      const data = row.bibjson;
+      const identifiers = asArray(data.identifier);
+      const links = asArray(data.link).filter(link => link.type === "fulltext" && !preprintUrl(link.url));
+      const full = links.find(link => /^html$/i.test(text(link.content_type))) || links[0];
+      const doi = identifiers.find(entry => entry.type === "doi")?.id;
+      return record("DOAJ", {title: data.title, doi, journal: data.journal.title, year: data.year,
+        authors: joinNames(asArray(data.author).map(a => a.name)),
+        authorList: asArray(data.author).map(a => a.name),
+        issns: [...asArray(data.journal.issns), ...identifiers.filter(entry => /^(?:e|p)?issn$/i.test(entry.type)).map(entry => entry.id)],
+        openUrl: full?.url, accessSource: "DOAJ · article full text", publisherUrl: doiUrl(normalizeDoi(doi)),
+        recordUrl: row.id ? "https://doaj.org/article/" + encodeURIComponent(row.id) : ""});
+    });
+    return pageResults(items, rows.length, page, result.total, 1000);
+  }
+  async function openaire(query, page, signal) {
+    if (issn(query)) throw new Error("OpenAIRE has no documented journal ISSN filter. Use keywords here.");
+    const exact = normalizeDoi(query);
+    const result = await get("https://api.openaire.eu/graph/v4/research-products", {
+      search: exact ? undefined : query,
+      filter: "type:publication,instance_type:Article" + (exact ? ",ids.doi:" + exact : ""), page, page_size: size
+    }, signal);
+    const rows = result.results;
+    const items = rows.filter(row => row.container?.name && !row.container.conferencePlace && !row.container.conferenceDate).map(row => {
+      const instances = asArray(row.instances).filter(instance => /^article$/i.test(text(instance.type)));
+      const openInstance = instances.map(instance => {
+        const rights = instance.accessRight || {};
+        if (rights.code !== "c_abf2" && !/^(?:open|open access)$/i.test(text(rights.label))) return null;
+        const href = asArray(instance.urls).find(link => !preprintUrl(link));
+        return href ? {href, instance} : null;
+      }).find(Boolean);
+      const dois = asArray(row.pids).filter(id => id.scheme === "doi").map(id => normalizeDoi(id.value)).filter(Boolean);
+      const doi = exact && dois.includes(exact) ? exact : dois[0];
+      return record("OpenAIRE", {title: row.mainTitle, doi, journal: row.container.name, year: text(row.publicationDate).slice(0,4),
+        authors: joinNames(asArray(row.authors).map(a => a.fullName)), issns: [row.container.issnPrinted, row.container.issnOnline, row.container.issnLinking],
+        authorList: asArray(row.authors).map(a => [a.surname, a.name].filter(Boolean).join(", ") || a.fullName),
+        openUrl: openInstance?.href, accessSource: "OpenAIRE Graph · open article location",
+        recordUrl: row.id ? "https://explore.openaire.eu/search/result?id=" + encodeURIComponent(row.id) : ""});
+    });
+    return pageResults(items, rows.length, page, result.header.numFound);
+  }
+  function withIdentifiers(search) {
+    return async (query, page = 1, signal) => {
+      const doi = normalizeDoi(query);
+      if (doi && page > 1) return {items: [], more: false};
+      const result = await search(query, page, signal);
+      if (doi) return {items: result.items.filter(item => item.doi === doi), more: false};
+      const serial = issn(query);
+      if (serial) result.items = result.items.filter(item => item.issns.includes(serial));
+      return result;
+    };
+  }
+  return Object.fromEntries(Object.entries({"Crossref": crossref, "OpenAlex": openalex, "Europe PMC": europePmc, "DOAJ": doaj, "OpenAIRE": openaire})
+    .map(([name, search]) => [name, withIdentifiers(search)]));
+})();
+
+// Public journal discovery. Each provider supplies its own document type and access evidence.
+const publicAdapters = (() => {
+  'use strict';
+  const size = 20;
+  const empty = () => ({items: [], more: false});
+  const arr = value => Array.isArray(value) ? value : [];
+  const txt = value => typeof value === 'string' ? value.trim() : '';
+  const plain = value => txt(value).replace(/<\/?[\w:-]+(?:\s[^<>]*)?>/g,'').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim();
+  function queryIds(query) {
+    return {
+      doi: Atlas.doi(query),
+      serial: /^(?:ISSN\s*:?\s*)?\d{4}-?\d{3}[\dX]$/i.test(query.trim()) ? Atlas.issns(query)[0] : ''
+    };
+  }
+  function urlFor(base, params) {
+    const url = new URL(base);
+    for (const [name,value] of Object.entries(params)) if (value !== undefined && value !== '') url.searchParams.set(name,String(value));
+    return url.href;
+  }
+  async function response(base, params, signal, allow404=false) {
+    const res = await atlasFetch(urlFor(base,params),signal);
+    if (allow404 && res.status===404) return null;
+    if (!res.ok) {
+      if (res.status===429) throw Error('Rate limit reached. Try again later.');
+      if (res.status===401 || res.status===403) throw Error('Provider refused this request (HTTP '+res.status+'). Check access, optional keys and provider limits.');
+      throw Error('Provider returned HTTP '+res.status+'.');
+    }
+    return res;
+  }
+  function record(source,data) {
+    const authorList = arr(data.authorList).map(plain).filter(Boolean);
+    const doi = Atlas.doi(data.doi), openUrl = Atlas.url(data.openUrl);
+    return {...data,source,doi,title:plain(data.title),journal:plain(data.journal),year:Number(data.year)||0,
+      authorList,authors:authorList.join('; '),issns:Atlas.issns(data.issns),openUrl,
+      accessSource:openUrl?data.accessSource:'',publisherUrl:Atlas.url(data.publisherUrl)||(data.publisherKnown===false?'':Atlas.doiLink(doi)),
+      recordUrl:Atlas.url(data.recordUrl)};
+  }
+  function finish(items, ids, more) {
+    return {items:items.filter(r=>r.title && (!ids.doi||r.doi===ids.doi) && (!ids.serial||r.issns.includes(ids.serial))),more:!ids.doi && Boolean(more)};
+  }
+  function demandArray(value,name) {
+    if (!Array.isArray(value)) throw Error(name+' returned an unrecognized search response.');
+    return value;
+  }
+
+  // Entrez allows three anonymous requests/second. Space starts across repeat searches in this tab.
+  let ncbiNext = 0;
+  async function ncbi(service,params,signal) {
+    const delay=Math.max(0,ncbiNext-Date.now());
+    ncbiNext=Date.now()+delay+360;
+    if(delay) await new Promise(resolve=>setTimeout(resolve,delay));
+    if(signal?.aborted) throw signal.reason || Error('Request cancelled.');
+    const payload=await (await response('https://eutils.ncbi.nlm.nih.gov/entrez/eutils/'+service+'.fcgi',
+      {tool:'field_atlas_literature',retmode:'json',...params},signal)).json();
+    if(payload.error || payload.esearchresult?.ERROR) throw Error(String(payload.error || payload.esearchresult.ERROR));
+    return payload;
+  }
+  async function pubmed(query,page,signal) {
+    const ids=queryIds(query), start=(page-1)*size;
+    if(start>=9999) return empty();
+    const searchTerm=ids.doi?'"'+ids.doi.replace(/"/g,'')+'"[AID]':ids.serial?ids.serial+'[ISSN]':query;
+    const search=await ncbi('esearch',{db:'pubmed',term:'('+searchTerm+') AND ("Journal Article"[pt] OR Review[pt]) NOT Preprint[pt]',
+      sort:'relevance',retstart:start,retmax:Math.min(size,9999-start)},signal);
+    const idsPage=demandArray(search.esearchresult?.idlist,'PubMed');
+    if(!idsPage.length)return empty();
+    const result=(await ncbi('esummary',{db:'pubmed',id:idsPage.join(',')},signal)).result;
+    if(!result)throw Error('PubMed returned an unrecognized summary.');
+    const rows=idsPage.map(id=>result[id]).filter(row=>row && row.fulljournalname &&
+      arr(row.pubtype).some(t=>/^(journal article|review)$/i.test(t)) && !arr(row.pubtype).some(t=>/preprint/i.test(t)));
+    const getId=(row,type)=>arr(row.articleids).find(id=>id.idtype===type)?.value;
+    const pmcIds=[...new Set(rows.map(r=>String(getId(r,'pmc')||'')).filter(v=>/^PMC\d+$/i.test(v)).map(v=>v.slice(3)))];
+    let openIds=new Set();
+    if(pmcIds.length) {
+      // Some PMCID assignments are embargoed. Resolve live open-subset membership in one optional call.
+      try {
+        const registered=await ncbi('esearch',{db:'pmc',term:'('+pmcIds.map(id=>id+'[UID]').join(' OR ')+') AND open access[filter]',retmax:pmcIds.length},signal);
+        openIds=new Set(arr(registered.esearchresult?.idlist));
+      } catch(error) { if(signal?.aborted)throw error; }
+    }
+    const items=rows.map(row=>{
+      const pmc=String(getId(row,'pmc')||'');
+      return record('PubMed',{title:row.title,doi:getId(row,'doi'),journal:row.fulljournalname,issns:[row.issn,row.essn],
+        year:parseInt(row.pubdate||row.epubdate,10),authorList:arr(row.authors).map(a=>a.name),
+        openUrl:/^PMC\d+$/i.test(pmc)&&openIds.has(pmc.slice(3))?'https://pmc.ncbi.nlm.nih.gov/articles/'+pmc+'/':'',
+        accessSource:'PubMed Central · article confirmed in the open access subset',
+        recordUrl:'https://pubmed.ncbi.nlm.nih.gov/'+encodeURIComponent(row.uid)+'/'});
+    });
+    return finish(items,ids,start+idsPage.length<Math.min(Number(search.esearchresult.count),9999));
+  }
+
+  const s2Fields='title,authors,year,publicationTypes,publicationVenue,journal,externalIds,isOpenAccess,openAccessPdf,url';
+  async function semanticScholar(query,page,signal) {
+    const ids=queryIds(query),offset=(page-1)*size;
+    if(ids.serial)throw Error('Semantic Scholar has no supported exact ISSN search here. Use a topic or DOI.');
+    if(offset>=1000)return empty();
+    const base='https://api.semanticscholar.org/graph/v1/paper/';
+    const res=ids.doi?await response(base+'DOI:'+encodeURIComponent(ids.doi),{fields:s2Fields},signal,true):
+      await response(base+'search',{fields:s2Fields,query,publicationTypes:'JournalArticle',limit:size,offset},signal);
+    if(!res)return empty();
+    const data=await res.json(), rows=ids.doi?[data]:demandArray(data.data,'Semantic Scholar');
+    const items=rows.filter(r=>(arr(r.publicationTypes).includes('JournalArticle')||r.publicationVenue?.type==='journal') &&
+      !arr(r.publicationTypes).some(t=>/Conference|Preprint/i.test(t)) && r.publicationVenue?.type!=='conference').map(row=>{
+        const pdf=Atlas.url(row.openAccessPdf?.url);
+        const usePdf=row.isOpenAccess===true && pdf && !/(^|\.)(?:arxiv\.org|biorxiv\.org|medrxiv\.org|preprints\.org|ssrn\.com|researchsquare\.com|eartharxiv\.org)$/i.test(new URL(pdf).hostname);
+        return record('Semantic Scholar',{title:row.title,doi:row.externalIds?.DOI,year:row.year,journal:row.publicationVenue?.name||row.journal?.name,
+          issns:row.publicationVenue?.issn,authorList:arr(row.authors).map(a=>a.name),openUrl:usePdf?pdf:'',
+          accessSource:'Semantic Scholar · article-level open-access PDF',recordUrl:row.url});
+      });
+    return finish(items,ids,Boolean(data.next)&&data.next<1000);
+  }
+
+  function label(value) { return typeof value==='string'?value:txt(value?.text)||txt(value?.name)||txt(value?.description); }
+  async function usgs(query,page,signal) {
+    const ids=queryIds(query);
+    if(ids.serial)throw Error('USGS has no supported exact ISSN search here. Use a topic or DOI.');
+    const data=await (await response('https://pubs.usgs.gov/pubs-services/publication/',
+      {q:ids.doi?undefined:query,doi:ids.doi||undefined,subtypeName:'Journal Article',page_size:size,page_number:page,mimeType:'json'},signal)).json();
+    const rows=demandArray(data.records||data.results||data.items,'USGS');
+    const items=rows.filter(row=>/^journal article$/i.test(label(row.publicationSubtype)||label(row.publicationType))).map(row=>{
+      const rawAuthors=Array.isArray(row.contributors)?row.contributors:arr(row.contributors?.author||row.contributors?.authors);
+      const authors=rawAuthors.filter(a=>typeof a==='string'||!a.contributorType||/^authors?$/i.test(label(a.contributorType))).map(a=>{
+        if(typeof a==='string')return a;
+        const person=a.contributor||a;
+        return person.text||person.name||person.organization||[person.family||person.familyName,person.given||person.givenName].filter(Boolean).join(', ');
+      });
+      const manuscript=arr(row.links).find(l=>/accepted manuscript/i.test([label(l.type),label(l.linkType),l.description,l.text].join(' ')) &&
+        /^https:\/\/(?:[a-zA-Z0-9-]+\.)*usgs\.gov\//i.test(l.url));
+      return record('USGS Publications Warehouse',{title:row.title,doi:row.doi,journal:label(row.seriesTitle)||label(row.series),
+        year:row.publicationYear,authorList:authors,issns:[row.issn,row.seriesTitle?.printIssn,row.seriesTitle?.onlineIssn],openUrl:manuscript?.url,
+        accessSource:'USGS Publications Warehouse · agency-hosted accepted manuscript',
+        recordUrl:row.indexId?'https://pubs.usgs.gov/publication/'+encodeURIComponent(row.indexId):''});
+    });
+    const total=Number(data.recordCount??data.totalRecordCount??data.total);
+    return finish(items,ids,rows.length===size && (!Number.isFinite(total)||page*size<total));
+  }
+
+  const jstageBase='https://api.jstage.jst.go.jp/searchapi/do';
+  const stageJournals=new Map();
+  const elements=(xml,tag)=>Array.from(xml?.getElementsByTagNameNS('*',tag)||[]);
+  const value=(xml,tag)=>txt(elements(xml,tag)[0]?.textContent);
+  function languageGroup(entry,tag) {
+    const block=elements(entry,tag)[0];
+    return elements(block,'en').find(n=>txt(n.textContent))||elements(block,'ja').find(n=>txt(n.textContent));
+  }
+  async function stageXML(params,signal) {
+    const xml=new DOMParser().parseFromString(await (await response(jstageBase,params,signal)).text(),'application/xml');
+    if(elements(xml,'parsererror').length)throw Error('J-STAGE returned unreadable XML.');
+    const err=value(xml,'errcd')||value(xml,'error_code')||String(xml.documentElement?.textContent||'').match(/\b(?:SYS_)?ERR_\d{3}\b/)?.[0];
+    if(err && err!=='ERR_001')throw Error('J-STAGE service message '+err+'.');
+    return xml;
+  }
+  async function jstage(query,page,signal) {
+    const ids=queryIds(query), batch=6,start=(page-1)*batch+1;
+    if(ids.doi)throw Error('J-STAGE article search has no exact DOI parameter. Use a topic or journal ISSN.');
+    const xml=await stageXML({service:3,issn:ids.serial||undefined,article:ids.serial?undefined:query,start,count:batch},signal);
+    const rows=elements(xml,'entry'),total=Number(value(xml,'totalResults')),items=[];
+    for(const entry of rows){
+      const code=value(entry,'cdjournal');
+      if(!code)continue;
+      if(!stageJournals.has(code)){
+        // The article feed also includes proceedings. Service 1 supports an exact journal-code and journal-type restriction.
+        const catalog=await stageXML({service:1,cdjournal:code,pubtype:100},signal);
+        const journal=elements(catalog,'entry').some(e=>value(e,'cdjournal')===code);
+        if(stageJournals.size>=2000)stageJournals.clear();
+        stageJournals.set(code,journal);
+      }
+      if(!stageJournals.get(code))continue;
+      const articleURL=txt(languageGroup(entry,'article_link')?.textContent);
+      items.push(record('J-STAGE',{title:txt(languageGroup(entry,'article_title')?.textContent),journal:txt(languageGroup(entry,'material_title')?.textContent),
+        year:value(entry,'pubyear'),doi:value(entry,'doi'),issns:[value(entry,'issn'),value(entry,'eIssn')],
+        authorList:elements(languageGroup(entry,'author'),'name').map(n=>n.textContent),publisherUrl:articleURL,recordUrl:articleURL}));
+    }
+    return finish(items,ids,start-1+rows.length<total && rows.length>0);
+  }
+
+  function dcLiteral(value) { return '"'+String(value).replace(/["\\]/g,'\\$&')+'"'; }
+  async function datacite(query,page,signal) {
+    const ids=queryIds(query);
+    const serial=dcLiteral(ids.serial);
+    const term=ids.doi?'doi:'+dcLiteral(ids.doi):ids.serial?'(relatedIdentifiers.relatedIdentifier:'+serial+' OR container.identifier:'+serial+' OR relatedItems.relatedItemIdentifier.relatedItemIdentifier:'+serial+')':
+      query.trim().split(/\s+/).map(dcLiteral).join(' AND ');
+    const res=await response('https://api.datacite.org/dois',{
+      query:'types.resourceTypeGeneral:JournalArticle AND ('+term+')','page[size]':size,'page[number]':page},signal);
+    const data=await res.json(),rows=demandArray(data.data,'DataCite');
+    const items=rows.map(row=>row.attributes).filter(a=>a?.types?.resourceTypeGeneral==='JournalArticle').map(a=>{
+      const parent=arr(a.relatedItems).find(i=>i.relationType==='IsPublishedIn' && i.relatedItemType==='Journal');
+      const identifiers=arr(a.relatedIdentifiers).filter(r=>/^(IsPartOf|IsPublishedIn)$/.test(r.relationType)&&r.relatedIdentifierType==='ISSN').map(r=>r.relatedIdentifier);
+      const serials=[...identifiers,a.container?.identifierType==='ISSN'?a.container.identifier:'',parent?.relatedItemIdentifier?.relatedItemIdentifierType==='ISSN'?parent.relatedItemIdentifier.relatedItemIdentifier:''];
+      const explicitOpen=arr(a.rightsList).some(r=>/^(?:info:eu-repo\/semantics\/openAccess|https?:\/\/purl\.org\/coar\/access_right\/c_abf2)\/?$/i.test(r.rightsUri||r.rights||''));
+      const candidate=arr(a.contentUrl).find(u=>Atlas.url(u)&&/\.pdf(?:$|[?#])/i.test(u));
+      return record('DataCite',{title:arr(a.titles).find(t=>!t.titleType)?.title||a.titles?.[0]?.title,
+        doi:a.doi,year:a.publicationYear,journal:parent?.titles?.[0]?.title||a.container?.title,
+        authorList:arr(a.creators).map(c=>c.name||[c.familyName,c.givenName].filter(Boolean).join(', ')),issns:serials,
+        openUrl:explicitOpen?candidate:'',accessSource:'DataCite · depositor-reported open access and linked PDF',
+        publisherKnown:false,recordUrl:Atlas.url(a.url)||Atlas.doiLink(a.doi)});
+    });
+    return finish(items,ids,Boolean(data.links?.next) && rows.length>0 && page*size<10000);
+  }
+  return {PubMed:pubmed,'Semantic Scholar':semanticScholar,'USGS Publications Warehouse':usgs,'J-STAGE':jstage,DataCite:datacite};
+})();
+
+// The local service adds credentials on the provider request. This file contains no keys.
+const keyedAdapters = (() => {
+  'use strict';
+  const size = 20;
+  const list = value => value == null ? [] : Array.isArray(value) ? value : [value];
+  const str = value => typeof value === 'string' || typeof value === 'number' ? String(value).trim() : '';
+  const quoted = value => '"' + value.replace(/\\/g,'\\\\').replace(/"/g,'\\"') + '"';
+  function identify(q) {
+    const term = String(q).trim();
+    return {term, doi:Atlas.doi(term), issn:/^(?:issn\s*:?\s*)?\d{4}-?\d{3}[\dx]$/i.test(term) ? Atlas.issns(term)[0] : ''};
+  }
+  async function get(url,params,signal) {
+    const target = new URL(url);
+    for (const [k,v] of Object.entries(params)) target.searchParams.set(k,String(v));
+    const response = await atlasFetch(target.href,signal);
+    if (!response.ok) {
+      if ([401,403].includes(response.status)) throw Error('Provider denied access. Check the server credential and subscription permissions.');
+      if (response.status===429) throw Error('Provider rate limit reached. Retry later.');
+      throw Error('Provider returned HTTP '+response.status+'.');
+    }
+    return response.json();
+  }
+  function hits(rows,total,page,id,source,convert,limit=size) {
+    if (!Array.isArray(rows)) throw Error('Unexpected '+source+' response format.');
+    const items=[];
+    for (const row of rows) {
+      const r=convert(row);
+      if (!r || !r.title || !r.journal) continue;
+      r.doi=Atlas.doi(r.doi); r.issns=Atlas.issns(r.issns);
+      if ((id.doi && id.doi!==r.doi) || (id.issn && !r.issns.includes(id.issn))) continue;
+      r.source=r.source||source;
+      r.authorList=list(r.authorList).map(str).filter(Boolean);
+      r.authors=r.authors||r.authorList.join('; ');
+      items.push(r);
+    }
+    return {items,more:!id.doi && rows.length===limit && (Number.isFinite(Number(total)) ? page*limit<Number(total) : true)};
+  }
+  async function ads(q,page,signal) {
+    const id=identify(q);
+    const query=id.doi?'doi:'+quoted(id.doi):id.issn?'issn:'+quoted(id.issn):id.term;
+    const data=await get('https://api.adsabs.harvard.edu/v1/search/query',{
+      q:query,fq:'doctype:article',fl:'bibcode,title,author,pub,year,doi,issn,doctype,property',
+      rows:size,start:(page-1)*size
+    },signal);
+    return hits(data.response?.docs,data.response?.numFound,page,id,'NASA SciX / ADS',row=>{
+      if (row.doctype!=='article') return;
+      const doi=list(row.doi).map(Atlas.doi).find(d=>id.doi?d===id.doi:!!d);
+      const publisher=Atlas.doiLink(doi);
+      const publisherOpen=list(row.property).some(p=>/^pub_?openaccess$/i.test(p));
+      return {title:str(list(row.title)[0]),journal:str(row.pub),year:row.year,doi,issns:row.issn,
+        authorList:row.author,publisherUrl:publisher,
+        recordUrl:row.bibcode?'https://scixplorer.org/abs/'+encodeURIComponent(row.bibcode)+'/abstract':'',
+        openUrl:publisherOpen?publisher:'',accessSource:publisherOpen?'NASA SciX · publisher marks article open':''};
+    });
+  }
+  async function ieee(q,page,signal) {
+    const id=identify(q);
+    const params=id.doi?{doi:id.doi}:id.issn?{issn:id.issn}:{querytext:id.term};
+    const data=await get('https://ieeexploreapi.ieee.org/api/v1/search/articles',{
+      ...params,content_type:'Journals',format:'json',max_records:size,start_record:(page-1)*size+1
+    },signal);
+    const rows=data.articles ?? (Number(data.total_records ?? data.totalfound)===0?[]:undefined);
+    return hits(rows,data.total_records??data.totalfound,page,id,'IEEE Xplore',row=>{
+      if (!/^journals?$/i.test(str(row.content_type))) return;
+      const pageUrl=Atlas.url(row.abstract_url)||(/^\d+$/.test(str(row.article_number))?'https://ieeexplore.ieee.org/document/'+row.article_number:'')||Atlas.doiLink(row.doi);
+      const free=/^(open[ _]access|ephemera)$/i.test(str(row.accessType));
+      return {title:str(row.title),journal:str(row.publication_title),year:row.publication_year,doi:row.doi,
+        issns:[row.issn,row.eissn],authorList:list(row.authors?.authors ?? row.authors).map(a=>a.full_name||a.name),
+        publisherUrl:pageUrl,recordUrl:pageUrl,openUrl:free?(Atlas.url(row.html_url)||pageUrl):'',
+        accessSource:free?'IEEE Xplore · '+row.accessType:''};
+    });
+  }
+  async function scopus(q,page,signal) {
+    const id=identify(q);
+    const terms=id.doi?'DOI('+quoted(id.doi)+')':id.issn?'ISSN('+id.issn.replace('-','')+')':'TITLE-ABS-KEY('+id.term+')';
+    const data=await get('https://api.elsevier.com/content/search/scopus',{
+      query:terms+' AND SRCTYPE(j) AND (DOCTYPE(ar) OR DOCTYPE(re))',
+      view:'STANDARD',count:size,start:(page-1)*size
+    },signal);
+    const res=data['search-results'];
+    return hits(res?.entry ?? (Number(res?.['opensearch:totalResults'])===0?[]:undefined),res?.['opensearch:totalResults'],page,id,'Scopus',row=>{
+      if (!/^journal$/i.test(str(row['prism:aggregationType'])) || !['ar','re'].includes(str(row.subtype))) return;
+      const providerRecord=list(row.link).find(l=>l['@ref']==='scopus')?.['@href'];
+      return {title:str(row['dc:title']),journal:str(row['prism:publicationName']),year:str(row['prism:coverDate']).slice(0,4),
+        doi:row['prism:doi'],issns:[row['prism:issn'],row['prism:eIssn']],authors:row['dc:creator'] ? str(row['dc:creator'])+' (first listed)' : '',
+        recordUrl:providerRecord};
+    });
+  }
+  async function wos(q,page,signal) {
+    const id=identify(q);
+    const terms=id.doi?'DO='+quoted(id.doi):id.issn?'IS='+id.issn:'TS=('+id.term+')';
+    const data=await get('https://api.clarivate.com/apis/wos-starter/v1/documents',{
+      db:'WOS',q:'('+terms+') AND (DT=Article OR DT=Review)',limit:size,page
+    },signal);
+    return hits(data.hits ?? (Number(data.metadata?.total)===0?[]:undefined),data.metadata?.total,page,id,'Web of Science Core Collection',row=>{
+      const types=[...list(row.sourceTypes),...list(row.types)];
+      if (!types.some(t=>/^(article|review)$/i.test(t)) || types.some(t=>/book|proceedings|conference/i.test(t))) return;
+      return {title:str(row.title),journal:str(row.source?.sourceTitle),year:row.source?.publishYear,
+        doi:row.identifiers?.doi,issns:[row.identifiers?.issn,row.identifiers?.eissn,row.identifiers?.eIssn],
+        authorList:list(row.names?.authors).map(a=>a.displayName||a.wosStandard),recordUrl:row.links?.record};
+    });
+  }
+  async function core(q,page,signal) {
+    const id=identify(q);
+    if (id.issn) throw Error('CORE journal-ISSN filtering is unavailable. Use a topic or DOI.');
+    const data=await get('https://api.core.ac.uk/v3/search/works/',{
+      q:id.doi?'doi:'+quoted(id.doi):id.term,limit:size,offset:(page-1)*size
+    },signal);
+    return hits(data.results,data.totalHits,page,id,'CORE',row=>{
+      const journal=list(row.journals).find(j=>str(j?.title)||str(j?.name));
+      if (!journal) return;
+      const kind=list(row.documentType?.type ?? row.documentType).map(str).join(' ');
+      if (/conference|thesis|dissertation|book|preprint|working paper|dataset|software/i.test(kind)) return;
+      const doi=Atlas.doi(row.doi);
+      const title=str(row.title);
+      // CORE merges repositories and versions. A CORE download may be a submitted manuscript;
+      // use a marked published/accepted copy only. DOI resolution by the merged indexes can find more.
+      const version=str(row.version);
+      const candidate=Atlas.url(row.downloadUrl);
+      const trusted=/^(?:publishedVersion|acceptedVersion|version of record|accepted manuscript|published version|accepted version)$/i.test(version);
+      const recordUrl=/^\d+$/.test(str(row.id))?'https://core.ac.uk/works/'+row.id:'';
+      return {title,doi,journal:str(journal.title||journal.name),year:row.yearPublished,
+        issns:list(journal.identifiers).map(i=>str(i)||str(i?.identifier)||str(i?.id)),authorList:list(row.authors).map(a=>a?.name||str(a)),
+        publisherKnown:false,recordUrl,openUrl:trusted?candidate:'',accessSource:trusted&&candidate?'CORE · '+version:''};
+    });
+  }
+  async function engineering(db,name,q,page,signal) {
+    const id=identify(q);
+    const term=id.doi?'('+id.doi+' WN DOI)':id.issn?'('+id.issn+' WN SN)':'('+id.term+')';
+    const data=await get('https://api.elsevier.com/content/ev/results',{
+      database:db,query:term+' AND ({ja} WN DT)',pageSize:size,offset:(page-1)*size
+    },signal);
+    const result=data.PAGE;
+    if (!result || !Number.isFinite(Number(result['RESULTS-COUNT']))) throw Error('Unexpected Engineering Village response format.');
+    const rows=list(result['PAGE-RESULTS']?.['PAGE-ENTRY']);
+    return hits(rows,result['RESULTS-COUNT'],page,id,name,row=>{
+      const doc=row['EI-DOCUMENT'];
+      const props=doc?.DOCUMENTPROPERTIES;
+      if (!props || !/\bjournal article\b|\(JA\)|^JA$/i.test(str(props.DT))) return;
+      const authors=list(doc.AUS?.AU).map(a=>a?.NAME||str(a));
+      return {title:str(props.TI),journal:str(props.SO),year:props.YR,doi:props.DO,
+        issns:[props.SN,props.E_ISSN],authorList:authors,source:name+' (Engineering Village)'};
+    });
+  }
+  return {'NASA SciX / ADS':ads,'IEEE Xplore':ieee,'CORE':core,'Scopus':scopus,'Web of Science Core Collection':wos,
+    'GEOBASE':(q,p,s)=>engineering('g','GEOBASE',q,p,s),'GeoRef':(q,p,s)=>engineering('f','GeoRef',q,p,s)};
+})();
+
+// Public RIS exports, Crossref prefix subsets and the registered BASE Search API.
+// Provider contracts:
+// https://github.com/scieloorg/search-journals/blob/master/iahx/views/search.php
+// https://github.com/scieloorg/search-journals/blob/master/iahx-sites/scieloorg/templates/custom/export-ris.html
+// https://www.globalindexmedicus.net/ and https://guides.lib.uw.edu/hsl/gim/results
+// https://www.crossref.org/documentation/retrieve-metadata/rest-api/rest-api-filters/
+// https://www.base-search.net/themes/base/data/download/base_interface.pdf (April 2026)
+const regionalAdapters = (() => {
+  'use strict';
+  const pageSize = 20;
+  const list = x => Array.isArray(x) ? x : x == null || x === '' ? [] : [x];
+  const clean = x => String(x || '').replace(/<\/?[\w:-]+(?:\s[^<>]*)?>/g,'').replace(/&amp;/g,'&').replace(/&quot;/g,'"').replace(/&#39;/g,"'").trim();
+  function url(value) {
+    try { const link = new URL(value); return ['https:','http:'].includes(link.protocol) && !link.username && !link.password ? link.href : ''; }
+    catch { return ''; }
+  }
+  function identifier(value) {
+    const text = String(value || '').trim();
+    const doi = text.replace(/^(?:https?:\/\/(?:dx\.)?doi\.org\/|doi:\s*)/i,'').toLowerCase();
+    const serial = text.match(/^(?:issn\s*:?\s*)?(\d{4})-?(\d{3}[\dX])$/i);
+    return {doi:/^10\.\d{4,9}\/\S+$/.test(doi) ? doi : '', issn: serial ? (serial[1]+'-'+serial[2]).toUpperCase() : ''};
+  }
+  function doiUrl(doi) {return doi ? 'https://doi.org/'+doi.split('/').map(encodeURIComponent).join('/') : '';}
+  async function fetchResponse(destination, params, signal) {
+    const link = new URL(destination);
+    for (const [key, value] of Object.entries(params)) if(value!==undefined) link.searchParams.set(key,value);
+    const response = await atlasFetch(link.href,signal);
+    if (!response.ok) throw Error(response.status===429 ? 'Rate limit reached. Try again later.' : 'Provider returned HTTP '+response.status+'. You can also open its search portal.');
+    return response;
+  }
+  function currentLicence(entry){
+    if(!entry || entry['content-version']!=='vor' || !url(entry.URL)) return false;
+    const link=new URL(entry.URL),start=Date.parse(entry.start?.['date-time']);
+    return Number.isFinite(start) && start<=Date.now() && link.hostname==='creativecommons.org' &&
+      /^\/(?:licenses\/by(?:-(?:sa|nc|nd))*\/\d\.\d|publicdomain\/(?:zero|mark)\/1\.0)\/?$/i.test(link.pathname);
+  }
+  function prefixSearch(source,prefix) {
+    return async (query,page,signal) => {
+      const {doi:exact,issn}=identifier(query);
+      if(exact && (!exact.startsWith(prefix+'/') || page>1)) return {items:[],more:false};
+      const filters=['type:journal-article','prefix:'+prefix];
+      if(issn)filters.push('issn:'+issn);
+      const params={filter:filters.join(','),'query.bibliographic':(!issn || exact) ? query : undefined,
+        rows:pageSize,offset:(page-1)*pageSize,select:'DOI,title,type,author,container-title,ISSN,issued,published,license,resource,URL'};
+      if(exact && !exact.includes(',')){params.filter+=',doi:'+exact;delete params['query.bibliographic'];}
+      const data=await (await fetchResponse('https://api.crossref.org/works',params,signal)).json();
+      if(!Array.isArray(data.message?.items))throw Error('Crossref returned an unrecognized response.');
+      const items=[];
+      for(const row of data.message.items){
+        const doi=identifier(row.DOI).doi,serials=list(row.ISSN).map(id=>identifier(id).issn).filter(Boolean);
+        if(row.type!=='journal-article' || !doi.startsWith(prefix+'/') || (exact && exact!==doi) || (issn && !serials.includes(issn))) continue;
+        const title=clean(row.title?.[0]),journal=clean(row['container-title']?.[0]);
+        if(!title || !journal)continue;
+        const authorList=list(row.author).map(a=>a.name || [a.family,a.given].filter(Boolean).join(', ')).filter(Boolean);
+        const publisherUrl=url(row.resource?.primary?.URL)||doiUrl(doi);
+        const free=list(row.license).some(currentLicence);
+        items.push({title,doi,journal,year:(row.published||row.issued)?.['date-parts']?.[0]?.[0],authors:authorList.join('; '),authorList,issns:serials,
+          publisherUrl,recordUrl:doiUrl(doi),source:source+' · Crossref '+prefix+' subset',
+          openUrl:free?publisherUrl:'',accessSource:free?'Crossref · published-version open licence':''});
+      }
+      return {items,more:!exact && data.message.items.length===pageSize && page*pageSize<Math.min(10000,data.message['total-results'])};
+    };
+  }
+  function readExport(ris){
+    if(/^\s*<(?:!doctype\s+html|html)\b/i.test(ris))throw Error('The provider returned a web page instead of RIS. Open its search portal to export records.');
+    if(ris.trim() && !/^TY\s{1,3}-/m.test(ris))throw Error('The provider returned an unrecognized citation export. Open its search portal.');
+    const records=[];let current=null,last='';
+    for(const line of ris.replace(/^\uFEFF/,'').split(/\r\n?|\n/)) {
+      const entry=line.match(/^([A-Z][A-Z0-9])\s{1,3}-\s?(.*)$/);
+      if(entry){
+        const [,tag,value]=entry;
+        if(tag==='TY')current={};
+        if(!current)continue;
+        if(tag==='ER'){records.push(current);current=null;last='';continue;}
+        (current[tag] ||= []).push(value.trim());last=tag;
+      } else if(current && last && line.trim()){
+        const values=current[last];values[values.length-1]+=' '+line.trim();
+      }
+    }
+    if(current)records.push(current);
+    return records;
+  }
+  function searchExport(source,endpoint,isScielo){
+    return async (query,page,signal)=>{
+      const {doi:exact,issn}=identifier(query);
+      if(exact && page>1)return {items:[],more:false};
+      const term=exact ? '"'+exact.replace(/["\\]/g,' ')+'"' : issn || query;
+      const response=await fetchResponse(endpoint,{q:term,lang:'en',output:'ris',count:pageSize,from:(page-1)*pageSize,page},signal);
+      const records=readExport(await response.text()),items=[];
+      for(const r of records){
+        if(!['JOUR','EJOUR'].includes(r.TY?.[0]))continue;
+        const title=clean((r.TI||r.T1)?.[0]),journal=clean((r.JO||r.JF||r.T2||r.JA)?.[0]);
+        const links=list(r.UR).map(v=>url(clean(v))).filter(Boolean);
+        const doi=[...list(r.DO),...links].map(v=>identifier(v).doi).find(Boolean)||'';
+        const serials=list(r.SN).map(v=>identifier(v).issn).filter(Boolean);
+        if(!title || !journal || (exact&&exact!==doi) || (issn&&!serials.includes(issn)))continue;
+        const authorList=(r.AU||r.A1||[]).map(clean).filter(Boolean);
+        // The official SciELO RIS template sets UR to sci_arttext and L1 to the available article PDFs.
+        const full=isScielo ? (links.find(v=>{const u=new URL(v);return u.searchParams.get('script')==='sci_arttext'&&u.searchParams.get('pid');})||list(r.L1).map(v=>url(clean(v))).find(Boolean)||'') : '';
+        const recordUrl=isScielo?(links[0]||doiUrl(doi)):(links.find(v=>new URL(v).hostname.endsWith('.bvsalud.org'))||links[0]||doiUrl(doi));
+        items.push({title,journal,doi,year:parseInt((r.PY||r.DA||r.Y1)?.[0],10),issns:serials,authorList,authors:authorList.join('; '),
+          source,recordUrl,publisherKnown:Boolean(doi||full),publisherUrl:doiUrl(doi)||(isScielo?full:''),
+          openUrl:full,accessSource:full?'SciELO · full text identified in article export':''});
+      }
+      return {items,more:!exact&&records.length===pageSize};
+    };
+  }
+  function escapeSolr(s){return s.replace(/([+\-!(){}\[\]^"~*?:\\/]|&&|\|\|)/g,'\\$1');}
+  async function baseSearch(query,page,signal){
+    const {doi:exact,issn}=identifier(query);
+    if(issn)throw Error('BASE has no documented journal ISSN search field. Use keywords or DOI.');
+    if((exact&&page>1)||(page-1)*pageSize>999)return {items:[],more:false};
+    const terms=exact?'dcdoi:"'+escapeSolr(exact)+'"':query.split(/\s+/).map(escapeSolr).join(' ');
+    const response=await fetchResponse('https://api.base-search.net/cgi-bin/BaseHttpSearchInterface.fcgi',{
+      func:'PerformSearch',query:'('+terms+') AND dctypenorm:121',format:'json',hits:pageSize,offset:(page-1)*pageSize,
+      fields:'dctitle,dctype,dctypenorm,dcyear,dccreator,dcdoi,dcoa,dclink,dcsource'
+    },signal);
+    const data=await response.json(),body=data.response;
+    if(!Array.isArray(body?.docs))throw Error('BASE search requires an approved key for non-commercial use. Check the server configuration or use the portal.');
+    const items=[];
+    for(const row of body.docs){
+      const types=list(row.dctype).map(v=>String(v).toLowerCase()),title=clean(row.dctitle);
+      // BASE code 121 includes newspaper contributions. Retain only explicit journal/scholarly article types.
+      const journalArticle=types.some(v=>/(journal[\s_-]*article|article[\s_-]*(?:de[\s_-]*revue|in[\s_-]*journal)|zeitschriftenartikel|info:eu-repo\/semantics\/article|purl\.org\/coar\/resource_type\/c_6501)/i.test(v));
+      if(!title || !list(row.dctypenorm).map(String).includes('121') || !journalArticle || types.some(v=>/preprint|conference|newspaper/.test(v)))continue;
+      const doi=list(row.dcdoi).map(v=>identifier(v).doi).find(s=>s&&(!exact||s===exact))||'';
+      if(exact && doi!==exact)continue;
+      const recordUrl=url(row.dclink),journal=clean(row.dcsource);
+      const open=recordUrl && Number(row.dcoa)===1 && !/arxiv\.org|researchsquare\.com|ssrn\.com/.test(new URL(recordUrl).hostname);
+      const authorList=list(row.dccreator).map(clean).filter(Boolean);
+      items.push({title,doi,year:row.dcyear,journal:url(journal)?'':journal,source:'BASE',issns:[],authorList,authors:authorList.join('; '),
+        recordUrl,publisherKnown:false,publisherUrl:'',openUrl:open?recordUrl:'',accessSource:open?'BASE · repository location marked open (version unspecified)':''});
+    }
+    return {items,more:!exact && body.docs.length===pageSize && page*pageSize<Math.min(Number(body.numFound),1000)};
+  }
+  const searches={'ACM Digital Library':prefixSearch('ACM Digital Library','10.1145'),
+    'BanglaJOL':prefixSearch('BanglaJOL','10.3329'),
+    'African Journals Online':prefixSearch('African Journals Online','10.4314'),
+    'SciELO':searchExport('SciELO','https://search.scielo.org/',true),
+    'WHO Global Index Medicus':searchExport('WHO Global Index Medicus','https://pesquisa.bvsalud.org/gim/',false),
+    'BASE':baseSearch};
+  return Object.defineProperty(searches,'forCrossrefPrefix',{value:prefixSearch});
+})();
+
+const portalRoutes={
+  'WHO Global Index Medicus':{kind:'query',url:'https://pesquisa.bvsalud.org/gim/?lang=en&q={q}',note:'Open the complete GIM search across the regional Indexes Medici. Journal records from its RIS exports can be imported.'},
+  'FAO AGRIS':{kind:'query',url:'https://agris.fao.org/search/en?query={q}',note:'Search FAO AGRIS and filter to journal articles. Its documented machine-access route is the AGRIS Open Dataset (AP/RDF downloads, CC BY 3.0 IGO). The download contains records from participating providers; this dashboard uses the web search for the wider catalog.'},
+  'SciELO':{kind:'query',url:'https://search.scielo.org/?lang=en&q={q}',note:'Search the SciELO journal network. The dashboard requests its native article RIS export.'},
+  'BanglaJOL':{kind:'query',url:'https://www.banglajol.info/index.php/index/search?query={q}',note:'The dashboard searches articles registered under the 10.3329 DOI prefix through Crossref. The portal also covers papers with other prefixes or no DOI.'},
+  'African Journals Online':{kind:'query',url:'https://www.ajol.info/index.php/ajol/search?query={q}',note:'The dashboard searches articles registered under the 10.4314 DOI prefix through Crossref. Search AJOL directly for the wider collection.'},
+  'ACM Digital Library':{kind:'query',url:'https://dl.acm.org/action/doSearch?AllField={q}',note:'The dashboard searches 10.1145 journal articles through Crossref. Search the ACM Digital Library directly for its full catalog.'},
+  'BASE':{kind:'query',url:'https://www.base-search.net/Search/Results?lookfor={q}&l=en',note:'Server search needs a BASE-approved key for non-commercial use and retains records explicitly identified as journal articles. The portal supports wider discovery.'},
+  'GeoRef':{kind:'copy',url:'https://information.americangeosciences.org/georef/',note:'Open the GeoRef provider available through your institution, paste the query, and export selected journal citations.'},
+  'GEOBASE':{kind:'copy',url:'https://www.engineeringvillage.com/',note:'Sign in to Engineering Village, select GEOBASE and paste the query. Import a permitted citation export.'},
+  'Google Scholar':{kind:'query',url:'https://scholar.google.com/scholar?q={q}',note:'Open the search in Google Scholar. Use Cite or Zotero to collect individual journal papers.'},
+  'IEEE Xplore':{kind:'query',url:'https://ieeexplore.ieee.org/search/searchresult.jsp?queryText={q}',note:'Search on IEEE Xplore and select journals in Content Type.'},
+  'PubMed':{kind:'query',url:'https://pubmed.ncbi.nlm.nih.gov/?term={q}',note:'Search in PubMed and apply the Journal Article publication type.'},
+  'Semantic Scholar':{kind:'query',url:'https://www.semanticscholar.org/search?q={q}',note:'Open the paper search and explore linked citations.'},
+  'CORE':{kind:'query',url:'https://core.ac.uk/search?q={q}',note:'Open the repository search and check the published article or manuscript version.'},
+  'Web of Science Core Collection':{kind:'copy',url:'https://www.webofscience.com/wos/woscc/basic-search',note:'Open an institutional Web of Science session and paste the query into the Core Collection search.'},
+  'Scopus':{kind:'copy',url:'https://www.scopus.com/search/form.uri?display=basic',note:'Open the Scopus document search with institutional access and paste your query.'},
+  'SciSpace':{kind:'copy',url:'https://scispace.com/',note:'Paste the query into SciSpace literature search. Import citations or resolve the returned publication DOIs.'},
+  'Consensus':{kind:'copy',url:'https://consensus.app/search/',note:'Paste a research question into Consensus and export the citations your account supports.'},
+  'Undermind':{kind:'copy',url:'https://www.undermind.ai/',note:'Paste your research question into an Undermind search and import the selected citations.'},
+  'Article Galaxy':{kind:'copy',url:'https://www.researchsolutions.com/',note:'Open your Article Galaxy account and paste the topic or DOI into literature search. Use the citation or publisher links.'}
+};
+
+// Consensus and the two OAuth research tools search mixed scholarly indexes.
+// Check their identifiers against the published journal record before display.
+const researchAdapters = (() => {
+  const pageSize=20;
+
+  async function fetchJson(url, signal, name) {
+    const response=await atlasFetch(url,signal);
+    if(!response.ok) {
+      if(response.status===429)throw Error(name+' rate limit reached. Try again later.');
+      if(response.status===403 && name==='Consensus')throw Error('Consensus access or pagination is restricted by this API plan.');
+      throw Error(name+' returned HTTP '+response.status+'.');
+    }
+    return response;
+  }
+  function serialQuery(q){return /^(?:ISSN\s*:?\s*)?\d{4}-?\d{3}[\dX]$/i.test(q.trim());}
+  async function confirmedJournals(candidates, signal) {
+    const verified=new Map(), titles=new Map(candidates.map(r=>[Atlas.doi(r.doi),r.title]).filter(([id])=>id));
+    const identifiers=[...titles.keys()].filter(id=>!id.includes(','));
+    async function find(params) {
+      const endpoint=new URL('https://api.crossref.org/works');
+      endpoint.search=new URLSearchParams({...params,select:'DOI,type,title,container-title,published,ISSN,author'});
+      const res=await fetchJson(endpoint,signal,'Crossref journal verification');
+      const payload=await res.json();
+      for(const row of payload.message?.items||[])if(row.type==='journal-article')verified.set(Atlas.doi(row.DOI),row);
+    }
+    if(identifiers.length)await find({filter:['type:journal-article',...identifiers.map(d=>'doi:'+d)].join(','),rows:String(identifiers.length)});
+    // A comma inside a DOI would split a Crossref filter. Look up the title, then require the same DOI below.
+    for(const [id,title] of titles)if(id.includes(',')&&title)await find({filter:'type:journal-article','query.bibliographic':title,rows:'5'});
+    return candidates.filter(r=>verified.has(Atlas.doi(r.doi))).map(candidate=>{
+      const doi=Atlas.doi(candidate.doi), publication=verified.get(doi);
+      const authorList=(publication.author||[]).map(a=>a.name||[a.family,a.given].filter(Boolean).join(', ')).filter(Boolean);
+      return {...candidate,doi,title:publication.title?.[0]?.replace(/<[^>]*>/g,'')||candidate.title,
+        journal:publication['container-title']?.[0]||candidate.journal,
+        year:publication.published?.['date-parts']?.[0]?.[0]||candidate.year,issns:publication.ISSN||candidate.issns||[],
+        authorList:authorList.length?authorList:(candidate.authorList||[]),
+        authors:authorList.length?authorList.join('; '):(candidate.authors||''),publisherUrl:Atlas.doiLink(doi),
+        sources:[candidate.source,'Crossref (journal verification)']};
+    });
+  }
+  async function consensus(q,page,signal) {
+    if(serialQuery(q))throw Error('Consensus has no documented journal ISSN filter. Use a title or topic.');
+    const exact=Atlas.doi(q),url=new URL('https://api.consensus.app/v1/search');
+    url.search=new URLSearchParams({query:exact||q,page:String(page-1),page_size:String(pageSize),
+      exclude_preprints:'true',include_full_text_chunks:'false'});
+    const response=await fetchJson(url,signal,'Consensus');
+    const data=await response.json();
+    if(!Array.isArray(data.results))throw Error('Consensus returned an unexpected result format.');
+    const candidates=data.results.filter(r=>!r.is_preprint&&r.title&&r.doi&&(!exact||Atlas.doi(r.doi)===exact)).map(r=>({
+      source:'Consensus',title:r.title,journal:r.journal_name,doi:r.doi,year:r.publish_year,
+      authorList:r.authors||[],authors:(r.authors||[]).join('; '),recordUrl:Atlas.url(r.url),openUrl:''
+    }));
+    return {items:await confirmedJournals(candidates,signal),more:!exact&&page<50&&!data.is_end&&data.next_page===page};
+  }
+  async function zotero(q,page,signal) {
+    if(serialQuery(q))throw Error('Zotero has no documented journal ISSN filter. Use a title or author.');
+    const scope=atlasRuntime.zoteroScope;
+    if(!/^(?:users|groups)\/[1-9]\d*$/.test(scope||''))throw Error('Configure a Zotero user or group library on the server.');
+    const exact=Atlas.doi(q),url=new URL('https://api.zotero.org/'+scope+'/items/top');
+    url.search=new URLSearchParams({q:exact||q,qmode:'everything',itemType:'journalArticle',format:'json',
+      v:'3',limit:String(pageSize),start:String((page-1)*pageSize)});
+    const response=await fetchJson(url,signal,'Zotero');
+    const rows=await response.json();
+    if(!Array.isArray(rows))throw Error('Zotero returned an unexpected result format.');
+    const items=rows.filter(r=>r.data?.itemType==='journalArticle'&&r.data.title&&(!exact||Atlas.doi(r.data.DOI)===exact)).map(r=>{
+      const d=r.data,doi=Atlas.doi(d.DOI);
+      const authorList=(d.creators||[]).filter(a=>a.creatorType==='author').map(a=>a.name||[a.lastName,a.firstName].filter(Boolean).join(', '));
+      return {title:d.title,journal:d.publicationTitle,year:Number(String(r.meta?.parsedDate||d.date||'').match(/\b(?:1[4-9]\d{2}|20\d{2})\b/)?.[0])||0,
+        doi,authorList,authors:authorList.join('; '),issns:Atlas.issns(d.ISSN),source:'Zotero',openUrl:'',
+        recordUrl:Atlas.url(r.links?.alternate?.href),publisherUrl:doi?Atlas.doiLink(doi):''};
+    });
+    const total=response.headers.get('Total-Results');const more=total!==null&&/^\d+$/.test(total)?page*pageSize<Number(total):rows.length===pageSize;
+    return {items,more:!exact&&more};
+  }
+  async function mcpSearch(source,q,page,signal) {
+    if(serialQuery(q))throw Error(source+' has no documented journal ISSN filter. Use a title or topic.');
+    const params=new URLSearchParams({source,q,page:String(page)});
+    const response=await fetch('/mcp-search?'+params,{signal,credentials:'same-origin',headers:{'X-Field-Atlas':'1'}});
+    if(!response.ok)throw Error(source+' search is unavailable. '+(await response.text()).slice(0,180));
+    const data=await response.json();
+    if(!Array.isArray(data.items))throw Error(source+' returned an unexpected result format.');
+    const exact=Atlas.doi(q);
+    const items=await confirmedJournals(data.items.filter(r=>!exact||exact===Atlas.doi(r.doi)),signal);
+    return {items,more:!exact&&data.more===true};
+  }
+  return {Consensus:consensus,Zotero:zotero,Undermind:(q,p,s)=>mcpSearch('Undermind',q,p,s),
+    'Article Galaxy':(q,p,s)=>mcpSearch('Article Galaxy',q,p,s)};
+})();
+
+// Each example DOI appears in a journal published or hosted by the named organization.
+// A DOI keeps its prefix when a journal changes publisher. These are optional subsets
+// of Crossref, independent of the catalog that the linked platform currently hosts.
+// https://support.crossref.org/hc/en-us/articles/213022466-Transferring-titles-and-identifiers-to-a-new-owner
+const publisherDirectory = [
+  ['Elsevier', '10.1016', 'https://www.sciencedirect.com/', '10.1016/j.rse.2017.06.031', 'Remote Sensing of Environment'],
+  ['Springer', '10.1007', 'https://link.springer.com/', '10.1007/s11869-026-01920-x', 'Air Quality, Atmosphere & Health'],
+  ['Nature Portfolio', '10.1038', 'https://www.nature.com/siteindex', '10.1038/s41467-021-22702-2', 'Nature Communications'],
+  ['Wiley', '10.1002', 'https://onlinelibrary.wiley.com/', '10.1002/qj.3803', 'Quarterly Journal of the Royal Meteorological Society'],
+  ['Taylor & Francis', '10.1080', 'https://www.tandfonline.com/', '10.1080/13658816.2021.2004602', 'International Journal of Geographical Information Science'],
+  ['Sage', '10.1177', 'https://journals.sagepub.com/', '10.1177/03091333251409690', 'Progress in Physical Geography'],
+  ['Oxford University Press', '10.1093', 'https://academic.oup.com/journals/', '10.1093/ije/dyaa006', 'International Journal of Epidemiology'],
+  ['Cambridge University Press', '10.1017', 'https://www.cambridge.org/core/', '10.1017/S0950268824001791', 'Epidemiology and Infection'],
+  ['Copernicus Publications', '10.5194', 'https://publications.copernicus.org/open-access_journals/open_access_journals_a_z.html', '10.5194/acp-25-575-2025', 'Atmospheric Chemistry and Physics'],
+  ['MDPI', '10.3390', 'https://www.mdpi.com/journal', '10.3390/ijgi14110416', 'ISPRS International Journal of Geo-Information'],
+  ['Frontiers', '10.3389', 'https://www.frontiersin.org/journals', '10.3389/fpubh.2024.1429143', 'Frontiers in Public Health'],
+  ['PLOS', '10.1371', 'https://plos.org/our-journals/', '10.1371/journal.pone.0107042', 'PLOS ONE'],
+  ['American Meteorological Society', '10.1175', 'https://journals.ametsoc.org/', '10.1175/WCAS-D-23-0129.1', 'Weather, Climate, and Society'],
+  ['American Geophysical Union', '10.1029', 'https://agupubs.onlinelibrary.wiley.com/', '10.1029/2023GL107364', 'Geophysical Research Letters']
+].map(([name, prefix, url, exampleDoi, journal]) => ({
+  name, prefix, url,
+  group: 'Publisher collections',
+  mode: 'Crossref prefix subset',
+  detail: 'Search Crossref journal articles with DOI prefix ' + prefix + ', including records from ' + journal + '. Other prefixes and articles without DOIs require a wider search.',
+  evidence: 'https://doi.org/' + exampleDoi
+}));
+
+const publisherAdapters = Object.fromEntries(publisherDirectory.map(({name, prefix}) => {
+  const search = regionalAdapters.forCrossrefPrefix(name, prefix);
+  return [name, (query, page = 1, signal) => search(query, page, signal)];
+}));
+
+</script><script>const sourceDirectory = [
+  {
+    "name": "OpenAlex",
+    "group": "Live indexes",
+    "mode": "Live search",
+    "detail": "Search journal literature and discover open copies. This dashboard uses public, keyless search; larger harvests can use a verified OpenAlex API key.",
+    "url": "https://openalex.org/"
+  },
+  {
+    "name": "Crossref",
+    "group": "Live indexes",
+    "mode": "Live search",
+    "detail": "Search publisher-deposited DOI records, including subscription journals. A DOI links to the registered publication.",
+    "url": "https://www.crossref.org/documentation/retrieve-metadata/rest-api/"
+  },
+  {
+    "name": "Europe PMC",
+    "group": "Live indexes",
+    "mode": "Live search",
+    "detail": "Search public health, environmental epidemiology and life sciences. Repository full text is available for a subset.",
+    "url": "https://europepmc.org/"
+  },
+  {
+    "name": "DOAJ",
+    "group": "Live indexes",
+    "mode": "Live search",
+    "detail": "Find articles whose metadata publishers deposited for journals listed in the Directory of Open Access Journals.",
+    "url": "https://doaj.org/"
+  },
+  {
+    "name": "OpenAIRE Graph",
+    "group": "Live indexes",
+    "mode": "Live search",
+    "detail": "Discover publications linked across repositories, research organizations and projects.",
+    "url": "https://graph.openaire.eu/"
+  },
+  {
+    "name": "NASA SciX / ADS",
+    "group": "Specialist & regional",
+    "mode": "External search",
+    "detail": "Search Earth and space science literature on satellite observations, atmospheric processes and instruments. Select journal papers in the results.",
+    "url": "https://scixplorer.org/"
+  },
+  {
+    "name": "IEEE Xplore",
+    "group": "Specialist & regional",
+    "mode": "External search",
+    "detail": "Search radar, satellite image processing, geoscience and machine learning. Use the journals filter when screening results.",
+    "url": "https://ieeexplore.ieee.org/"
+  },
+  {
+    "name": "ACM Digital Library",
+    "group": "Specialist & regional",
+    "mode": "External search",
+    "detail": "Find computing journals on spatial databases, location data and machine learning. Limit results to journals for this collection.",
+    "url": "https://dl.acm.org/"
+  },
+  {
+    "name": "WHO Global Index Medicus",
+    "group": "Specialist & regional",
+    "mode": "External search",
+    "detail": "Search regional health indexes for environmental health and spatial epidemiology studies. Try local place names and languages.",
+    "url": "https://www.globalindexmedicus.net/"
+  },
+  {
+    "name": "PubMed",
+    "group": "Specialist & regional",
+    "mode": "External search",
+    "detail": "Combine geographic terms with MeSH headings for disease, exposure or health service access. Selected citations can be transferred through Zotero.",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/",
+    "search": "https://pubmed.ncbi.nlm.nih.gov/?term={q}"
+  },
+  {
+    "name": "FAO AGRIS",
+    "group": "Specialist & regional",
+    "mode": "External search",
+    "detail": "Search agriculture, soils and land management. Screen for journal articles when working with the wider AGRIS collection.",
+    "url": "https://www.fao.org/agris/"
+  },
+  {
+    "name": "SciELO",
+    "group": "Specialist & regional",
+    "mode": "External search",
+    "detail": "Explore multilingual journal collections, including public health and environmental research from Latin America.",
+    "url": "https://www.scielo.org/en/search/"
+  },
+  {
+    "name": "BanglaJOL",
+    "group": "Specialist & regional",
+    "mode": "External search",
+    "detail": "Find Bangladesh-published journals on geography, hazards, health and the environment. Search regional and historical place names.",
+    "url": "https://www.banglajol.info/"
+  },
+  {
+    "name": "African Journals Online",
+    "group": "Specialist & regional",
+    "mode": "External search",
+    "detail": "Discover African-published research and follow each journal’s access information.",
+    "url": "https://www.ajol.info/index.php/ajol/search"
+  },
+  {
+    "name": "J-STAGE",
+    "group": "Specialist & regional",
+    "mode": "External search",
+    "detail": "Search Japanese academic society journals on geography, remote sensing, atmospheric science and public health.",
+    "url": "https://www.jstage.jst.go.jp/"
+  },
+  {
+    "name": "USGS Publications Warehouse",
+    "group": "Specialist & regional",
+    "mode": "External search",
+    "detail": "Search USGS-authored journal articles on water, hazards and land change. Filter out government reports when collecting journal papers.",
+    "url": "https://pubs.usgs.gov/"
+  },
+  {
+    "name": "CORE",
+    "group": "Repositories & citations",
+    "mode": "Repository search",
+    "detail": "Find copies deposited in repositories. Compare the title and DOI to identify the published work and manuscript version.",
+    "url": "https://core.ac.uk/"
+  },
+  {
+    "name": "BASE",
+    "group": "Repositories & citations",
+    "mode": "Repository search",
+    "detail": "Search Bielefeld University’s repository index, including regional and institutional collections. Check each record’s publication type.",
+    "url": "https://www.base-search.net/"
+  },
+  {
+    "name": "Semantic Scholar",
+    "group": "Repositories & citations",
+    "mode": "Citation discovery",
+    "detail": "Follow references and citing papers from a known GIS, public health or GeoAI article. Screen the resulting journal records.",
+    "url": "https://www.semanticscholar.org/"
+  },
+  {
+    "name": "Unpaywall",
+    "group": "Repositories & citations",
+    "mode": "DOI lookup",
+    "detail": "Look up a DOI to locate open versions at publishers or repositories. Its API accepts an email address and the article DOI.",
+    "url": "https://unpaywall.org/api"
+  },
+  {
+    "name": "GeoRef",
+    "group": "Licensed indexes",
+    "mode": "Institutional search",
+    "detail": "Use library access to search the American Geosciences Institute index for earth sciences, geology and geohazards. Transfer selected journal citations via RIS.",
+    "url": "https://information.americangeosciences.org/georef/"
+  },
+  {
+    "name": "GEOBASE",
+    "group": "Licensed indexes",
+    "mode": "Institutional search",
+    "detail": "Use Engineering Village access for geography, environmental sciences and human–environment research. Export eligible journal citations within your license.",
+    "url": "https://www.elsevier.com/en-gb/products/engineering-village/databases"
+  },
+  {
+    "name": "Scopus",
+    "group": "Licensed indexes",
+    "mode": "Institutional search",
+    "detail": "Search journals and citation links with institutional access. Export permitted journal records as RIS for import.",
+    "url": "https://www.elsevier.com/products/scopus"
+  },
+  {
+    "name": "Web of Science Core Collection",
+    "group": "Licensed indexes",
+    "mode": "Institutional search",
+    "detail": "Use institutional access for topic and cited-reference searches. Bring selected journal records into Zotero for RIS export.",
+    "url": "https://webofscience.help.clarivate.com/en-us/Content/wos-core-collection/wos-core-collection.htm"
+  },
+  {
+    "name": "Google Scholar",
+    "group": "Research tools",
+    "mode": "Manual discovery",
+    "detail": "Use title searches, cited-by results and article versions to find additional leads. Check publication type and save selected journal citations.",
+    "url": "https://scholar.google.com/"
+  },
+  {
+    "name": "SciSpace",
+    "group": "Research tools",
+    "mode": "Research connector",
+    "detail": "Use a separate SciSpace search for natural-language queries. Save selected journal citations to Zotero or look up their DOIs.",
+    "url": "https://www.scispace.com/help/en/articles/10706821-how-scispace-search-works"
+  },
+  {
+    "name": "Consensus",
+    "group": "Research tools",
+    "mode": "Research connector",
+    "detail": "Use a separate evidence search for focused research questions. Check suggested papers at the journal and collect selected citations.",
+    "url": "https://consensus.app/"
+  },
+  {
+    "name": "Undermind",
+    "group": "Research tools",
+    "mode": "Research connector",
+    "detail": "Use a separate deep literature search for questions that combine methods, geography and outcomes. Retain relevant journal citations.",
+    "url": "https://www.undermind.ai/"
+  },
+  {
+    "name": "Article Galaxy",
+    "group": "Research tools",
+    "mode": "Research connector",
+    "detail": "Use the separate literature search and availability tools. Bring citation metadata into your collection and follow the publisher for restricted articles.",
+    "url": "https://www.researchsolutions.com/"
+  },
+  {
+    "name": "Publisher table-of-contents feeds",
+    "group": "Automation & rankings",
+    "mode": "RSS / Atom",
+    "detail": "Follow official journal feeds for new articles. Save relevant items with Zotero, check their item type and export journal citations as RIS.",
+    "url": "https://www.zotero.org/support/feeds"
+  },
+  {
+    "name": "OAI-PMH",
+    "group": "Automation & rankings",
+    "mode": "Metadata harvesting",
+    "detail": "Harvest metadata from participating repositories by datestamp. Filter for journal articles and reconcile versions against the publisher DOI.",
+    "url": "https://www.openarchives.org/OAI/openarchivesprotocol.html"
+  },
+  {
+    "name": "Zotero",
+    "group": "Automation & rankings",
+    "mode": "RIS transfer",
+    "detail": "Collect journal citations from different services, select the items in Zotero and export as RIS for dashboard import.",
+    "url": "https://www.zotero.org/support/kb/exporting"
+  },
+  {
+    "name": "n8n",
+    "group": "Automation & rankings",
+    "mode": "Workflow builder",
+    "detail": "An external workflow can poll journal feeds or APIs, retain dates and identifiers, deduplicate records and prepare a citation import.",
+    "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.rssfeedread/"
+  },
+  {
+    "name": "SCImago Journal & Country Rank",
+    "group": "Automation & rankings",
+    "mode": "Quartile reference",
+    "detail": "Find SJR quartiles by journal, category and year. Record the category when preparing a journal-ranking import.",
+    "url": "https://www.scimagojr.com/help.php"
+  },
+  {
+    "name": "Clarivate Journal Citation Reports",
+    "group": "Automation & rankings",
+    "mode": "Licensed rankings",
+    "detail": "Use licensed JCR data to check JIF quartiles by category and edition. Identify the metric in every imported ranking.",
+    "url": "https://supportcenter.clarivate.com/s/article/Journal-Citation-Reports-Quartile-rankings-and-other-metrics?language=en_US"
+  }
+];
+
+
+const adapters={...baseAdapters,...publicAdapters,...keyedAdapters,...regionalAdapters,...researchAdapters,...publisherAdapters};
+const adaptedName=name=>name==='OpenAIRE Graph'?'OpenAIRE':name;
+const restrictedNames=new Set([...Object.keys(keyedAdapters),...Object.keys(researchAdapters),'BASE']);
+const enabledSource=name=>!restrictedNames.has(name)||(atlasRuntime.configured||[]).includes(name);
+sourceDirectory.push({name:'DataCite',group:'Live indexes',mode:'Journal-article metadata',detail:'Search DataCite records identified as journal articles. A repository DOI may identify a deposited version.',url:'https://commons.datacite.org/'});
+sourceDirectory.push(...publisherDirectory);
+const customRoutes={
+  'Google Scholar':{url:'https://scholar.google.com/scholar?q={q}',kind:'query'},
+  'PubMed':{url:'https://pubmed.ncbi.nlm.nih.gov/?term={q}',kind:'query'},
+  'Crossref':{url:'https://search.crossref.org/?q={q}',kind:'query'},
+  'Europe PMC':{url:'https://europepmc.org/search?query={q}',kind:'query'},
+  'Semantic Scholar':{url:'https://www.semanticscholar.org/search?q={q}',kind:'query'},
+  'DataCite':{url:'https://commons.datacite.org/doi.org?query={q}',kind:'query'},
+  'IEEE Xplore':{url:'https://ieeexplore.ieee.org/search/searchresult.jsp?newsearch=true&queryText={q}',kind:'query'},
+  'SciSpace':{url:'https://scispace.com/',kind:'copy'},
+  'Undermind':{url:'https://www.undermind.ai/',kind:'copy'},
+  'Consensus':{url:'https://consensus.app/search/?q={q}',kind:'query'},
+  'Article Galaxy':{url:'https://www.researchsolutions.com/article-galaxy-mcp',kind:'copy'}
+};
+const viewNotes={
+  'Zotero':'Search the personal or group library selected on the server, or import a Zotero export.',
+  'Unpaywall':'Check the DOI directly from a paper using “Check for a free copy”. Enter your contact email in Sources.',
+  'Publisher table-of-contents feeds':'Import a publisher RSS or Atom file. Journal-article evidence is required. For a feed containing titles and DOIs only, paste DOIs into the lookup instead.',
+  'OAI-PMH':'Import a page from an OAI-PMH ListRecords response in oai_dc format. Only explicitly identified journal articles are retained. Download further pages using the repository’s resumption token.',
+  'n8n':'Download the included Crossref workflow or generate one for the current query. Import the resulting RIS file here.',
+  'SCImago Journal & Country Rank':'Import a SCImago journal CSV and specify its edition year in the rankings panel.',
+  'Clarivate Journal Citation Reports':'Use your licensed edition and import its permitted ranking rows using the normalized CSV template.',
+  'SciSpace':'Open SciSpace or its connected ChatGPT app, copy the research prompt and import the returned journal citations or DOIs.',
+  'J-STAGE':'Direct search is opt-in and subject to JST’s API conditions. Keyword searches use title words.',
+  'Undermind':'Search the configured workspace with the optional bridge. For wider literature discovery, use your connected app and import its selected citations.',
+  'NASA SciX / ADS':'Search refereed journal literature using an ADS/SciX API token.',
+  'Consensus':'Search the Consensus API with your key, or take the query into Consensus and import journal citations.',
+  'Article Galaxy':'Use metadata search in the optional connected bridge or app. Import citations or paste DOIs to find free copies.'
+};
+function sourceMode(entry){
+  const name=adaptedName(entry.name);
+  if(!adapters[name])return entry.mode;
+  if(restrictedNames.has(name))return enabledSource(name)?'Configured search':'Setup required';
+  if(Object.hasOwn(publisherAdapters,name)||['BanglaJOL','African Journals Online','ACM Digital Library'].includes(name))return 'Indexed subset';
+  return 'Direct search';
+}
+function sourceRoute(entry){return portalRoutes[entry.name]||customRoutes[entry.name]||{url:entry.search||entry.url,kind:entry.search?'query':'copy'};}
+function portalURL(entry,q){
+  const route=sourceRoute(entry);
+  if(!q||!route.url?.includes('{q}'))return Atlas.url(route.url?.includes('{q}')?entry.url:route.url||entry.url);
+  return Atlas.url(route.url.replaceAll('{q}',encodeURIComponent(q)));
+}
+function citationPrompt(name,q){
+  return 'Search '+name+' for published journal articles on '+q+'. Include open and subscription articles. Return verified citations as journal-article CSL JSON or one verified DOI per line. Include titles, journals and publication years. Identify freely available publisher or accepted repository copies where documented. For other articles return the publisher link. Use metadata search only; no article orders or purchases.';
+}
+</script><script>function makeWorkflow(topic) {
+  // This function body becomes the n8n Code node for a manual export.
+  function convert(rows) {
+    const lines=[];
+    const field=(tag,v)=>{if(v)lines.push(tag+'  - '+String(v).replace(/[\r\n]+/g,' ').trim());};
+    const seen=new Set();
+    for(const row of rows){
+      if(!row.title?.[0]||row.type!=='journal-article'||seen.has(row.DOI))continue;
+      seen.add(row.DOI);field('TY','JOUR');field('TI',row.title[0]);field('JO',row['container-title']?.[0]);
+      for(const person of row.author||[])field('AU',person.name||[person.family,person.given].filter(Boolean).join(', '));
+      field('PY',(row.published||row.issued)?.['date-parts']?.[0]?.[0]);field('DO',row.DOI);field('UR',row.URL);
+      for(const serial of row.ISSN||[])field('SN',serial);
+      lines.push('ER  - ','');
+    }
+    return lines.join('\r\n');
+  }
+  const api=new URL('https://api.crossref.org/works');
+  api.search=new URLSearchParams({'query.bibliographic':topic,'filter':'type:journal-article','rows':'100','select':'DOI,title,author,container-title,published,issued,ISSN,URL,type'});
+  const nodes=[
+    {id:'field-atlas-start',name:'Manual search',type:'n8n-nodes-base.manualTrigger',typeVersion:1,position:[0,0],parameters:{}},
+    {id:'field-atlas-search',name:'Search Crossref',type:'n8n-nodes-base.httpRequest',typeVersion:4.2,position:[220,0],parameters:{url:api.href,options:{}}},
+    {id:'field-atlas-format',name:'Format journal records',type:'n8n-nodes-base.code',typeVersion:2,position:[440,0],parameters:{jsCode:convert.toString()+'\nreturn [{json:{ris:convert($input.first().json.message.items)}}];'}},
+    {id:'field-atlas-export',name:'Download RIS',type:'n8n-nodes-base.convertToFile',typeVersion:1.1,position:[660,0],parameters:{operation:'toText',sourceProperty:'ris',options:{fileName:'Field_Atlas_Crossref.ris'}}}
+  ];
+  const connections={};
+  for(let i=0;i<nodes.length-1;i++)connections[nodes[i].name]={main:[[{node:nodes[i+1].name,type:'main',index:0}]]};
+  return {name:'Field Atlas · Crossref journal search',nodes,connections,active:false,settings:{executionOrder:'v1'}};
+}
+</script><script>(() => {
+  'use strict';
+  const $=id=>document.getElementById(id);
+  const node=(tag,content,cls)=>{const el=document.createElement(tag);if(content!==undefined)el.textContent=content;if(cls)el.className=cls;return el;};
+  const button=(label,fn,cls)=>{const b=node('button',label,cls);b.type='button';b.addEventListener('click',fn);return b;};
+  function link(label,target){const a=node('a',label);a.href=Atlas.url(target);a.target='_blank';a.rel='noopener noreferrer';return a;}
+  function load(name,fallback){try{const x=JSON.parse(localStorage.getItem('fieldatlas.v1.'+name));return Array.isArray(x)?x:fallback;}catch{return fallback;}}
+  function store(name,data){try{localStorage.setItem('fieldatlas.v1.'+name,JSON.stringify(data));return true;}catch{return false;}}
+  const seed=Atlas.mergeList(starterPapers),sources=Object.keys(adapters);
+  const defaults=sources.filter(s=>enabledSource(s)&&!Object.hasOwn(publisherAdapters,s)&&!['J-STAGE','Undermind','Article Galaxy'].includes(s));
+  let selected=load('selectedSourcesV2',defaults).filter(s=>sources.includes(s)&&enabledSource(s)), saved=Atlas.mergeList(load('saved',[]));
+  let importedRanks=load('ranks',[]),ranks=[...builtinRanks,...importedRanks],index=Atlas.rankIndex(ranks);
+  let view='explore',query='',run=0,controller=null,batchBusy=false,results=seed,states={},statusNote='',visible=[],shown=25;
+  let displayedQuery='',sourceRuns=[],knownCopies=new Map(),retryAfter=new Map();
+  const options={ 'GIS':'geographic information systems','Remote sensing':'remote sensing','Geospatial analysis':'geospatial analysis','Public health':'public health','Geography':'geography','Atmosphere':'atmospheric science','Human–environment':'human environment interaction','Geohealth':'spatial epidemiology','GeoAI & ML':'geospatial machine learning' };
+  const selections={access:'',quartile:'',journal:'',fromYear:'',toYear:'',sort:'relevance'};
+  function note(text){$('settingsMessage').textContent=text;$('settingsMessage').hidden=!text;}
+  function dl(name,text,type){const u=URL.createObjectURL(new Blob([text],{type}));const a=node('a');a.href=u;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),3000);}
+  function opts(id,values,any,preferred){
+    const el=$(id), chosen=preferred??el.value;el.replaceChildren();if(any)el.add(new Option(any,''));
+    for(const v of values)el.add(new Option(v,v));if([...el.options].some(o=>o.value===String(chosen)))el.value=chosen;
+  }
+  function rankMenus(chooseYear){
+    opts('rankYear',[...new Set(ranks.map(r=>r.year))].sort((a,b)=>b-a),null,chooseYear);
+    const edition=ranks.filter(r=>r.year===Number($('rankYear').value));
+    opts('rankSystem',[...new Set(edition.map(r=>r.system))].sort(),'All systems');
+    opts('category',[...new Set(edition.filter(r=>!$('rankSystem').value||r.system===$('rankSystem').value).map(r=>r.category))].sort(),'All categories');
+    $('rankDetail').textContent='Includes selected SCImago category rankings for 2024 and 2025. Import a broader edition to match more journals by ISSN. Journals without a match show Unknown.';
+  }
+  function ranksFor(record){return Atlas.rankMatches(record,index,$('rankYear').value,$('rankSystem').value,$('category').value);}
+  function matchLocal(record,q){
+    const id=Atlas.doi(q);if(id)return record.doi===id;
+    const serial=Atlas.issns(q);if(serial.length===1&&record.issns.includes(serial[0]))return true;
+    const terms=Atlas.norm(q).split(' ').filter(Boolean),text=Atlas.norm([record.title,record.journal,record.topic,record.authors].join(' '));
+    return terms.length>0&&terms.every(t=>text.includes(t));
+  }
+  function recalc(){
+    if(!displayedQuery){results=seed;return;}
+    const local=[...seed,...saved].filter(r=>matchLocal(r,displayedQuery)),pool=[],longest=Math.max(0,...sourceRuns.map(s=>states[s]?.items.length||0));
+    for(let i=0;i<longest;i++)for(const s of sourceRuns){const item=states[s]?.items[i];if(item)pool.push(item);}
+    results=Atlas.mergeList([...pool,...local]);
+    for(const r of results){const copy=knownCopies.get(r.doi);if(copy&&!r.openUrl)Object.assign(r,copy);}
+  }
+  function activeRecords(){return view==='saved'?saved:results;}
+  function summary(){const total=activeRecords().length;return visible.length===total?total+' unique '+(total===1?'paper':'papers'):visible.length+' of '+total+' unique papers';}
+  function searchState(){
+    const e=$('runstate');e.replaceChildren();
+    if(view!=='explore'||!displayedQuery)return;
+    const done=sourceRuns.filter(s=>states[s].ok).length,errors=sourceRuns.filter(s=>states[s].error).length;
+    const info=node('details',undefined,'statusBox');
+    const label=batchBusy?'Searching indexes…':done===0?'No live matches retrieved':done+' of '+sourceRuns.length+' indexes returned a response';
+    info.append(node('summary',label+(errors?' · '+errors+' source '+(errors===1?'issue':'issues'):'')+' · Source details'));
+    const list=node('ul');for(const name of sourceRuns){
+      const p=states[name];list.append(node('li',name+' — '+(p.waiting?'searching':p.skip?p.skip:p.error?p.error+(p.items.length?' · '+p.items.length+' retained':''):p.items.length+' article records loaded')));
+    } info.append(list);
+    const n=Atlas.mergeList([...seed,...saved].filter(r=>matchLocal(r,displayedQuery))).length;
+    if(n)info.append(node('p',n+' matching local '+(n===1?'reference is':'references are')+' included. Each record lists its sources.'));
+    e.append(info);
+  }
+  function textRank(r,matched){
+    if(!matched.length)return 'Quartile unknown';
+    const q=$('quartile').value;
+    const subset=q&&q!=='unknown'?matched.filter(a=>a.quartile===q):matched;
+    const codes=[...new Set(subset.map(a=>a.quartile))].sort().join(' / '),systems=[...new Set(subset.map(a=>a.system))].join(' / ');
+    return codes+' · '+systems+' '+$('rankYear').value;
+  }
+  function card(r){
+    const area=node('article',undefined,'card'),top=node('div',undefined,'cardTop'),header=node('div');
+    header.append(node('span',r.journal||'Journal title unavailable','journal'),node('span',r.year?'  ·  '+r.year:'','year'));
+    const isSaved=saved.some(v=>Atlas.key(v)===Atlas.key(r));
+    const star=button(isSaved?'✓ Saved':'+ Save',()=>{
+      saved=isSaved?saved.filter(v=>Atlas.key(v)!==Atlas.key(r)):Atlas.mergeList([...saved,r]);
+      if(!store('saved',saved))statusNote='Saved for this tab. Browser storage is unavailable.';
+      render();
+    },'save');star.setAttribute('aria-pressed',String(isSaved));star.setAttribute('aria-label',(isSaved?'Remove from saved: ':'Save paper: ')+r.title);
+    top.append(header,star);area.append(top,node('h3',r.title));
+    if(r.authors)area.append(node('p',r.authors.length>240?r.authors.slice(0,237)+'…':r.authors,'authors'));
+    const tags=node('div',undefined,'tags'),matched=ranksFor(r);
+    tags.append(node('span',r.openUrl?'Free full text':'No free link located','tag'+(r.openUrl?' open':'')),node('span',textRank(r,matched),'tag'+(matched.length?' rank':'')));
+    if(r.topic)tags.append(node('span',r.topic,'tag'));area.append(tags);
+    const bottom=node('div',undefined,'cardBottom'),links=node('div',undefined,'cardLinks');
+    if(r.openUrl)links.append(link('Read free full text',r.openUrl));
+    if(r.publisherUrl)links.append(link('Publisher page',r.publisherUrl));else if(r.recordUrl)links.append(link('Index record',r.recordUrl));
+    if(!r.openUrl&&r.doi)links.append(button('Check for a free copy',async ev=>{
+      if(!$('contact').value.trim()||!$('contact').checkValidity()){switchTab('sources');note('Enter your contact email to check Unpaywall. Then return to this paper in Explore or Saved.');$('contact').focus();return;}
+      const b=ev.currentTarget;b.disabled=true;b.textContent='Checking…';
+      try{
+        const url=new URL('https://api.unpaywall.org/v2/'+r.doi.split('/').map(encodeURIComponent).join('/'));url.searchParams.set('email',$('contact').value.trim());
+        const res=await atlasFetch(url,AbortSignal.timeout(20000));if(!res.ok&&res.status!==404)throw Error('Service returned '+res.status);
+        const data=res.ok?await res.json():null;const loc=[data?.best_oa_location,...(data?.oa_locations||[])].find(l=>l&&data?.is_oa===true&&l.version!=='submittedVersion'&&(l.host_type==='publisher'||['publishedVersion','acceptedVersion'].includes(l.version))&&Atlas.url(l.url_for_landing_page||l.url||l.url_for_pdf));
+        if(!loc){b.textContent='No free copy located by Unpaywall';return;}
+        const copy={openUrl:Atlas.url(loc.url_for_landing_page||loc.url||loc.url_for_pdf),accessSource:'Unpaywall · '+[loc.host_type,loc.version].filter(Boolean).join(' · ')};
+        knownCopies.set(r.doi,copy);for(const row of [...results,...saved,...seed])if(row.doi===r.doi)Object.assign(row,copy);store('saved',saved);render();
+      }catch{b.textContent='Check unavailable · retry';b.disabled=false;}
+    }));
+    const d=node('details');d.append(node('summary','Sources and ranking evidence'));
+    d.append(node('p','Indexed or supplied by '+r.sources.join(', ')+'.'+(r.openUrl?' Free-copy evidence: '+(r.accessSource||'reported by source')+'.':' No article-level free location is recorded here.'),'provenance'));
+    if(r.doi){const p=node('p','DOI  ','provenance');p.append(link(r.doi,Atlas.doiLink(r.doi)));d.append(p);}
+    if(r.issns.length)d.append(node('p','Journal ISSN  '+r.issns.join(', '),'provenance'));
+    if(r.recordUrl){const p=node('p',undefined,'provenance');p.append(link('Source record',r.recordUrl));d.append(p);}
+    for(const m of matched){const p=node('p',m.system+' '+m.year+' · '+m.category+' · '+m.quartile+'  ','provenance');if(Atlas.url(m.url))p.append(link('Ranking source',m.url));d.append(p);}
+    if(!matched.length)d.append(node('p','No matching ranking in the selected edition, system and category.','provenance'));
+    bottom.append(links,d);area.append(bottom);return area;
+  }
+  function render(){
+    $('savedCount').textContent=saved.length;$('discovery').hidden=view!=='explore';$('sourceView').hidden=view!=='sources';$('resultView').hidden=view==='sources';
+    $('resultView').classList.toggle('savedHead',view==='saved');
+    for(const el of document.querySelectorAll('nav [data-tab]')){if(el.dataset.tab===view)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');}
+    if(view==='sources')return;
+    $('resultKicker').textContent=view==='saved'?'YOUR READING LIST':displayedQuery?'INDEX SEARCH':'CURATED REFERENCES';
+    $('resultsTitle').textContent=view==='saved'?'Saved papers':displayedQuery?'Results for “'+displayedQuery+'”':'Starter collection';
+    const low=Number($('fromYear').value)||0,high=Number($('toYear').value)||Infinity,access=$('access').value,q=$('quartile').value,j=Atlas.norm($('journal').value);
+    visible=activeRecords().filter(r=>{
+      if((low||Number.isFinite(high))&&(!r.year||r.year<low||r.year>high))return false;
+      if(!Atlas.norm(r.journal).includes(j)||(access==='open'&&!r.openUrl)||(access==='unknown'&&r.openUrl))return false;
+      const needsRank=q||$('category').value||$('rankSystem').value;
+      if(!needsRank)return true;const matches=ranksFor(r);return q==='unknown'?!matches.length:q?matches.some(a=>a.quartile===q):matches.length>0;
+    });
+    if($('sort').value!=='relevance'){const sign=$('sort').value==='old'?1:-1;visible.sort((a,b)=>!a.year?1:!b.year?-1:(a.year-b.year)*sign);}
+    $('summary').textContent=summary()+(statusNote?' · '+statusNote:'');searchState();
+    const target=$('papers');target.replaceChildren();const frag=document.createDocumentFragment();
+    for(const r of visible.slice(0,shown))frag.append(card(r));target.append(frag);
+    if(!visible.length){
+      let msg='Try another query or reset the filters.';
+      if(low>high)msg='The starting publication year must be earlier than or equal to the ending year.';
+      else if(view==='saved'&&!saved.length)msg='Save papers from Explore or import journal citations from Sources.';
+      else if(displayedQuery&&!results.length)msg=batchBusy?'Waiting for the selected indexes.':sourceRuns.every(s=>states[s].error)?'The live indexes did not return usable responses. Open Source details to see the errors or try a specialist database in Sources.':'Try a broader topic, an alternative spelling, or another source.';
+      const z=node('div',undefined,'empty');z.append(node('h3',batchBusy?'Searching…':'No papers to display'),node('p',msg));target.append(z);
+    }
+    if(visible.length>shown)target.append(button('Show more loaded papers',()=>{shown+=25;render();},'outline'));
+    $('more').hidden=view!=='explore'||!displayedQuery||!sourceRuns.some(s=>states[s].more||states[s].error);
+    $('more').disabled=batchBusy;$('more').textContent=sourceRuns.some(s=>states[s]?.error)?'Load more / retry sources':'Load more from indexes';
+    $('starter').hidden=view!=='explore'||!displayedQuery;$('extendSearch').hidden=$('starter').hidden;$('export').disabled=!visible.length;
+  }
+  function switchTab(t){view=['explore','sources','saved'].includes(t)?t:'explore';history.replaceState(null,'','#'+view);shown=25;render();window.scrollTo(0,0);}
+  function updateSourceControls(){const root=$('providerToggles');root.replaceChildren();
+    $('runtimeNote').textContent=(atlasRuntime.server?'Server mode. ':'Browser mode. ')+sources.filter(enabledSource).length+' of '+sources.length+' search integrations are available with this configuration. Enable the sources to include in your next search. Provider quotas and coverage apply.';
+    const saveSelection=names=>{selected=[...new Set(names)].filter(enabledSource);store('selectedSourcesV2',selected);updateSourceControls();note('Index selection applies to your next search.');};
+    const all=button('Include publisher collections',()=>saveSelection([...selected,...Object.keys(publisherAdapters)]),'textBtn');
+    root.append(all,document.createTextNode(' · '),button('Restore defaults',()=>saveSelection(defaults),'textBtn'));
+    for(const [title,names] of [['Available',sources.filter(s=>enabledSource(s)&&!Object.hasOwn(publisherAdapters,s))],['Publisher DOI subsets',Object.keys(publisherAdapters)],['Requires configuration',sources.filter(s=>!enabledSource(s))]]){
+      if(!names.length)continue;root.append(node('h3',title,'controlSub'));
+      for(const s of names){const l=node('label',undefined,'toggle'),c=node('input');c.type='checkbox';c.checked=selected.includes(s);c.disabled=!enabledSource(s);c.onchange=()=>{selected=sources.filter(name=>name===s?c.checked:selected.includes(name));store('selectedSourcesV2',selected);note('Index selection applies to your next search.');};l.append(c,document.createTextNode(s));root.append(l);}
+    }
+  }
+  function importFrom(name){$('importSource').value=name;$('importPanel').scrollIntoView({block:'center'});$('importSource').focus();}
+  async function copy(text){try{await navigator.clipboard.writeText(text);$('sourceInfo').textContent='Copied to clipboard.';}catch{window.prompt('Copy this text',text);}}
+  function drawDirectory(){const root=$('directory');root.replaceChildren();for(const group of [...new Set(sourceDirectory.map(s=>s.group))]){
+    if($('dirFilter').value&&$('dirFilter').value!==group)continue;root.append(node('h3',group,'groupTitle'));const grid=node('div',undefined,'sourceGrid');
+    const q=$('sourceQuery').value.trim();
+    for(const s of sourceDirectory.filter(s=>s.group===group)){const c=node('article',undefined,'sourceCard'),route=sourceRoute(s),controls=node('div',undefined,'sourceActions');
+      c.append(node('h3',s.name),node('span',sourceMode(s),'tag'),node('p',viewNotes[s.name]||route.note||s.detail,'directoryText'));
+      if(viewNotes[s.name]&&route.note)c.append(node('p',route.note,'directoryText'));
+      controls.append(link(q&&route.url?.includes('{q}')?'Search this query':'Open source',portalURL(s,q)));
+      if(q&&!route.url?.includes('{q}'))controls.append(button('Copy query',()=>copy(q),'textBtn'));
+      if(['Research tools'].includes(s.group)&&q)controls.append(button('Copy research prompt',()=>copy(citationPrompt(s.name,q)),'textBtn'));
+      if(s.name==='n8n')controls.append(button('Download workflow',()=>dl('Field_Atlas_n8n.json',JSON.stringify(makeWorkflow(q||'geospatial public health'),null,2),'application/json'),'textBtn'));
+      else if(['Clarivate Journal Citation Reports','SCImago Journal & Country Rank'].includes(s.name))controls.append(button('Import rankings',()=>$('rankfile').click(),'textBtn'));
+      else if(s.name==='Unpaywall')controls.append(button('Set contact email',()=>$('contact').focus(),'textBtn'));
+      else controls.append(button('Import from this source',()=>importFrom(s.name),'textBtn'));
+      c.append(controls);grid.append(c);
+    }root.append(grid);
+  }}
+  function clearSearch(){controller?.abort();run++;query='';displayedQuery='';batchBusy=false;sourceRuns=[];states={};results=seed;statusNote='';shown=25;$('query').value='';render();}
+  async function getBatch(fresh){
+    if(fresh){
+      const q=$('query').value.trim();if(!q)return;
+      if(!selected.length){switchTab('sources');note('Select at least one live index, then return to Explore.');return;}
+      controller?.abort();controller=new AbortController();run++;query=q;displayedQuery=q;$('sourceQuery').value=q;drawDirectory();sourceRuns=[...selected];states={};shown=25;statusNote='';
+      for(const s of sourceRuns)states[s]={items:[],next:1,more:true,error:'',ok:false};
+    }else if(batchBusy)return;
+    const generation=run,searchTerm=query, signal=controller.signal;
+    const todo=sourceRuns.filter(s=>states[s].more||states[s].error);
+    batchBusy=true;
+    for(const s of todo){states[s].waiting=true;}
+    recalc();render();
+    await Promise.all(todo.map(async s=>{
+      const sourceState=states[s], cancel=new AbortController(), abort=()=>cancel.abort();
+      signal.addEventListener('abort',abort,{once:true});
+      const timer=setTimeout(abort,['Article Galaxy','Undermind'].includes(s)?65000:40000);
+      try{
+        const wait=retryAfter.get(s)||0;if(Date.now()<wait)throw Error('Rate limit. Retry after '+new Date(wait).toLocaleTimeString()+'.');
+        const result=await adapters[s](searchTerm,sourceState.next,cancel.signal);if(run!==generation)return;
+        const exact=Atlas.doi(searchTerm),items=exact?result.items.filter(r=>Atlas.doi(r.doi)===exact):result.items;
+        sourceState.items.push(...items);sourceState.more=!exact&&result.more;sourceState.next++;sourceState.ok=true;sourceState.error='';
+      }catch(error){
+        if(run!==generation)return;
+        const msg=String(error.message||'');
+        if(/rate limit/i.test(msg)&&(retryAfter.get(s)||0)<=Date.now())retryAfter.set(s,Date.now()+60000);
+        sourceState.error=cancel.signal.aborted?'Request timed out.':/fetch|network|load failed/i.test(msg)?'Provider unreachable from this browser.':msg;
+        if(/no documented journal ISSN/i.test(msg)){sourceState.more=false;sourceState.error='';sourceState.ok=false;sourceState.skip=msg;}
+      }finally{clearTimeout(timer);signal.removeEventListener('abort',abort);sourceState.waiting=false;if(run===generation){recalc();render();}}
+    }));
+    if(run===generation){batchBusy=false;render();}
+  }
+  function terrain(){
+    const c=$('terrain'),box=c.parentElement.getBoundingClientRect();if(!box.width||!box.height)return;const scale=Math.min(2,window.devicePixelRatio||1);
+    c.width=box.width*scale;c.height=box.height*scale;const g=c.getContext('2d');if(!g)return;g.scale(scale,scale);const w=box.width,h=box.height;
+    const wash=g.createLinearGradient(0,0,w,0);wash.addColorStop(0,'#103b3a');wash.addColorStop(.57,'#154641');wash.addColorStop(1,'#275c50');g.fillStyle=wash;g.fillRect(0,0,w,h);
+    g.save();g.translate(w*.86,h*.46);g.rotate(-.34);
+    for(let i=0;i<64;i++){const rad=14+i*6;g.beginPath();for(let j=0;j<=320;j++){
+      const a=Math.PI*2*j/320,wiggle=1+.14*Math.sin(3*a+rad*.006)+.065*Math.sin(5*a-rad*.003)+.045*Math.cos(8*a+.6);
+      const x=rad*1.42*wiggle*Math.cos(a)+.10*rad,y=rad*.75*wiggle*Math.sin(a);if(j===0)g.moveTo(x,y);else g.lineTo(x,y);}
+      g.closePath();g.strokeStyle=i%5===0?'rgba(173,208,165,.40)':'rgba(169,212,169,.23)';g.lineWidth=i%5===0?1.1:.7;g.stroke();
+    }g.restore();const shade=g.createLinearGradient(0,0,w,0);shade.addColorStop(0,'rgba(16,59,58,.98)');shade.addColorStop(.45,'rgba(16,59,58,.77)');shade.addColorStop(.74,'rgba(16,59,58,.05)');shade.addColorStop(1,'rgba(16,59,58,0)');g.fillStyle=shade;g.fillRect(0,0,w,h);
+  }
+  for(const [label,term] of Object.entries(options))$('topics').append(button(label,()=>{$('query').value=term;getBatch(true);},'pill'));
+  for(const el of document.querySelectorAll('[data-tab]'))el.addEventListener('click',()=>switchTab(el.dataset.tab));
+  document.querySelector('.brand').addEventListener('click',e=>{e.preventDefault();switchTab('explore');});
+  $('searchForm').addEventListener('submit',e=>{e.preventDefault();getBatch(true);});$('starter').onclick=clearSearch;$('more').onclick=()=>getBatch(false);
+  for(const id of [...Object.keys(selections),'category','rankYear','rankSystem'])$(id).addEventListener(['journal','fromYear','toYear'].includes(id)?'input':'change',()=>{if(['rankYear','rankSystem'].includes(id))rankMenus();shown=25;render();});
+  $('reset').onclick=()=>{for(const [k,v] of Object.entries(selections))$(k).value=v;$('category').value='';$('rankSystem').value='';rankMenus(ranks.reduce((highest,r)=>Math.max(highest,r.year),0));shown=25;render();};
+  $('export').onclick=()=>dl('Field_Atlas_journal_articles.ris',Atlas.ris(visible),'application/x-research-info-systems');
+  $('csvTemplate').onclick=()=>dl('Field_Atlas_ranking_template.csv','issn,year,system,category,quartile,url\r\n2052-4463,2025,SJR,Information Systems,Q1,https://www.scimagojr.com/journalsearch.php?q=21100451321&tip=sid\r\n','text/csv');
+  function saveImport(records){const before=saved.length;saved=Atlas.mergeList([...saved,...records]);const ok=store('saved',saved);recalc();render();return (saved.length-before)+' new journal records saved.'+(ok?'':' Browser storage is unavailable; this import lasts for the tab.');}
+  function importText(content,name){
+    try{const out=SourceImport.parse(content,name,$('importSource').value);if(!out.records.length)throw Error('No identifiable journal articles. For plain DOIs, use Look up DOIs.');
+      $('importStatus').textContent=saveImport(out.records)+' '+out.skipped+' other records skipped.'+(out.hasMore?' The repository reports additional pages.':'');
+    }catch(err){$('importStatus').textContent=err.message;}
+  }
+  $('risfile').onchange=async e=>{const f=e.target.files[0];if(f){try{importText(await f.text(),f.name);}catch(err){$('importStatus').textContent=err.message;}}e.target.value='';};
+  $('pasteImport').onclick=()=>importText($('citationPaste').value,'');
+  $('doiImport').onclick=async()=>{
+    const ids=SourceImport.extractDois($('citationPaste').value),label=$('importSource').value;
+    if(!ids.length){$('importStatus').textContent='Paste at least one valid DOI.';return;}
+    $('doiImport').disabled=true;let found=0,unresolved=[];
+    try{
+      for(const [i,id] of ids.entries()){
+        $('importStatus').textContent='Looking up DOI '+(i+1)+' of '+ids.length+'…';
+        let item;for(const s of ['Crossref','OpenAlex','DataCite']){
+          try{const page=await adapters[s](id,1,AbortSignal.timeout(12000));item=page.items.find(r=>Atlas.doi(r.doi)===id);if(item)break;}catch{/* Try the next journal index. */}
+        }
+        if(!item){unresolved.push(id);continue;}
+        const record=Atlas.clean(item);record.sources=[...new Set([...record.sources,label])];saved=Atlas.mergeList([...saved,record]);found++;store('saved',saved);
+      }
+      const ok=store('saved',saved);recalc();render();$('importStatus').textContent=found+' of '+ids.length+' DOIs matched journal articles.'+(unresolved.length?' Unresolved: '+unresolved.join(', ')+'.':'')+(ok?'':' Browser storage is unavailable; the records last for this tab.');
+    }finally{$('doiImport').disabled=false;}
+  };
+  $('rankfile').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const out=Atlas.readRankCsv(await f.text(),$('edition').value);
+    importedRanks=importedRanks.concat(out.ranks);ranks=[...builtinRanks,...importedRanks];index=Atlas.rankIndex(ranks);
+    const persisted=store('ranks',importedRanks);rankMenus(out.ranks[0].year);note(out.ranks.length+' ranking entries imported. '+out.skipped+' rows skipped.'+(persisted?'':' Browser storage is full or unavailable; this import lasts for the tab.'));
+  }catch(err){note(err.message);}e.target.value='';};
+    $('flowDownload').onclick=()=>dl('Field_Atlas_n8n.json',JSON.stringify(makeWorkflow($('sourceQuery').value.trim()||$('query').value.trim()||'geospatial public health'),null,2),'application/json');
+  $('extendSearch').onclick=()=>{switchTab('sources');$('sourceQuery').focus();};
+  $('sourceQuery').oninput=drawDirectory;
+  opts('importSource',['Imported citations',...sourceDirectory.map(s=>s.name)],null,'Imported citations');
+  opts('dirFilter',[...new Set(sourceDirectory.map(s=>s.group))],'All groups');$('dirFilter').onchange=drawDirectory;
+  updateSourceControls();drawDirectory();rankMenus();view=['sources','saved'].includes(location.hash.slice(1))?location.hash.slice(1):'explore';render();terrain();
+  if(window.ResizeObserver)new ResizeObserver(terrain).observe($('terrain').parentElement);else window.addEventListener('resize',terrain);
+})();
+</script>
+</body></html>
