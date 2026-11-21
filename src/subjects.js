@@ -68,6 +68,16 @@ const PaperSubjects = (() => {
     ['precip','Precipitation and drought','precipitation|droughts?|rainfall','precipitation drought'],
     ['climate-impact','Climate change impacts','climate change impacts?|(?:impacts?|effects?|consequences?) of (?:future )?climate change','climate change impacts']
   ]);
+  group('hydrology','Hydrology, Hydraulics and Groundwater','hydrolog(?:y|ic|ical)|hydraulic(?:s|ally)?|groundwater|water resources','hydrology hydraulics groundwater modelling',[
+    ['hydro-model','Hydrological and watershed modelling','hydrolog(?:ical|ic)? model(?:s|l?ing|l?ed)?|rainfall ?runoff model(?:s|l?ing)?|swat model|hec ?hms|watershed model(?:s|l?ing)?','hydrological watershed modelling'],
+    ['hydraulic-model','Hydraulic and hydrodynamic modelling','hydraulic model(?:s|l?ing|l?ed)?|hydrodynamic model(?:s|l?ing|l?ed)?|1d ?2d (?:coupled )?model(?:s|l?ing)?|hec ?ras|mike ?(?:11|21|flood|fm)','hydraulic hydrodynamic modelling'],
+    ['groundwater','Groundwater hydrology and modelling','groundwater (?:flow|hydrology|modell?ing|recharge|level|depletion)|aquifers?|modflow','groundwater hydrology modelling'],
+    ['flood-model','Flood inundation modelling','flood (?:inundation|simulation)|flood model(?:s|l?ing|l?ed)|inundation model(?:s|l?ing|l?ed)|flood extent mapping','flood inundation modelling'],
+    ['watershed','Watershed and catchment hydrology','watershed hydrology|catchment hydrology|basin hydrology|watershed delineation|catchment (?:characteristics|analysis)','watershed catchment hydrology'],
+    ['river-hydraulics','River and surface water hydraulics','river hydraulics|open channel (?:flow|hydraulics)|fluvial hydraulics|channel morphology|surface water hydraulics','river surface water hydraulics'],
+    ['water-resources','Water resources management','water resources (?:management|planning|assessment|availability)|integrated water resources management|iwrm','water resources management'],
+    ['water-quality','Water quality modelling','water quality model(?:s|l?ing|l?ed)|surface water quality|river water quality|pollutant transport model(?:s|l?ing)','water quality modelling']
+  ]);
 
   function valid(values) {
     return [...new Set((Array.isArray(values) ? values : []).filter(id => topics.has(id)))];

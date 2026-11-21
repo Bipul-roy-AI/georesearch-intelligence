@@ -7,7 +7,8 @@ A free dashboard for searching and tracking journal literature across GIS, remot
 ## Functions
 
 - **Explore** — search 50 literature sources (41 live integrations: Crossref, OpenAlex, PubMed, Europe PMC, DOAJ, Scopus, Web of Science, and more) by topic, DOI or ISSN.
-- **Paper subjects** — classify each paper into one or more of 42 topics across 6 research domains.
+- **Paper subjects** — classify each paper into one or more of 50 topics across 7 research domains (including hydrology, hydraulics and groundwater modelling).
+- **All working sources on by default** — every source that's actually usable (no missing credentials) is pre-selected, including the 14 publisher collections and J-STAGE.
 - **Journal ranking filter** — filter by SCImago/JCR quartile and category.
 - **Free full text** — find an open-access copy of a paywalled article via Unpaywall.
 - **Dashboards** — Trends (publications per year, top-cited papers, top journals, fastest-growing topics) and Geography (publications by country, multi-country comparison), both powered by live OpenAlex data.

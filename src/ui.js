@@ -7,7 +7,7 @@
   function load(name,fallback){try{const x=JSON.parse(localStorage.getItem('fieldatlas.v1.'+name));return Array.isArray(x)?x:fallback;}catch{return fallback;}}
   function store(name,data){try{localStorage.setItem('fieldatlas.v1.'+name,JSON.stringify(data));return true;}catch{return false;}}
   const seed=Atlas.mergeList(starterPapers),sources=Object.keys(adapters);
-  const defaults=sources.filter(s=>enabledSource(s)&&!Object.hasOwn(publisherAdapters,s)&&!['J-STAGE','Undermind','Article Galaxy'].includes(s));
+  const defaults=sources.filter(enabledSource);
   let selected=load('selectedSourcesV2',defaults).filter(s=>sources.includes(s)&&enabledSource(s)), saved=Atlas.mergeList(load('saved',[]));
   let importedRanks=load('ranks',[]),ranks=[...builtinRanks,...importedRanks],index=Atlas.rankIndex(ranks);
   let view='explore',query='',run=0,controller=null,batchBusy=false,results=seed,states={},statusNote='',visible=[],shown=25;
