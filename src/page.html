@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>Field Atlas · Geospatial literature</title><style>/*ATLAS_STYLE*/</style></head>
 <body>
-<header class="mast"><div class="frame bar"><a class="brand" href="#explore" aria-label="Field Atlas home"><span class="mark" aria-hidden="true">◉</span> Field Atlas</a><nav aria-label="Main navigation"><button data-tab="explore" aria-current="page">Explore</button><button data-tab="sources">Sources</button><button data-tab="saved">Saved <span id="savedCount">0</span></button></nav></div></header>
+<header class="mast"><div class="frame bar"><a class="brand" href="#explore" aria-label="Field Atlas home"><span class="mark" aria-hidden="true">◉</span> Field Atlas</a><nav aria-label="Main navigation"><button data-tab="explore" aria-current="page">Explore</button><button data-tab="sources">Sources</button><button data-tab="dashboards">Dashboards</button><button data-tab="saved">Saved <span id="savedCount">0</span></button></nav></div></header>
 <main class="frame">
 <section id="discovery" aria-labelledby="mainTitle">
 <div class="banner"><canvas id="terrain" aria-hidden="true"></canvas><div class="heroText"><div class="kicker"><span></span> RESEARCH EXPLORER</div><h1 id="mainTitle">Geospatial literature</h1><p>Search journal articles across Earth science, geography, public health and GeoAI.</p></div>
@@ -34,9 +34,25 @@
 <div class="settingsGrid extraTools"><section class="panel"><h2>Run the full dashboard</h2><p>In the extracted ZIP, open <b>Start_Field_Atlas.cmd</b> on Windows or run <code>npm start</code> with Node.js 22 or newer. For GitHub Codespaces and Pages, follow <b>GITHUB.md</b> in the ZIP. API credentials belong in the local <code>.env</code> file or Codespaces secrets.</p></section><section class="panel"><h2>Search through n8n</h2><p>Download a manual workflow for the current topic. It requests up to 100 journal articles from Crossref and produces a RIS file you can import here.</p><button type="button" class="outline" id="flowDownload">Download n8n workflow</button></section></div>
 <div class="directoryHeading" id="directoryHead"><div><div class="kicker dark">DISCOVERY ROUTES</div><h2>Search other sources</h2></div><label>Show <select id="dirFilter"><option value="">All groups</option></select></label></div><label class="dirLabel" for="sourceQuery">Query for source portals and research apps</label><input id="sourceQuery" class="wideQuery" type="search" maxlength="320" placeholder="e.g. urban heat and public health in Bangladesh"><p id="sourceInfo" role="status"></p><div id="directory"></div>
 </section>
+<section id="dashboardView" hidden><div class="pageHeading"><div class="kicker dark">OPENALEX AGGREGATE</div><h1>Dashboards</h1><p>Live publication-count analytics for one research domain at a time, drawn from OpenAlex's index of scholarly sources. These counts are independent of the papers found elsewhere in Field Atlas, and the current year is usually incomplete.</p></div>
+<div class="dashFilters"><div><label for="dashSubject">Research domain</label><select id="dashSubject"></select></div><div><label for="dashFrom">From year</label><input id="dashFrom" type="number" min="1900" max="2199"></div><div><label for="dashTo">To year</label><input id="dashTo" type="number" min="1900" max="2199"></div><button id="dashRun" class="primary" type="button">Run analysis</button></div>
+<p id="dashNote" role="status"></p>
+<div class="dashPillRow" role="tablist" aria-label="Dashboard view"><button id="dashTrendTab" type="button" aria-current="page">Research trends</button><button id="dashGeoTab" type="button">Geographic research</button></div>
+<div id="dashTrendPanel"><div class="dashPanels">
+<section class="panel"><h2>Publications per year</h2><div id="dashYearStat"></div><div id="dashYearChart"></div></section>
+<section class="panel"><h2>Most cited papers</h2><div id="dashCited"></div></section>
+<section class="panel"><h2>Leading journals</h2><div id="dashJournals"></div></section>
+<section class="panel"><h2>Fastest-growing topics</h2><p id="dashGrowthNote" class="dashNote"></p><div id="dashGrowth"></div></section>
+<section class="panel"><h2>Most published topics</h2><div id="dashTopTopics"></div></section>
+</div></div>
+<div id="dashGeoPanel" hidden><div class="dashPanels">
+<section class="panel"><h2>Countries publishing this research</h2><div id="dashCountryChart"></div></section>
+<section class="panel"><h2>Compare countries over time</h2><p class="dashNote">Choose up to four countries, then update the comparison.</p><div id="dashCountryPicker"></div><button id="dashCompareRun" class="outline" type="button">Update comparison</button><div id="dashCompareChart"></div></section>
+</div></div>
+</section>
 </main>
 <dialog id="subjectDialog" aria-labelledby="editHeading"><form method="dialog"><h2 id="editHeading">Edit paper subjects</h2><p id="editTitle"></p><p>Choose every subject that applies. Saving adds this paper to your reading list in this browser.</p>
 <div id="editGroups"></div><div class="editActions"><button type="button" class="textBtn" id="autoSubjects">Use automatic labels</button><button value="cancel" class="outline">Cancel</button><button type="button" class="primary" id="applySubjects">Save subjects</button></div></form></dialog>
 <footer><div class="frame"><b>Field Atlas</b><span>Geospatial literature explorer</span></div></footer>
-<script id="atlas-runtime" type="application/json">{}</script><script>/*ATLAS_DATA*/</script><script>/*ATLAS_CORE*/</script><script>/*ATLAS_APIS*/</script><script>/*ATLAS_DIRECTORY*/</script><script>/*ATLAS_EXTRAS*/</script><script>/*ATLAS_UI*/</script>
+<script id="atlas-runtime" type="application/json">{}</script><script>/*ATLAS_DATA*/</script><script>/*ATLAS_CORE*/</script><script>/*ATLAS_APIS*/</script><script>/*ATLAS_DIRECTORY*/</script><script>/*ATLAS_EXTRAS*/</script><script>/*ATLAS_DASH*/</script><script>/*ATLAS_UI*/</script>
 </body></html>

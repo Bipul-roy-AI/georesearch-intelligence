@@ -153,10 +153,11 @@
     bottom.append(links,d);area.append(bottom);return area;
   }
   function render(){
-    $('savedCount').textContent=saved.length;$('discovery').hidden=view!=='explore';$('sourceView').hidden=view!=='sources';$('resultView').hidden=view==='sources';
+    $('savedCount').textContent=saved.length;$('discovery').hidden=view!=='explore';$('sourceView').hidden=view!=='sources';
+    $('dashboardView').hidden=view!=='dashboards';$('resultView').hidden=view==='sources'||view==='dashboards';
     $('resultView').classList.toggle('savedHead',view==='saved');
     for(const el of document.querySelectorAll('nav [data-tab]')){if(el.dataset.tab===view)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');}
-    if(view==='sources')return;
+    if(view==='sources'||view==='dashboards')return;
     $('resultKicker').textContent=view==='saved'?'YOUR READING LIST':displayedQuery?'INDEX SEARCH':'CURATED REFERENCES';
     $('resultsTitle').textContent=view==='saved'?'Saved papers':displayedQuery?'Results for “'+displayedQuery+'”':'Starter collection';
     const low=Number($('fromYear').value)||0,high=Number($('toYear').value)||Infinity,access=$('access').value,q=$('quartile').value,j=Atlas.norm($('journal').value);
@@ -187,7 +188,7 @@
     $('more').disabled=batchBusy;$('more').textContent=sourceRuns.some(s=>states[s]?.error)?'Load more / retry sources':'Load more from indexes';
     $('starter').hidden=view!=='explore'||!displayedQuery;$('extendSearch').hidden=$('starter').hidden;$('export').disabled=!visible.length;
   }
-  function switchTab(t){view=['explore','sources','saved'].includes(t)?t:'explore';history.replaceState(null,'','#'+view);shown=25;render();window.scrollTo(0,0);}
+  function switchTab(t){view=['explore','sources','dashboards','saved'].includes(t)?t:'explore';history.replaceState(null,'','#'+view);shown=25;render();window.scrollTo(0,0);}
   function updateSourceControls(){const root=$('providerToggles');root.replaceChildren();
     $('runtimeNote').textContent=(atlasRuntime.server?'Server mode. ':'Browser mode. ')+sources.filter(enabledSource).length+' of '+sources.length+' search integrations are available with this configuration. Enable the sources to include in your next search. Provider quotas and coverage apply.';
     const saveSelection=names=>{selected=[...new Set(names)].filter(enabledSource);store('selectedSourcesV2',selected);updateSourceControls();note('Index selection applies to your next search.');};
@@ -323,6 +324,81 @@
   $('sourceQuery').oninput=drawDirectory;
   opts('importSource',['Imported citations',...sourceDirectory.map(s=>s.name)],null,'Imported citations');
   opts('dirFilter',[...new Set(sourceDirectory.map(s=>s.group))],'All groups');$('dirFilter').onchange=drawDirectory;
-  updateSourceControls();drawDirectory();rankMenus();view=['sources','saved'].includes(location.hash.slice(1))?location.hash.slice(1):'explore';render();terrain();
+  function dashYearDefaults(){const now=new Date().getFullYear();if(!$('dashFrom').value)$('dashFrom').value=now-9;if(!$('dashTo').value)$('dashTo').value=now;}
+  function dashRange(){return {from:Number($('dashFrom').value)||undefined,to:Number($('dashTo').value)||undefined};}
+  function dashTopic(){return PaperSubjects.topics.get($('dashSubject').value);}
+  function dashMailto(){return $('contact').value.trim()||undefined;}
+  function showDashPanel(which){
+    $('dashTrendPanel').hidden=which!=='trend';$('dashGeoPanel').hidden=which!=='geo';
+    if(which==='trend'){$('dashTrendTab').setAttribute('aria-current','page');$('dashGeoTab').removeAttribute('aria-current');}
+    else{$('dashGeoTab').setAttribute('aria-current','page');$('dashTrendTab').removeAttribute('aria-current');}
+  }
+  function populateCountryPicker(){
+    const box=$('dashCountryPicker');box.replaceChildren();const defaults=new Set(['BD','US']);
+    for(const [code,name] of Dashboards.countries){
+      const label=node('label',undefined,'toggle'),check=node('input');check.type='checkbox';check.value=code;check.checked=defaults.has(code);
+      check.onchange=()=>{if(selectedCountries().length>4){check.checked=false;$('dashNote').textContent='Choose up to four countries.';}};
+      label.append(check,document.createTextNode(name));box.append(label);
+    }
+  }
+  function selectedCountries(){return [...$('dashCountryPicker').querySelectorAll('input:checked')].map(c=>c.value);}
+  function growthRow(g){const label=g.before?('+'+Math.round(g.ratio*100)+'% · '+g.count+' articles'):('New · '+g.count+' articles');return {label:g.name,value:g.count,detail:label};}
+  function renderGrowth(rows){
+    const box=$('dashGrowth');box.replaceChildren();
+    if(!rows.length){box.append(node('p','No topics met the minimum article count for this selection.','dashEmpty'));return;}
+    const max=Math.max(...rows.map(g=>g.count),1),list=node('div',undefined,'dashBars');
+    for(const g of rows){
+      const info=growthRow(g),line=node('div',undefined,'dashBarRow');
+      line.append(node('span',info.label,'dashBarLabel'));
+      const track=node('div',undefined,'dashBarTrack'),fill=node('div',undefined,'dashBarFill');
+      fill.style.width=Math.max(2,(g.count/max)*100)+'%';fill.style.background='#155f55';track.append(fill);line.append(track);
+      line.append(node('span',info.detail,'dashBarValue'));list.append(line);
+    }
+    box.append(list);
+  }
+  async function runDashboards(){
+    const topic=dashTopic();if(!topic){$('dashNote').textContent='Choose a research domain first.';return;}
+    if(dashBusy)return;dashBusy=true;$('dashRun').disabled=true;$('dashNote').textContent='Querying OpenAlex…';
+    const {from,to}=dashRange(),mailto=dashMailto(),query=topic.query;
+    try{
+      const [year,cited,journals,topics,growth,countries]=await Promise.all([
+        Dashboards.fetchYearCounts(query,from,to,mailto,AbortSignal.timeout(25000)),
+        Dashboards.fetchMostCited(query,from,to,mailto,AbortSignal.timeout(25000)),
+        Dashboards.fetchTopJournals(query,from,to,mailto,AbortSignal.timeout(25000)),
+        Dashboards.fetchTopTopics(query,from,to,mailto,AbortSignal.timeout(25000)),
+        Dashboards.fetchGrowth(query,from,to,mailto,AbortSignal.timeout(25000)),
+        Dashboards.fetchCountryCounts(query,from,to,mailto,AbortSignal.timeout(25000))
+      ]);
+      Charts.statTile($('dashYearStat'),{label:'Matching articles and reviews indexed by OpenAlex',value:Charts.compactNumber(year.total),sub:(from||'earliest')+'–'+(to||'latest')+' · '+topic.label});
+      Charts.trendChart($('dashYearChart'),{series:[{name:topic.label,points:year.series.map(p=>({year:p.year,count:p.count}))}]});
+      Charts.citedList($('dashCited'),cited);
+      Charts.barList($('dashJournals'),{rows:journals.map(j=>({label:j.name,value:j.count})),formatValue:Charts.compactNumber});
+      Charts.barList($('dashTopTopics'),{rows:topics.map(t=>({label:t.name,value:t.count})),formatValue:Charts.compactNumber});
+      $('dashGrowthNote').textContent='Comparing '+growth.recent.from+'–'+growth.recent.to+' against '+growth.prior.from+'–'+growth.prior.to+'. Topics need at least 3 recent articles to be ranked.';
+      renderGrowth(growth.rows);
+      Charts.barList($('dashCountryChart'),{rows:countries.rows.map(c=>({label:c.name,value:c.count})),formatValue:Charts.compactNumber});
+      $('dashNote').textContent=Charts.compactNumber(year.total)+' matching articles and reviews for this domain and year range.';
+      await runCompare();
+    }catch(err){$('dashNote').textContent='OpenAlex request failed: '+err.message;}
+    finally{dashBusy=false;$('dashRun').disabled=false;}
+  }
+  async function runCompare(){
+    const topic=dashTopic();if(!topic)return;
+    const codes=selectedCountries();if(!codes.length){Charts.trendChart($('dashCompareChart'),{series:[]});return;}
+    const {from,to}=dashRange(),mailto=dashMailto();$('dashCompareRun').disabled=true;
+    try{
+      const series=await Promise.all(codes.map(async code=>{
+        const points=await Dashboards.fetchCountrySeries(topic.query,code,from,to,mailto,AbortSignal.timeout(25000));
+        return {name:(Dashboards.countries.find(c=>c[0]===code)||[code,code])[1],points:points.map(p=>({year:p.year,count:p.count}))};
+      }));
+      Charts.trendChart($('dashCompareChart'),{series});
+    }catch(err){$('dashNote').textContent='Country comparison failed: '+err.message;}
+    finally{$('dashCompareRun').disabled=false;}
+  }
+  let dashBusy=false;
+  subjectMenu('dashSubject','Choose a research domain or topic',false);dashYearDefaults();populateCountryPicker();
+  $('dashRun').onclick=runDashboards;$('dashCompareRun').onclick=runCompare;
+  $('dashTrendTab').onclick=()=>showDashPanel('trend');$('dashGeoTab').onclick=()=>showDashPanel('geo');
+  updateSourceControls();drawDirectory();rankMenus();view=['sources','dashboards','saved'].includes(location.hash.slice(1))?location.hash.slice(1):'explore';render();terrain();
   if(window.ResizeObserver)new ResizeObserver(terrain).observe($('terrain').parentElement);else window.addEventListener('resize',terrain);
 })();

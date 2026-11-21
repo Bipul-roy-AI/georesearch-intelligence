@@ -6,7 +6,7 @@ const combine=names=>names.map(read).join('\n');
 const data='const starterPapers = '+JSON.stringify(JSON.parse(read('seed.json'))).replace(/<\//g,'<\\/')+';\n'+read('ranks.js');
 const api=combine(['transport.js','adapters.js','extra-public.js','extra-keyed.js','regional.js','research-apps.js','publishers.js']);
 const directory=combine(['directory.js','coverage.js']);
-const pieces={STYLE:read('style.css'),DATA:data,CORE:combine(['subjects.js','core.js','source-import.js']),APIS:api,DIRECTORY:directory,EXTRAS:read('workflow.js'),UI:read('ui.js')};
+const pieces={STYLE:read('style.css'),DATA:data,CORE:combine(['subjects.js','core.js','source-import.js']),APIS:api,DIRECTORY:directory,EXTRAS:read('workflow.js'),DASH:combine(['charts.js','dashboards.js']),UI:read('ui.js')};
 let page=read('page.html');
 for(const [key,value] of Object.entries(pieces)){
   const mark='/*ATLAS_'+key+'*/';if(!page.includes(mark))throw Error('Missing page slot '+key);
